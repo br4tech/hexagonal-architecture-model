@@ -1,0 +1,30 @@
+<%= content_for(:page){ formal_doctor_name(@doctor) } %>
+<%= content_for(:top_actions) do %>
+  <div class="navbar-item">
+    <%= link_to new_contract_path(doctor_id: @doctor.id, tipo: :density), class: 'button is-primary' do %>
+      <span class="icon">
+        <i class="material-icons">add_box</i>
+      </span>
+      <span>Adicionar Contrato</span>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="columns is-centered resource">
+  <div class="column">
+    <div class="tabs is-toggle is-fullwidth">
+      <ul>
+        <li>
+          <%= link_to 'Dados do Cliente', doctor_path(@doctor) %>
+        </li>
+        <li class="is-active">
+          <%= link_to 'Contratos', contracts_doctor_path(@doctor) %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="">
+      <%= render 'contracts/contracts' %>
+    </div>
+  </div>
+</div>

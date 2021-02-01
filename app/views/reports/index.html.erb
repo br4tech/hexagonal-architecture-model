@@ -1,0 +1,26 @@
+<%= content_for(:page){ "Relatórios" } %> <%= content_for(:top_actions) do %>  
+  <div class="page-calendar" data-controller="report-calendar">
+    <input type="hidden" class="month-hidden">
+    <div class="page-position">
+      <div class="selectMonth">
+        <%= render partial: 'reports_month', locals: {month: @month}%>   
+      </div> 
+    </div>
+  </div>
+  <div class="navbar-item">  
+    <%= select_tag 'unit_id', options_for_select(@offices.collect{ |u| [u.name, u.id] }), class: "button is-primary", id: "selected_unit", :remote => true %>
+  </div>
+<% end %>
+
+<div class="reports-graph">
+  <%= render partial:'reports_graph', locals: { per_unit: @per_unit, per_office: @per_office}%>
+</div>
+
+<script>
+   $("#selected_unit").change(function(){    
+    let params = $(this).children(":selected").val();
+    $.ajax({
+      url: `/change_office_graph/${params}`,      
+    }) 
+  });
+</script>

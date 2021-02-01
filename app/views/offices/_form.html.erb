@@ -1,0 +1,91 @@
+<%= form_with(model: office, local: true) do |form| %>
+  <div data-controller="office">
+    <h4 class="form-section">Dados da Unidade</h4>
+
+    <div class="columns">
+      <div class="field column is-three-quarters">
+        <%= form.label :name, class: 'label' %>
+        <div class="control">
+          <%= form.text_field :name, class: 'input', required: true %>
+        </div>
+      </div>
+
+      <div class="field column">
+        <%= form.label :code, class: 'label' %>
+        <div class="control">
+          <%= form.text_field :code, class: 'input' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="field column">
+        <%= form.label :address, class: 'label' %>
+        <div class="control">
+          <%= form.text_field :address, class: 'input', required: true %>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="field column">
+        <%= form.label :phone, class: 'label' %>
+        <div class="control has-icons-right">
+          <%= form.text_field :phone, class: 'input is-phone', required: true %>
+          <span class="icon is-small is-right">
+            <i class="material-icons">phone</i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field column">
+        <%= form.label :phone_secondary, class: 'label' %>
+        <div class="control has-icons-right">
+          <%= form.text_field :phone_secondary, class: 'input  is-phone' %>
+          <span class="icon is-small is-right">
+            <i class="material-icons">phone</i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns">
+    <labl>Horário de Funcionamento</div>
+    <div class="columns">
+        <div class="field column is-8">
+          <%= form.label :weekdays, class: 'label' %>
+          <div class="control">
+            <% Attendance.wdays.except('Dom').each do |wday, i| %>
+              <span>
+                <%= form.check_box :weekdays, { multiple: true, class: 'switch-checkbox', id: "wday_#{wday}_#{form.index}" }, checked_value = i, unchecked_value = nil %>
+                <label for=<%= "wday_#{wday}_#{form.index}" %>><%= wday %></label>
+              </span>
+            <% end %>
+          </div>
+        </div>
+        <div class="field column is-2">
+          <%= form.label :start_at, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :start_at, value: formatted_hour(form.object.start_at), class: 'input is-time', placeholder: '00:00' %>
+          </div>
+        </div>
+        <div class="field column is-2">
+          <%= form.label :end_at, class: 'label' %>
+          <div class="control">
+            <%= form.text_field :end_at, value: formatted_hour(form.object.end_at), class: 'input is-time', placeholder: '00:00' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="control">
+      <%= form.submit 'Salvar', class: 'button is-primary is-medium is-fullwidth' %>
+    </div>
+  </div>
+<% end %>
+
+
+<br />
+<%= link_to offices_path, class: 'is-flex is-pulled-right', data: { action: "click->modal#close" } do %>
+  <i class="material-icons">close</i> Fechar
+<% end %>

@@ -1,0 +1,25 @@
+.tabs.is-toggle {
+  background-color: rgba(229, 229, 229, 0.5);
+  border-radius: 100px;
+  
+  a { 
+    border: none; 
+    font-size: 16px;
+  }
+  
+  ul { 
+    margin: 0; 
+    li {
+      a { color: #C9C9C9 !important }
+
+      &.is-active {
+        a {
+          background-color: #6AC1DB;
+          color: #fff !important;
+          border-radius: 100px;
+        }
+      }
+    }
+
+  }
+}

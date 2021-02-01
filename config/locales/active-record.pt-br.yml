@@ -1,0 +1,139 @@
+pt-BR:
+  activerecord:
+    models:
+      attendance: Atendimento
+      clinic: Sala
+      doctor: Médico
+      expertise: Especialidade     
+      office: 
+        zero: Nenhuma Unidade
+        one: Unidade
+        other: Unidades    
+    attributes:
+      attendance:
+        office_id: Unidade
+        clinic_id: Sala
+        weekdays: Dias de Atendimento
+        is_recurrent: Criar Agendamentos?
+        starts_at: Data de Início
+        ends_at: Data de Término
+        time_starts: Hora de Início
+        time_ends: Hora de Término
+        is_recurrent: Criar Agendamento?
+        frequency: Periodicidade
+      clinic:
+        code: Nome da Sala
+        medical_specialties: Especialidades
+        metrics: Tamanho
+        price: Valor (R$)
+        color: Cor
+      contract:
+        hirer_id: Contratante
+        starts_at: Data de Início
+        ends_at: Data de Término
+        amount: Valor Hora/Contrato
+        revenues_at: Dia de Faturamento
+        due_at: Dia de Vencimento
+        forfeit: Multa por Cancelamento
+        kind: Modelo de Contrato               
+        rescheduling_allowed: No. de Reagendamentos Permitidos
+        parking: Utiliza Estacionamento?
+        car_license_plate: Placa do Veículo
+        parking_value: Valor do Estacionamento  
+        discounts.amount: Porcentagem
+        discounts.ends_at: Data de Início
+        discounts.starts_at: Data de Término
+        attendances.weekdays: Dias de Atendimento
+        attendances.starts_at: Data de Início
+        attendances.ends_at: Data de Término
+        attendances.time_starts: Hora de Início
+        attendances.time_ends: Hora de Término   
+        attendances.frequency: Periodicidade
+      discount:
+        amount: Porcentagem
+        starts_at: Data de Início
+        ends_at: Data de Término
+      client:
+        description: Descrição
+        address: Endereço
+        document: CNPJ/CPF
+        email: Email
+      doctor:
+        kind_people: Tipo de Pessoa
+        zipcode: Cep 
+        number: Numero
+        complement: Complemento
+        neighborhood: Bairro
+        address: Endereço        
+        state: Estado
+        city: Cidade
+        name: Nome Completo
+        document: CPF
+        email: Email
+        crm: CRM
+        phone: Telefone
+        gender: Gênero
+      expertise: 
+        name: Especialidade
+        duration: Duração
+        price: Valor
+        returns: Atende Retorno?
+        days_to_return: Retorno (em dias)
+        confirm: Confirmar Consulta?
+        observations: Observações
+      medical_info:
+        health_care: Convênios
+        payment_methods: Métodos de Pagamento
+        pay_first: Receber pagamento antes da consulta?
+        use_pay_point: Utiliza maquininha?
+        receipt_type: Informações Fiscais    
+      office:
+        name: Nome
+        code: Código da Unidade
+        address: Endereço
+        phone: Telefone 1
+        phone_secondary: Telefone 2
+        starts_at: Início
+        ends_at: Término
+        opening_hours: Horário de Funcionamento 
+        weekdays: Dias da Semana
+        start_at: Horário Inicial
+        end_at: Horário Final
+      user:
+        name: Nome Completo
+        document: CPF
+        email: Email
+        phone: Telefone
+        status: Situação
+        role: Função
+        offices: Unidades
+        password: Senha
+        password_confirmation: Confirmação de Senha
+      company:
+        name: Razão Social
+        document: CNPJ
+        wallet: Carteira
+        agency: Agência
+        current_account: Conta Corrente
+        digit: Digíto
+        company_code: Código da Empresa
+        shipping_sequence: Sequencia Remessa
+      reservation:
+        contract_id: Contrato
+        clinic_id: Sala
+        office_id: Unidade
+        start_at: Hora de Início
+        end_at: Hora de Término
+        date: Data
+      reservation_without_contract:
+        contract_id: Contrato
+        clinic_id: Sala
+        office_id: Unidade
+        start_at: Hora de Início
+        end_at: Hora de Término
+        date: Data
+      holiday:
+        name: Nome
+        color: Cor
+        starts_at: Data Inicio
+        ends_at: Data Final

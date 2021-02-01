@@ -1,0 +1,75 @@
+<div>
+  <%= form_with(model: reservation, local: true) do |form| %>
+
+    <% if reservation.errors.any? %>
+      <% reservation.errors.full_messages.each do |message| %>
+        <div class="notification is-warning">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <div class="field columns is-narrow">
+      <div class="field column">
+        <%= form.hidden_field :id %>
+        <%= form.fields_for :client do |client_form| %>
+          <%= render "client", form: client_form %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="field columns is-narrow" data-controller="modal">
+      <div class="field is-8 column">
+        <%= form.label :office_id, class: 'label' %>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= form.select :office_id, current_user.offices.all.collect{|office|[office.name, office.id]}, { include_blank: true }, { data: { action: 'change->modal#loadRooms' },  class: "is-office" } %>
+          </div>
+        </div>
+      </div>
+      <div class="field is-4 column">
+        <%= form.label :clinic_id, class: 'label' %>
+        <div class="control">
+          <div class="select is-fullwidth">
+            <%= form.select :clinic_id, (current_user.offices.first).clinics.collect{|clinic|["Sala #{clinic.code}", clinic.id]}, { include_blank: true }, { data: { target: 'modal.clinic', action: 'change->modal#loadNotAvailableDays' },  class: "is-clinic" } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="field columns is-narrow">
+      <div class="field column">
+        <%= form.label :date, class: 'label' %>
+        <div class="control has-icons-right">
+          <%= form.text_field :date, value: formatted_date(form.object.date), class: 'is-date input', readonly: true %>
+          <span class="icon is-small is-right">
+            <i class="material-icons">calendar_today</i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field column">
+        <%= form.label :start_at, class: 'label' %>
+        <div class="control has-icons-right">
+          <%= form.text_field :start_at,value: formatted_hour(form.object.start_at), class: 'is-time input', placeholder: '00:00',  disabled: true %>
+          <span class="icon is-small is-right">
+            <i class="material-icons">schedule</i>
+          </span>
+        </div>
+      </div>
+
+      <div class="field column">
+        <%= form.label :end_at, class: 'label' %>
+        <div class="control has-icons-right">
+          <%= form.text_field :end_at, value: formatted_hour(form.object.end_at), class: 'is-time input', placeholder: '00:00', disabled: true %>
+          <span class="icon is-small is-right">
+            <i class="material-icons">schedule</i>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <%= form.submit 'Salvar', class: 'button is-primary' %>  
+    <%= link_to 'Cancelar', :back, class: 'button' %> 
+  <% end %>
+</div>

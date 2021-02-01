@@ -1,0 +1,8 @@
+<div data-controller="full-calendar" class="calendar">    
+</div>
+
+<ul class="legend">	
+  <% @clinics.each do |clinic| %>	
+    <li><span style="font-size:80px;color:<%= clinic.color%>">.</span> Sala <%= clinic.code %></li>	
+  <% end %>	
+</ul>	

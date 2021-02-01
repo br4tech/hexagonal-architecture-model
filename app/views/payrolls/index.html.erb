@@ -1,0 +1,30 @@
+<%= content_for(:page){ "Financeiro" } %> <%= content_for(:top_actions) do %>  
+  <div class="page-calendar" data-controller="payroll-calendar">
+    <input type="hidden" class="month-hidden">
+    <div class="page-position">
+      <div class="selectMonth">
+        <%= render partial: 'payroll_month', locals: {month: @month}%>   
+      </div> 
+    </div>
+  </div>
+  <div class="navbar-item">
+    <div class="columns">
+      <div class="column">
+        <%= link_to root_path, class: 'button is-primary export', :remote => true do %>
+          <span class="icon">
+            <i class="material-icons">get_app</i>
+          </span>
+          <span>Exportar</span>
+        <% end %>      
+      </div>   
+    </div>
+  </div>
+<% end %>
+
+<div class="payroll-category">
+  <%= render partial:'payroll_category', locals: {month: @month} %>
+</div>
+
+<div class="payroll-calendar">
+  <%= render partial:'payrolls/itens/payroll_item', locals: { payrolls: @payrolls}%>
+</div>

@@ -1,0 +1,42 @@
+{
+  "name": "pronto",
+  "private": true,
+  "dependencies": {
+    "@fullcalendar/core": "^4.4.0",
+    "@fullcalendar/daygrid": "^4.3.0",
+    "@fullcalendar/google-calendar": "^4.4.0",
+    "@fullcalendar/interaction": "^4.4.0",
+    "@fullcalendar/resource-timegrid": "^4.3.0",
+    "@fullcalendar/timegrid": "^4.4.0",
+    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/activestorage": "^6.0.0-alpha",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "4.2.2",
+    "apexcharts": "^3.15.6",
+    "bulma": "^0.7.5",
+    "bulma-accordion": "^2.0.1",
+    "bulma-pageloader": "^0.3.0",
+    "bulma-start": "^0.0.4",
+    "chart.js": "^2.9.3",
+    "chartkick": "^3.2.0",
+    "fullcalendar": "^3.10.1",
+    "i": "^0.3.6",
+    "imask": "^5.2.1",
+    "jquery": "^3.4.1",
+    "jquery-mask-plugin": "^1.14.16",
+    "jquery-minicolors": "^2.1.10",
+    "jquery-timepicker": "^1.3.3",
+    "jquery-ui-dist": "^1.12.1",
+    "js-autocomplete": "^1.0.4",
+    "slick-carousel": "^1.8.1",
+    "stimulus": "^1.1.1",
+    "timepicker": "^1.13.4",
+    "toastr": "^2.1.4",
+    "turbolinks": "^5.2.0",
+    "yarn": "^1.22.4"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.1"
+  }
+}

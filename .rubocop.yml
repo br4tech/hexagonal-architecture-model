@@ -1,0 +1,16 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - bin/*
+    - db/migrate/*
+    - node_modules/**/**
+  Documentation:
+    Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Style/AsciiComments:
+  Enabled: false

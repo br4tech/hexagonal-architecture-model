@@ -1,0 +1,73 @@
+<%= content_for(:page){ "Unidade #{@office.name}" } %>
+<%= content_for(:top_actions) do %>
+    <div class="navbar-item">
+        <%= link_to new_office_clinic_path(@office.id), class: 'button is-primary is-pulled-right', id: 'is-modal-btn' do %>
+            <span class="icon">
+                <i class="material-icons">add_box</i>
+            </span>
+            <span>Adicionar Sala</span>
+        <% end %>
+    </div>
+<% end %>
+
+<div class="columns">
+    <% @office.clinics.each do |clinic| %>
+        <div class="column is-one-third">
+            <div class="card office is-paddingless">
+                <div class="card-content">
+                    <div class="dropdown is-right is-hoverable actions">
+                        <div class="dropdown-trigger">
+                            <button aria-controls="dropdown-menu" aria-haspopup="true" class="button is-arrowless">
+                                <i class="material-icons has-text-grey-light">more_vert</i>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <%= link_to office_clinic_path(@office, clinic), class: 'dropdown-item is-flex' do %>
+                                    <i class="material-icons">edit</i>
+                                    Editar Sala
+                                <% end %>
+                                <%= link_to office_clinic_path(@office, clinic), method: :delete, class: 'dropdown-item is-flex' do %>
+                                    <i class="material-icons">delete</i>
+                                    Remover Sala
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Sala
+                        <%= clinic.code %></h4>
+                    <p>
+                        <i class="material-icons">monetization_on</i>
+                        <%= number_to_currency(clinic.price) %></p>
+                    <p>
+                        <i class="material-icons">launch</i>
+                        <%= clinic.metrics %></p>
+                    <p>
+                        <i class="material-icons">favorite</i>
+                        <%= clinic.medical_specialties %></p>
+                </div>
+            </div>
+        </div>
+        <%= cycle("", "", "</div><div class='columns'>".html_safe) %>
+    <% end %>
+</div>
+<br/>
+
+<div class="modal" data-controller="modal" id="modal">
+    <div class="modal-background" data-action="click->modal#close"></div>
+    <div class="modal-content">
+        <%= form_with(model: Clinic.new(office_id: @office.id), url: office_clinics_path(@office), local: true) do |form| %>
+            <h4 class="form-section">Unidade
+                <%= @office.name %><br/>
+                <small>Nova Sala</small>
+            </h4>
+            <%= render 'clinics/form', form: form %>
+        <% end %>
+    </div>
+    <button class="modal-close" data-action="click->modal#close"></button>
+</div>
+
+<%= link_to '<< Voltar', offices_path, class: 'is-back' %>
+<%#= link_to 'Editar', edit_office_path(@office) %>
+<%#= link_to 'Remover', @office, method: :delete, data: { confirm: 'Are you sure?' } %>

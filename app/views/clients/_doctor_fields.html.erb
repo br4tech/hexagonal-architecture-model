@@ -1,0 +1,49 @@
+<div class="is-relative nested-fields">
+  <h6>Médico</h6>
+  <div class=" field columns">
+    <div class="column is-half">  
+      <%= f.label :name, class: 'label' %>
+      <div class="control">
+        <%= f.text_field :name, class: 'input', autocomplete: "off", required: true %>
+      </div>
+    </div>
+
+    <div class="column">
+      <%= f.label :document, class: 'label' %>
+      <div class="control">
+        <%= f.text_field :document, class: 'input is-document', autocomplete: "off", required: true %>
+      </div>
+    </div>
+
+    <div class="column">
+        <%= f.label :crm, class: 'label' %>
+        <div class="control">
+          <%= f.text_field  :crm, class: 'input', autocomplete: "off", required: true %>
+        </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <%= f.label :email, class: 'label' %>
+      <div class="control">
+        <%= f.text_field :email, class: 'input', autocomplete: "off" %>
+      </div>
+    </div>
+
+    <div class="column">
+      <%= f.label :phone, class: 'label' %>
+      <div class="control has-icons-right">
+        <%= f.text_field :phone, class: 'input is-phone', autocomplete: "off" %>
+        <span class="icon is-small is-right">
+          <i class="material-icons">phone</i>
+        </span>
+      </div>
+    </div> 
+
+    <div class="column">
+      <%= link_to_remove_association('Remover Medico', f,  class: 'button-minus')%>
+    </div>
+  </div>  
+</div>
+<br />

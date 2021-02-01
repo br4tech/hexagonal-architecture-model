@@ -1,0 +1,4 @@
+$(".payroll-category").html('')
+$(".payroll-category").html("<%= escape_javascript(render partial: 'payroll_category', locals: {month: @month} ) %>");
+$(".payroll-calendar").html('')
+$(".payroll-calendar").html("<%= escape_javascript(render partial: 'payrolls/itens/payroll_item', locals: { payrolls: @payrolls } ) %>");

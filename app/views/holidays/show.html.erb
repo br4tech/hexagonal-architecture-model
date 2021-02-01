@@ -1,0 +1,20 @@
+<%= content_for(:page){ @holiday.name } %>
+<%= content_for(:top_actions) do %>
+  <div class="navbar-item">
+    <%= link_to new_holiday_path, class: 'button is-primary' do %>
+      <span class="icon">
+        <i class="material-icons">add_box</i>
+      </span>
+      <span>Adicionar Feriado</span>
+    <% end %>
+  </div>
+<% end %>
+<div class="columns is-centered resource">
+  <div class="column">
+    <div class="card">
+      <div class="card-content is-3">
+        <%= render 'form', holiday: @holiday %>
+      </div>
+    </div>
+  </div>
+</div>

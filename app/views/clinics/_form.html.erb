@@ -1,0 +1,58 @@
+<div data-controller="clinic">
+  <div class="columns">
+    <div class="field column">
+      <%= form.label :code, class: 'label' %>
+      <p class="help">Nome ou Número da Sala</p>
+      <div class="control">
+        <%= form.text_field :code, class: 'input', autocomplete: 'off', required: true, title: 'Este campo é obrigatório' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="field column">
+      <%= form.label :metrics, class: 'label' %>
+      <p class="help">Metragem da Sala (m)</p>
+      <div class="control">
+        <%= form.text_field :metrics, class: 'input', autocomplete: 'off', required: true %>
+      </div>
+    </div>
+
+    <div class="field column">
+      <%= form.label :price, class: 'label' %>
+      <p class="help">R$</p>
+      <div class="control">
+        <%= form.text_field :price, class: 'input', autocomplete: 'off', required: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="field column">
+      <%= form.label :medical_specialties, class: 'label' %>
+      <div class="control">
+        <%= form.text_field :medical_specialties, class: 'input', autocomplete: 'off', required: true  %>
+      </div>
+    </div>
+    <div class="field column">
+      <%= form.label :color, class: 'label' %>
+      <div class="control">
+        <div class="minicolors minicolors-theme-bootstrap minicolors-position-bottom">
+          <%= form.text_field :color, class: 'minicolors-input is-color', autocomplete: 'off' %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="columns is-centered">
+    <div class="control column is-half">
+      <%= form.submit 'Salvar', class: 'button is-primary is-medium is-fullwidth' %>
+    </div>
+  </div>
+</div>
+<br />
+
+<%= link_to offices_path, class: 'is-flex is-pulled-right', data: { action: "click->modal#close" } do %>
+  <i class="material-icons">close</i> Fechar
+<% end %>

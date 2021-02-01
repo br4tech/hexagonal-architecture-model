@@ -1,0 +1,169 @@
+<div>
+  <%= form_for(contract, local: true) do |f| %>
+    <div data-controller="contract">
+      <%= f.hidden_field :contract_combo_id %>
+      <%= f.hidden_field :client_id %>
+      <%= f.hidden_field :category %>
+
+      <% if contract.errors.any? %>
+        <% contract.errors.full_messages.each do |message| %>
+          <div class="notification is-warning">
+            <%= message %>
+          </div>
+        <% end %>
+      <% end %>   
+      
+      <!-- CLIENTE -->
+      <%= f.fields_for :client do |client_form| %>
+        <%= render partial: "contracts/client_form", locals: { f: client_form}%>
+      <% end %>   
+
+       <!-- DADOS DO CONTRATO -->
+      <h4 class="mt-2">Dados do Contrato</h4>
+      <div class="columns">
+        <div class="field column">
+          <%= f.label :starts_at, class: 'label' %>
+          <div class="control has-icons-right">
+            <%= f.text_field :starts_at, value: formatted_date(contract.starts_at), class: 'input is-date', autocomplete: "off", required: true, readonly: true %>
+            <span class="icon is-small is-right">
+              <i class="material-icons">calendar_today</i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field column">
+          <%= f.label :ends_at, class: 'label' %>
+          <div class="control has-icons-right">
+            <%= f.text_field :ends_at, value: formatted_date(contract.ends_at), class: 'is-date input', autocomplete: "off", required: true, readonly: true %>
+            <span class="icon is-small is-right">
+              <i class="material-icons">calendar_today</i>
+            </span>
+          </div>
+        </div>
+        <div class="field column">
+          <%= f.label :amount, class: 'label' %>
+          <div class="control">
+            <%= f.text_field :amount, class: 'input is-amount', autocomplete: "off", required: true, data: { field: 'amount' } %>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="field column is-narrow">
+          <%= f.label :revenues_at, class: 'label' %>
+          <div class="control">
+            <%= f.number_field :revenues_at, class: 'input', autocomplete: "off", required: true %>
+          </div>
+        </div>
+
+        <div class="field column is-narrow">
+          <%= f.label :due_at, class: 'label' %>
+          <div class="control">
+            <%= f.number_field :due_at, class: 'input', autocomplete: "off", required: true %>
+          </div>
+        </div>
+        <div class="field column is-narrow">
+          <%= f.label :forfeit, class: 'label' %>
+          <div class="control">
+            <%= f.text_field :forfeit, class: 'input', autocomplete: "off" %>
+          </div>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-narrow">
+          <div class="field">
+            <%= f.label :kind, class: 'label' %>
+            <div class="control">
+              <div class="">
+                <% Contract.contract_types.each do |kind, i| %>
+                  <%= f.label :kind, value: i, class: 'custom-radio' do %>
+                    <%= f.radio_button :kind, i %><span><%= t(kind) %></span>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field column is-narrow kind-private">
+          <%= f.label :rescheduling_allowed, class: 'label' %>
+          <div class="control">
+            <%= f.number_field :rescheduling_allowed, class: 'input', autocomplete: "off" %>
+          </div>
+        </div>
+      </div>
+      <hr />
+
+      <!-- DESCONTOS -->
+      <div id="discounts">            
+        <%= f.fields_for :discounts do |discount_field| %>
+          <%= render partial: "contracts/discount_fields",  locals: { f: discount_field} %>
+        <% end %> 
+
+        <div class="field">    
+          <%= link_to_add_association('[Adicionar Desconto]',f, :discounts) %>
+        </div>   
+      </div>
+      <hr />
+
+      <!-- ATENDIMENTO -->
+      <div id="attendances">
+        <%= f.fields_for :attendances do |attendance_fields| %>
+          <%= render partial: "contracts/attendance_fields", locals: { f: attendance_fields } %>
+        <% end %>    
+
+        <div class="field">           
+          <%= link_to_add_association('[Adicionar Atendimento]',f, :attendances) %>
+        </div>
+      </div>
+
+      <% if params[:category] == "density" %>
+        <h4 class="mt-2">Serviços Adicionais</h4>
+        <div class="columns">
+          <div class="column is-narrow">
+            <div class="field">
+              <%= f.label :parking, class: 'label' %>
+              <div class="control">
+                  <%= f.label :parking, value: true, class: 'custom-radio' do %>
+                  <%= f.radio_button :parking, true %> <span>Sim</span>
+                  <% end %>
+                  <%= f.label :parking, value: false, class: 'custom-radio' do %>
+                  <%= f.radio_button :parking, false %> <span>Não</span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="field column is-narrow">
+            <%= f.label :car_license_plate, class: 'label' %>
+            <div class="control">
+              <%= f.text_field :car_license_plate, class: 'input', autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="field column is-narrow">
+            <%= f.label :parking_value, class: 'label' %>
+            <div class="control">
+              <%= f.text_field :parking_value, class: 'input is-amount', autocomplete: "off" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <br />
+
+      <div class="columns is-centered">
+        <div class="field column is-half">
+          <div class="columns">
+            <div class="column">
+              <%= link_to 'Cancelar', :back, class: 'button is-primary is-outlined is-fullwidth' %>
+            </div>
+            <div class="column">
+              <%= f.submit 'Salvar', class: 'button is-primary is-fullwidth' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br />
+<%= link_to :back, class: 'is-flex is-back' do %>
+  <i class="material-icons">arrow_back</i> Cancelar
+<% end %>

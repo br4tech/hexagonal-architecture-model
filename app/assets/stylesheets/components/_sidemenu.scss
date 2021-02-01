@@ -1,0 +1,52 @@
+.sidemenu {
+  width: 88px;
+  background-color: #6AC1DB;
+  height: 100vh;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: inline-grid;
+  position: fixed;
+  z-index: 9;
+
+  .sideitem {
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+
+    a { 
+      display: inline-grid;
+      padding: 8px;
+      color: #fff; 
+      border-radius: 8px;
+      text-align: center;
+      line-height: 1;
+      width: 70px;
+      cursor: pointer;
+
+      i { font-size: 40px; }
+      span { font-size: 12px; }
+    }
+  }
+
+  .brand {
+    align-self: flex-start;
+  }
+
+  .menu {
+    li {
+      padding: .5rem 0;
+
+      &.active {
+        a { background-color: #69d4e0; }
+      }
+      
+    }
+  }
+
+  .logout {
+    align-self: flex-end;
+    a { color: #83edf9 }
+  }
+}

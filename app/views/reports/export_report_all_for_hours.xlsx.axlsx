@@ -1,0 +1,9 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Reports") do |sheet|
+  sheet.add_row %w(Unidade Horas)  
+ 
+  @reports.each do |r|
+    sheet.add_row [r.name, r.hours]
+  end
+end

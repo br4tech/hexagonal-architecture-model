@@ -1,0 +1,67 @@
+<%= content_for(:page){ "Usuários" } %>
+
+<%= content_for(:top_actions) do %>
+  <div class="navbar-item">
+    <div class="control has-icons-right is-search">
+      <input class="input reset" name="query" type="text" placeholder="Buscar Usuário...">
+      <span class="icon is-small is-right">
+        <i class="material-icons">search</i>
+      </span>
+    </div>
+  </div>
+  <div class="navbar-item">
+    <%= link_to new_user_path, class: 'button is-primary' do %>
+      <span class="icon">
+        <i class="material-icons">add_box</i>
+      </span>
+      <span>Adicionar Usuário</span>
+    <% end %>
+  </div>
+<% end %>
+
+<div class="doctors">
+  <% @users.each do |user| %>
+    <div class="card card-info">
+      <div class="card-content">
+        <div class="columns columns-data">
+          <div class="column is-two-quarters-tablet is-4-widescreen">
+            <div class="avatar"></div>
+            <div class="name">
+              <h4>
+                <%= user.name %><br />
+                <small><%= t(user.role) %></small>
+              </h4>
+            </div>
+          </div>
+
+          <div class="column is-hidden-tablet-only is-2-desktop">
+            <i class="material-icons">phone</i> <%= user.phone || not_supplied %>
+          </div>
+
+          <div class="column is-hidden-tablet-only is-2-desktop truncate">
+            <span class="truncate is-flex">
+              <i class="material-icons">email</i> <span><%= truncate(user.email, length: 40) %></span>
+            </span>
+          </div>
+
+          <div class="column is-one-quarter-tablet is-2-desktop">
+            <span class="truncate is-flex">
+              <i class="material-icons">room</i> 
+              <% if user.admin? %>
+                Todas as Unidades
+              <% else %>
+                <span><%= t('activerecord.models.office', count: user.offices.count) %> <%= names_for(user.offices) %></span>
+              <% end %>
+            </span>
+          </div>
+
+          <div class="column is-one-quarter-tablet is-2-desktop">
+            <%= link_to 'Ver Perfil', user, class: "button is-primary is-outlined is-fullwidth is-small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate  @users,  outer_window: 3  %>
+  <%= rel_next_prev_link_tags @users %>
+</div>

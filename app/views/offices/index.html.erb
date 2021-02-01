@@ -1,0 +1,68 @@
+<%= content_for(:page){ "Unidades" } %>
+<%= content_for(:top_actions) do %>
+    <div class="navbar-item">
+        <%= link_to new_office_path, class: 'button is-primary is-pulled-right', id: 'is-modal-btn' do %>
+            <span class="icon">
+                <i class="material-icons">add_box</i>
+            </span>
+            <span>Adicionar Unidade</span>
+        <% end %>
+    </div>
+<% end %>
+
+<div class="columns">
+    <% @offices.each do |office| %>
+        <div class="column is-half">
+            <div class="card office">
+                <div class="card-content">
+                    <div class="dropdown is-right is-hoverable actions">
+                        <div class="dropdown-trigger">
+                            <button aria-controls="dropdown-menu" aria-haspopup="true" class="button is-arrowless">
+                                <i class="material-icons has-text-grey-light">more_vert</i>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <%= link_to edit_office_path(office), class: 'dropdown-item is-flex' do %>
+                                    <i class="material-icons">edit</i>
+                                    Editar Unidade
+                                <% end %>
+                                <%= link_to office_path(office), method: :delete, class: 'dropdown-item is-flex' do %>
+                                    <i class="material-icons">delete</i>
+                                    Remover Unidade
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4><%= office.name %></h4>
+                    <p>
+                        <i class="material-icons">schedule</i>
+                        <%= office.opening_hours %></p>
+                    <p>
+                        <i class="material-icons">room</i>
+                        <%= office.address || not_supplied %></p>
+                    <p>
+                        <i class="material-icons">phone</i>
+                        <%= office.phone || not_supplied %>
+                        <% if office.phone_secondary %>
+                            <i class="material-icons ml-1">phone</i>
+                            <%= office.phone_secondary %>
+                        <% end %>
+                    </p>
+                    <br>
+                        <%= link_to 'Ver Salas', office, class: 'button is-primary is-outlined is-small' %>
+                    </div>
+                </div>
+            </div>
+            <%= cycle("", "</div><div class='columns'>".html_safe) %>
+        <% end %>
+    </div>
+
+    <div class="modal" data-controller="modal" id="modal">
+        <div class="modal-background" data-action="click->modal#close"></div>
+        <div class="modal-content modal-large">
+            <%= render 'form', office: @office %>
+        </div>
+        <button class="modal-close" data-action="click->modal#close"></button>
+    </div>

@@ -1,0 +1,53 @@
+#topbar { 
+  background-color: #fcfcfc;
+  
+  .offices {
+    .button { 
+      color: $primary;
+      border-color: $primary;
+      border-width: 2px;
+      padding: 8px 15px;
+      font-size: 15px;
+      height: auto;
+    }
+
+    .dropdown-item {
+      text-transform: uppercase;
+      font-size: 15px;
+      font-weight: 500;
+    }
+  }
+
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    margin-left: 24px;
+  }
+
+  .avatar {
+    border-radius: 50px;
+    background-color: $primary;
+
+    img {
+      max-height: 64px !important;
+    }
+  }
+
+  .user-menu {
+    .navbar-link { 
+      padding-left: 0;
+    }
+
+    i { 
+      color: $primary;
+      font-weight: bolder;
+    }
+  }
+
+  .select select {
+    color: grey;
+  }
+
+}

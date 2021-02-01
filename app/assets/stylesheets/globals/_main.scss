@@ -1,0 +1,31 @@
+html {
+  background-color: #fcfcfc;
+}
+
+hr {
+  border-bottom: 1px solid #f5f5f5;
+  margin-bottom: 20px;
+}
+
+#main {
+  margin-left: 88px;
+
+  a:not(.button) {
+    color: $primary;
+    font-size: 17px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .yield {
+    .title {
+      font-family: "Montserrat", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 39px;
+    }
+  }
+}

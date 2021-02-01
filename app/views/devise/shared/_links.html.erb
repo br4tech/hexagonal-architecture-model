@@ -1,0 +1,17 @@
+<div class="">
+  <%- if controller_name != 'sessions' %>
+    <%= link_to new_session_path(resource_name), class: 'is-flex' do %>
+      <i class="material-icons">arrow_back</i> Efetuar Login
+    <% end %>
+  <% end %>
+</div>
+
+<div class="has-text-centered">
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "Esqueci minha senha", new_password_path(resource_name) %>
+  <% end %>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "Não recebeu as instruções de confirmação?", new_confirmation_path(resource_name) %>
+  <% end %>
+</div>

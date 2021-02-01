@@ -1,0 +1,9 @@
+<%= link_to reports_month_path(:type => "prev"), :remote => true  do %>      
+  <i class="material-icons">chevron_left</i>
+<%end %>
+<span class="monthSelected">
+  <%= @month %>
+</span>
+<%= link_to reports_month_path(:type => "next"), :remote => true  do %>      
+  <i class="material-icons">chevron_right</i>
+<%end %>

@@ -1,0 +1,24 @@
+day_off_job:
+  cron: "0 19 * * *"
+  queue: low
+  class: "DayOffWorker"
+
+payroll_job:
+  cron: "40 23 * * *"
+  queue: low
+  class: "PayrollWorker"
+
+reservation_available_job:
+  cron: "*/5 * * * *"
+  queue: critical
+  class: "ReservationAvailableWorker"
+
+reservation_available_per_unit_job:
+  cron: "10 24 * * *"
+  queue: low
+  class: "ReservationAvailableWorker"
+
+clean_reservations_on_day_off:
+  cron: "0 20 * * *"
+  queue: low
+  class: "CleanReservationsOnDayOffWorker"

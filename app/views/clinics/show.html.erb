@@ -1,0 +1,17 @@
+<%= content_for(:page){ "Unidade #{@office.name} / Sala #{@clinic.code}" } %>
+
+<div class="columns is-centered resource" data-controller="clinic">
+  <div class="column is-half-desktop">
+    <div class="card">
+      <div class="card-content is-3">
+        <%= form_with(model: [@office, @clinic], local: true) do |form| %>
+          <%= render 'form', form: form %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to @office, class: 'is-flex is-back' do %>
+  <i class="material-icons">arrow_back</i> Voltar
+<% end %>

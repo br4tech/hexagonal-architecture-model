@@ -1,0 +1,2 @@
+module ReservationsWithoutContractHelper
+end

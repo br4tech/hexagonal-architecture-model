@@ -1,0 +1,26 @@
+<div class="tale">
+  <h2>LOGIN</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, class: 'input', placeholder: 'Email', autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <div class="is-relative">
+      <%= f.password_field :password, class: 'input', placeholder: 'Senha', autocomplete: "secret-password" %>
+      <a class="magic-eye" onclick="reveal()">
+        <i class="material-icons js-eye">visibility</i>
+      </a>
+    </div>
+  </div>
+
+  <div class="field is-centered">
+    <div class="control">
+      <%= f.submit "Entrar", class: 'button is-fullwidth is-medium is-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

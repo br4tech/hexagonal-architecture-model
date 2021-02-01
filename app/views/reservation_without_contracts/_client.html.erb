@@ -1,0 +1,47 @@
+<div class="is-relative nested-fields">
+  <div class="columns">
+    <div class="field column">
+      <%= form.label :name, class: 'label' %>
+      <div class="control">
+        <%= form.text_field :name, class: 'input', autocomplete: "off", required: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="field column is-6">        
+      <%  @kind.each do |k| %>
+        <%= form.radio_button :kind, k.id, class: "custom-radio", data: { action: "click->modal#kind_people" } %>
+        <%= form.label k.description %>
+      <% end %>
+    </div>
+    <div class="field column is-6">
+    <%= label_tag :document, 'CPF', class: 'label cpf' %>
+    <%= label_tag :document, 'CNPJ', class: 'label cnpj' %>
+      <div class="control">
+        <%= form.text_field :document, class: 'input is-document-2', autocomplete: "off", required: true %>
+      </div> 
+      <br />
+      </div>
+  </div>
+
+  <div class="columns">
+    <div class="field column">
+      <%= form.label :email, class: 'label' %>
+      <div class="control">
+        <%= form.text_field :email, class: 'input', autocomplete: "off", required: true %>
+      </div>
+    </div>
+
+    <div class="field column">
+      <%= form.label :phone, class: 'label' %>
+      <div class="control has-icons-right">
+        <%= form.text_field :phone, class: 'input is-phone', autocomplete: "off", required: true %>
+        <span class="icon is-small is-right">
+          <i class="material-icons">phone</i>
+        </span>
+      </div>
+    </div>   
+  </div>
+</div>
+

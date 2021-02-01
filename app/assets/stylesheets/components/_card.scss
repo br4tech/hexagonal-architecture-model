@@ -1,0 +1,24 @@
+.card {
+  background: #ffffff;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+
+  .card-content {
+    &.is-2 {
+      padding: 10px;
+    }
+    &.is-3 {
+      padding: 20px;
+    }
+  }
+
+  .card-schedule{
+    padding: 30px;
+    h2{
+      font-weight: lighter;
+    }
+    h2:first-letter{
+     text-transform: capitalize;    
+    }
+  }
+}

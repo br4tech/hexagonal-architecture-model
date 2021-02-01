@@ -1,0 +1,32 @@
+<tr>
+  <td class="wrapper">
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <p>Olá, <%= @user.try(:name) %></p>
+          <p>Seja bem-vinda(o) ao Portal Pronto Consultórios. <br />
+            Aqui estão seus dados de acesso ao nossa plataforma:</p>
+          <p>Clique no link abaixo para criar uma nova senha. <br />
+            Utilize este email <b>(<%= @user.email %>)</b> com a senha que você definiu para realizar os próximos acessos.</p>
+          <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
+            <tbody>
+              <tr>
+                <td align="left">
+                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <%= link_to 'Criar Senha', edit_password_url(@user, reset_password_token: @token), target: '_blank' %>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>

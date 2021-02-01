@@ -1,0 +1,7 @@
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><%= link_to 'Unidades', offices_path %></li>
+    <li><%= link_to @office.name, @office %></li>
+    <li class="is-active"><%= link_to 'Salas', @office, aria: { 'current-page' => 'page' } %></li>
+  </ul>
+</nav>

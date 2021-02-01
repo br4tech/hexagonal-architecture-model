@@ -1,0 +1,22 @@
+<div class="navbar-item">
+  <figure class="avatar image is-64x64 is-marginless">
+  <% if current_user.avatar.attached? %>   
+    <image src="<%= url_for(current_user.avatar) %>" class="is-rounded">
+  <% else %>
+    <%= image_tag('tmp/avatar.png', size: 64) %>
+  <% end %>
+  </figure>
+</div>
+
+<div class="navbar-item has-dropdown is-hoverable user-menu">
+  <a class="navbar-link is-arrowless" href="/">
+    <i class="material-icons">more_vert</i>
+  </a>
+  <div class="navbar-dropdown is-boxed is-right">
+    <%= link_to 'Perfil', profile_path, class: 'navbar-item' %> 
+    <hr class="dropdown-divider">
+    <a class="navbar-item" href="/">
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'navbar-item' %> 
+    </a>
+  </div>
+</div>

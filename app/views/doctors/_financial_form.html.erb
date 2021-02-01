@@ -1,0 +1,101 @@
+<div>
+  <%= form_with(model: doctor, format: :json, data: { type: "html", action: "ajax:success->doctor-form#onPostSuccess ajax:error->doctor-form#onPostError" }) do |form| %>
+    <% if doctor.errors.any? %>
+      <% doctor.errors.full_messages.each do |message| %>
+        <div class="notification is-warning">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+    <div data-target="doctor-form.errors"></div>
+
+    <h4>Recibo</h4>
+    <div class="columns is-centered">
+      <div class="field column">
+        <label class="label">Razão Social</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+
+      <div class="field column">
+        <label class="label">CNPJ</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+
+      <div class="field column">
+        <label class="label">Endereço</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+    </div>
+
+    <h4>Informações do Contador</h4>
+    <div class="columns is-centered">
+      <div class="field column">
+        <label class="label">Razão Social</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+
+      <div class="field column">
+        <label class="label">CNPJ</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+
+      <div class="field column">
+        <label class="label">Telefone</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+    </div>
+
+    <h4>Estacionamento</h4>
+    <div class="columns is-centered">
+      <div class="field column">
+        <label class="label">Utiliza Estacionamento?</label>
+        <div class="control">
+          <label class="radio">
+            <input type="radio"> Sim
+          </label>
+
+          <label class="radio">
+            <input type="radio"> Não
+          </label>
+        </div>
+      </div>
+
+      <div class="field column">
+        <label class="label">Placa do Veículo</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+
+      <div class="field column">
+        <label class="label">Valor</label>
+        <div class="control">
+          <input type="text" class="input">
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="field column is-half">
+        <%= form.submit 'Salvar', class: 'button is-primary is-fullwidth' %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+<br />
+<%= link_to offices_path, class: 'is-flex is-back' do %>
+  <i class="material-icons">arrow_back</i> Cancelar
+<% end %>

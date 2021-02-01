@@ -1,0 +1,38 @@
+<div class="is-relative nested-fields">
+  <h6>Desconto</h6>
+  <div class="field columns">
+    <div class="column is-narrow">
+      <%= f.label :amount, class: 'label' %>
+      <div class="control">
+        <%= f.number_field :amount, class: 'input', autocomplete: "off",  in: 1..100 %>
+      </div>
+    </div>
+
+    <div class="column is-narrow">
+      <%= f.label :starts_at, class: 'label' %>
+      <div class="control has-icons-right">
+        <%= f.text_field :starts_at, value: formatted_date(f.object.starts_at), class: 'is-date input', autocomplete: "off" %>
+        <span class="icon is-small is-right">
+          <i class="material-icons">calendar_today</i>
+        </span>
+      </div>
+    </div>
+
+    <div class="column is-narrow">
+      <%= f.label :ends_at, class: 'label' %>
+      <div class="control has-icons-right">
+        <%= f.text_field :ends_at, value: formatted_date(f.object.ends_at), class: 'is-date input', autocomplete: "off" %>
+        <span class="icon is-small is-right">
+          <i class="material-icons">calendar_today</i>
+        </span>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="column">
+        <%= link_to_remove_association('Remover Desconto', f,  class: 'button-minus')%>
+      </div>
+    </div>
+  </div>
+</div>
+<br />

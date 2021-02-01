@@ -1,0 +1,37 @@
+<%= content_for(:page){ "Empresas" } %>
+<%= content_for(:top_actions) do %>
+  <div class="navbar-item">
+    <%= link_to new_company_path, class: 'button is-primary' do %>
+      <span class="icon">
+        <i class="material-icons">add_box</i>
+      </span>
+      <span>Adicionar Empresa</span>
+    <% end %>
+  </div>
+<% end %>
+
+<% @companies.each do |company| %>
+  <div class="card card-info">
+    <div class="card-content">
+      <div class="columns columns-data">
+        <div class="column is-two-quarters-tablet is-6-widescreen">
+          <div class="name">
+            <h4><%= company.name %></h4>
+          </div>
+        </div>
+
+        <div class="column is-hidden-tablet-only is-2-desktop">
+          <%= company.document %>
+        </div>
+
+        <div class="column is-hidden-tablet-only is-2-desktop">
+          <%= company.category == 1 ? "desenty" : "pronto"%>
+        </div>
+
+        <div class="column is-one-quarter-tablet is-2-desktop">
+          <%= link_to 'Ver Perfil', company_path(company), class: "button is-primary is-outlined is-fullwidth is-small" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

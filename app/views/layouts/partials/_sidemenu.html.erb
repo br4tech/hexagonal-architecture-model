@@ -1,0 +1,74 @@
+<div class="sidemenu">
+  <ul class="sideitem menu">
+    <li class="<%= 'active' if controller_name == 'main' %>">
+      <%= link_to root_path, class: "loading" do %>
+      <i class="material-icons">insert_invitation</i>
+      <span>Agenda</span>
+      <% end %>
+    </li>
+
+    <% if !current_user.offices.empty? %>
+      <li class="<%= 'active' if  controller_name == 'contracts' %>">
+        <%= link_to contracts_path, class: "loading"  do %>
+        <i class="material-icons">description</i>
+        <span>Contratos</span>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if policy(User).index? %>
+      <li>
+        <%= link_to payrolls_path, class: "loading" do %>
+        <i class="material-icons">monetization_on</i>
+        <span>Financeiro</span>
+        <% end %>
+      </li>
+    <% end %>
+
+    <li>
+      <%= link_to reports_path, class: "loading"  do %>
+      <i class="material-icons">equalizer</i>
+      <span>Relatórios</span>
+      <% end %>
+    </li>
+ 
+     <% if policy(User).index? %>
+      <li class="<%= 'active' if controller_name == 'users' %>">
+        <%= link_to users_path, class: "loading"  do %>
+        <i class="material-icons">supervised_user_circle</i>
+        <span>Usuários</span>
+        <% end %>
+      </li>
+    <% end %>
+
+    <li class="<%= 'active' if controller_name == 'doctors' %>">
+      <%= link_to doctors_path, class: "loading"  do %>
+      <i class="material-icons">face</i>
+      <span>Medicos</span>
+      <% end %>
+    </li>
+
+    <li class="<%= 'active' if  ['offices', 'clinics'].include?(controller_name) %>">
+      <%= link_to offices_path, class: "loading"  do %>
+      <i class="material-icons">apartment</i>
+      <span>Unidades</span>
+      <% end %>
+    </li>
+
+     <% if policy(User).index? %>
+      <li class="<%= 'active' if controller_name == 'users' %>">
+        <%= link_to companies_path, class: "loading"  do %>
+        <i class="material-icons">list</i>
+        <span>Empresas</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if controller_name == 'users' %>">
+        <%= link_to holidays_path, class: "loading"  do %>
+        <i class="material-icons">alarm_off</i>
+        <span>Off Day</span>
+        <% end %>
+      </li>
+    <% end %>
+
+  </ul>
+</div>

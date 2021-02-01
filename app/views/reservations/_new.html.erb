@@ -1,0 +1,9 @@
+<div class="modal" data-controller="modal" id="new_reservation">
+  <div class="modal-background data-action="click->modal#close""></div>
+  <div class="modal-card">
+    <section class="modal-card-body">
+    <%= render 'form', reservation: @reservation %>
+    </section>
+  </div>
+</div>
+

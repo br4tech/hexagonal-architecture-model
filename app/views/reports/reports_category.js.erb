@@ -1,0 +1,4 @@
+$(".reports-category").html('')
+$(".reports-category").html("<%= escape_javascript(render partial: 'reports_category', locals: {month: @month} ) %>");
+$(".reports-graph").html('')
+$(".reports-graph").html("<%= escape_javascript(render partial: 'reports_graph', locals:  { per_unit: @per_unit, per_office: @per_office} ) %>");

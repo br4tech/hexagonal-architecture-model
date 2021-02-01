@@ -1,0 +1,138 @@
+<div>
+  <%= form_with(model: company, local: true) do |form| %>
+    <%= hidden_field_tag :origin, request.path %>
+    <% if company.errors.any? %>
+      <% company.errors.full_messages.each do |message| %>
+        <div class="notification is-warning">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+
+    <h4>Dados Cadastrais</h4>
+
+    <div class="columns">
+      <div class="field column is-half">
+        <%= label_tag :name, 'Razão Social', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :name, class: 'input', data: { field: 'name' }, autocomplete: "off", required: @company.nil?%>
+        </div>  
+      </div>
+
+      <div class="field column">
+        <%= label_tag :document, 'CNPJ', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :document, class: 'input', data: { field: 'document' }, autocomplete: "off", id: "document", required: @company.nil?%>
+        </div>       
+      </div>
+
+      <div class="column is-narrow  is-3">
+        <div class="field">
+          <%= label_tag :Category, 'Tipo', class: 'label' %>
+          <div class="control">
+            <div class="">
+              <% Company.categories.each do |freq, i| %>
+                <%= form.label :category, value: i, class: 'custom-radio' do %>
+                  <%= form.radio_button :category, i %><span><%= t(freq) %></span>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="columns"> 
+      <div class="field is-2 column">
+        <%= label_tag :zipcode, 'Cep', class: 'label' %>
+        <div class="control">
+          <%= form.text_field :zipcode, class: 'input', data: { field: 'zipcode' }, autocomplete: "off" %>
+        </div>
+      </div>
+      <div class="field is-4 column">
+        <%= label_tag :address, 'Endereço', class: 'label' %>
+        <div class="control">
+          <%= form.text_field :address, class: 'input', data: { field: 'address' }, autocomplete: "off", required: @company.nil? %>
+        </div>
+      </div>
+      <div class="field is-4 column">
+        <%= label_tag :city, 'Cidade', class: 'label' %>
+        <div class="control">
+          <%= form.text_field :city, class: 'input', data: { field: 'city' }, autocomplete: "off",required: @company.nil? %>
+        </div>
+      </div>
+      <div class="field is-2 column">
+        <%= label_tag :state, 'Estado', class: 'label' %>
+        <div class="control">
+          <%= form.text_field :state, class: 'input', data: { field: 'state' }, autocomplete: "off", required: @company.nil? %>
+        </div>
+      </div>      
+    </div>
+   
+
+    <h4>Dados Bancario</h4>
+
+    <div class="columns">
+      <div class="field column is-3">
+        <%= label_tag :wallet, 'Carteira', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :wallet, class: 'input', data: { field: 'wallet' }, autocomplete: "off", required: @company.nil?%>
+        </div>  
+      </div>
+
+      <div class="field column">
+        <%= label_tag :agencyt, 'Agência', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :agency, class: 'input', data: { field: 'agency' }, autocomplete: "off",required: @company.nil?%>
+        </div>    
+      </div>
+
+      <div class="field column">
+        <%= label_tag :current_account, 'Conta Corrente', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :current_account, class: 'input', data: { field: 'current_account' }, autocomplete: "off", required: @company.nil?%>
+        </div>  
+      </div>
+
+      <div class="field column">
+        <%= label_tag :digit, 'Digíto', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :digit, class: 'input', data: { field: 'digit' }, autocomplete: "off", required: @company.nil?%>
+        </div>       
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="field column is-half">
+        <%= label_tag :company_code, 'Código Empresa', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :company_code, class: 'input', data: { field: 'company_code' }, autocomplete: "off", required: @company.nil?%>
+        </div>         
+      </div>
+
+      <div class="field column is-half">
+        <%= label_tag :shipping_sequence, 'Sequência Empresa', class: 'label' %>
+        <div class="control">
+          <%= form.text_field  :shipping_sequence, class: 'input', data: { field: 'shipping_sequence' }, autocomplete: "off", required: @company.nil?%>
+        </div>    
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="field column is-half">
+        <div class="columns">
+          <div class="column">
+            <%= link_to 'Cancelar', :back, class: 'button is-primary is-outlined is-fullwidth' %>
+          </div>
+          <div class="column">
+            <%= form.submit 'Salvar', class: 'button is-primary is-fullwidth' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<br />
+<%= link_to companies_path, class: 'is-flex is-back' do %>
+  <i class="material-icons">arrow_back</i> Cancelar
+<% end %>

@@ -1,0 +1,7 @@
+$('.calendar').fullCalendar('removeEvent', '<%= "reservation_#{@reservation.id}" %>');
+$('.calendar').fullCalendar(
+  'renderEvent', 
+  $.parseJSON("<%=j render( @reservation, format: :json).html_safe %>"), 
+  true
+);
+$('.modal').removeClass("is-active"); 

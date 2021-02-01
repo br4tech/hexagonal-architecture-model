@@ -1,0 +1,74 @@
+<div>
+  <%= form_with(model: client, local: true) do |form| %>
+    <%= hidden_field_tag :origin, request.path %>
+    <% if client.errors.any? %>
+      <% client.errors.full_messages.each do |message| %>
+        <div class="notification is-warning">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+    <hr />           
+    <h4 class="mt-2">Informações de cobrança</h4>
+    <%= form.fields_for :medical_info do |miform| %>
+    <div class="columns">
+      <div class="field column is-half">
+        <%= miform.label :payment_methods, class: 'label' %>
+        <div class="control">
+          <% MedicalInfo.payment_options.each do |pm, i| %>
+            <span>
+              <%= miform.check_box :payment_methods, { multiple: true, class: 'switch-checkbox', id: "method_#{pm}" }, checked_value = i, unchecked_value = nil %>
+              <label for=<%= "method_#{pm}" %>><%= t(pm) %></label>
+            </span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="column is-narrow">
+        <div class="field">
+          <%= miform.label :pay_first, class: 'label' %>
+          <div class="control">
+            <%= miform.label :pay_first, value: true, class: 'custom-radio' do %>
+              <%= miform.radio_button :pay_first, true %> <span>Receber Antes</span>
+            <% end %>
+            <%= miform.label :pay_first, value: false, class: 'custom-radio' do %>
+              <%= miform.radio_button :pay_first, false %> <span>Não Receber</span>
+            <% end %>
+          </div>
+        </div>
+      </div>      
+    </div>
+
+    <div class="columns">
+      <div class="field column is-narrow">
+        <%= miform.label :receipt_type, class: 'label' %>
+        <div class="control">
+          <% MedicalInfo.receipt_types.each do |kind, i| %>
+            <%= miform.label :receipt_type, value: kind, class: 'custom-radio' do %>
+              <%= miform.radio_button :receipt_type, kind %> <span><%= t(kind) %></span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="columns is-centered">
+      <div class="field column is-half">
+        <div class="columns">
+          <div class="column">
+            <%= link_to 'Cancelar', :back, class: 'button is-primary is-outlined is-fullwidth' %>
+          </div>
+          <div class="column">
+            <%= form.submit 'Salvar', class: 'button is-primary is-fullwidth' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+<br />
+<%= link_to offices_path, class: 'is-flex is-back' do %>
+  <i class="material-icons">arrow_back</i> Cancelar
+<% end %>

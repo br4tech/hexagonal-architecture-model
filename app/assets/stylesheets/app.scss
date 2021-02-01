@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Material+Icons");
+
+@import "toastr/toastr";
+@import '@fullcalendar/core/main.css';
+@import '@fullcalendar/daygrid/main.css';
+@import '@fullcalendar/timegrid/main.css';
+@import "jquery-ui-dist/jquery-ui.min.css";
+@import "jquery-ui-dist/jquery-ui.structure.min.css";
+@import "jquery-ui-dist/jquery-ui.theme.min.css";
+@import "timepicker/jquery.timepicker.css";
+@import "jquery-minicolors/jquery.minicolors.css";
+
+@import "globals/_variables"; // KEEP IT ON TOP
+@import "bulma/bulma";
+@import "globals/_main";
+@import "globals/_mixins";
+
+// Components
+@import "components/_autocomplete";
+@import "components/_breadcrumb";
+@import "components/_card-info";
+@import "components/_card";
+@import "components/_modal";
+@import "components/_nested_field";
+@import "components/_notification";
+@import "components/_schedule";
+@import "components/_search";
+@import "components/_sidemenu";
+@import "components/_switch";
+@import "components/_tabs";
+@import "components/_topbar";
+
+// Elements
+@import "elements/_button";
+@import "elements/_custom";
+@import "elements/_form";
+@import "elements/_text";
+@import "elements/_icons";
+
+// Resources
+@import "resources/common";
+@import "resources/doctors";
+@import "resources/offices";
+@import "resources/users";
+
+// Others
+
+@import "payrolls";

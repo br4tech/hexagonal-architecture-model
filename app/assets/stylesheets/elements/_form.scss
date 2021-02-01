@@ -1,0 +1,75 @@
+@import 'radio';
+
+
+// Bulma Override
+
+input { font-size: 16px; }
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.label, label.checkbox { 
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.control span { margin-right: 15px; }
+
+.minicolors-input{
+  height: 35px !important;
+  line-height: 1.5;  
+  &:not(.reset) {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #c9c9c9;
+    font-size: 16px;  
+  }
+  &:focus { 
+    border-color: #55b8d6;
+    box-shadow: none; 
+  }
+}
+
+.minicolors-swatch-color{
+  width: 28px !important;
+}
+
+.input {
+
+  &:not(.reset) {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #c9c9c9;
+    font-size: 16px;
+    padding-left: 0;
+  }
+
+  &:focus { 
+    border-color: #55b8d6;
+    box-shadow: none; 
+  }
+}
+
+.select {
+  select {
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+    padding-left: 0;
+  }
+
+  &:not(.is-multiple):not(.is-loading)::after { border-color: #999; }
+}
+
+.field_with_errors {
+  label { margin-bottom: 0.5em; }
+  input { border-color: $warning }
+}
+
+[disabled].input { background-color: #fff }

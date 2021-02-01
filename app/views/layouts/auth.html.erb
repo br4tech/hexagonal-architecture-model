@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pronto Consultórios</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'auth', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+
+    <div class="container is-fluid is-marginless">
+      <div class="columns is-marginless">
+        <div class="column is-full-mobile left-side">
+
+          <div class="container auth">
+            <div class="columns is-vcentered full-h is-centered">
+
+              <div class="column is-three-fifths is-full-mobile">
+                <a class="brand is-flex" href="/">
+                  <%= image_tag 'brand/logo.svg', width: 160 %>
+                </a>
+
+                <% if notice %>
+                  <div class="notification is-info">
+                    <button class="delete"></button>
+                    <%= notice %>
+                  </div>
+                <% end %>
+
+                <% if alert %>
+                  <div class="notification is-danger">
+                    <button class="delete"></button>
+                    <%= alert %>
+                  </div>
+                <% end %>
+
+                <%= yield %>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="column right-side">
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function reveal() {
+        var _field = document.getElementById("user_password");
+        var _field_confirm = document.getElementById("user_password_confirmation");
+        var _icon = document.getElementsByClassName("js-eye")[0];
+        
+        if (_field.type === "password") {
+          _field.type = "text";
+          if (_field_confirm) { _field_confirm.type = "text" }
+          _icon.innerText = "visibility_off";
+        } else {
+          _field.type = "password";
+          if (_field_confirm) { _field_confirm.type = "password" }
+          _icon.innerText = "visibility";
+        }
+      }
+    </script>
+  </body>
+</html>

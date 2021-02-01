@@ -1,0 +1,11 @@
+<%= content_for(:page){ "Unidade #{@office.name}" } %>
+
+<div class="columns is-centered resource">
+  <div class="column is-three-fifths">
+    <div class="card">
+      <div class="card-content is-3">
+        <%= render 'form', office: @office %>
+      </div>
+    </div>
+  </div>
+</div>

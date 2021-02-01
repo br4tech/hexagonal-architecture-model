@@ -1,0 +1,161 @@
+<%= content_for(:page) { @user.name } %>
+
+<div class="columns is-centered resource">
+  <div class="column" data-controller="tabs" data-tabs-index="0">
+    <div class="tabs is-toggle is-fullwidth">
+      <ul>
+        <li class="is-active" data-target="tabs.tab">
+          <a data-action="tabs#change">Perfil</a>
+        </li>
+        <li data-target="tabs.tab">
+          <a data-action="tabs#change">Configuração</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="card" data-target="tabs.tabPanel">
+      <div class="card-content is-3">
+        <div class="users">
+
+          <%= form_with(model: current_user) do |form| %>
+
+            <div class="columns is-centered mb-2">        
+                <% if current_user.avatar.attached? %>                     
+                  <%= image_tag(url_for(current_user.avatar), :class => "avatar") %>  
+                <% else %>           
+                  <div class="avatar-preview"></div>             
+                <% end %>               
+            </div>
+
+            <h4>Dados Cadastrais</h4>
+            <div class="columns">
+              <div class="field column is-half">
+                <%= form.label :name, class: 'label' %>
+                <div class="control">
+                  <%= form.text_field :name, class: 'input', autocomplete: "off", required: true %>
+                </div>
+              </div>
+
+              <div class="field column">
+                <%= form.label :document, class: 'label' %>
+                <div class="control">
+                  <%= form.text_field :document, class: 'input is-document', autocomplete: "off", required: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="columns">
+              <div class="field column">
+                <%= form.label :email, class: 'label' %>
+                <div class="control">
+                  <%= form.text_field :email, class: 'input', autocomplete: "off", required: true %>
+                </div>
+              </div>
+
+              <div class="field column">
+                <%= form.label :phone, class: 'label' %>
+                <div class="control has-icons-right">
+                  <%= form.text_field :phone, class: 'input is-phone', autocomplete: "off" %>
+                  <span class="icon is-small is-right">
+                    <i class="material-icons">phone</i>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="columns is-centered mt-4">
+              <div class="field column is-half">
+                <div class="columns">
+                  <div class="column">
+                    <%= link_to 'Cancelar', :back, class: 'button is-primary is-outlined is-fullwidth' %>
+                  </div>
+                  <div class="column">
+                    <%= form.submit 'Salvar', class: 'button is-primary is-fullwidth' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-target="tabs.tabPanel">
+      <div class="card-content is-3">
+        <div class="users">
+
+          <%= form_with(model: current_user, url: safe_users_path, local: true) do |form| %>
+            <div class="columns is-centered mb-2">        
+              <% if current_user.avatar.attached? %>                     
+                <%= image_tag(url_for(current_user.avatar), :class => "avatar") %>  
+              <% else %>           
+                <div class="avatar-preview"></div>             
+              <% end %>               
+            </div>
+
+            <h4>Alterar Senha</h4>
+            <div class="columns">
+              <div class="field column">
+                <%= form.label 'Senha Atual', class: 'label' %>
+                <div class="control">
+                  <%= form.password_field :current_password, class: 'input passwd', autocomplete: "off", required: true %>
+                  <a class="magic-eye" onclick="reveal()">
+                    <i class="material-icons js-eye">visibility</i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="field column">
+                <%= form.label 'Nova Senha', class: 'label' %>
+                <div class="control">
+                  <%= form.password_field :password, class: 'input passwd', placeholder: 'Nova Senha', autocomplete: "off" %>
+                </div>
+              </div>
+
+              <div class="field column">
+                <%= form.label 'Confirme a nova Senha', class: 'label' %>
+                <div class="control">
+                  <%= form.password_field :password_confirmation, class: 'input passwd', autocomplete: "off", required: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="columns is-centered mt-4">
+              <div class="field column is-half">
+                <div class="columns">
+                  <div class="column">
+                    <%= link_to 'Cancelar', :back, class: 'button is-primary is-outlined is-fullwidth' %>
+                  </div>
+                  <div class="column">
+                    <%= form.submit 'Salvar', class: 'button is-primary is-fullwidth' %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for(:js) do %>
+  <script type="text/javascript">
+    function reveal() {
+      const _fields = document.querySelectorAll(".passwd");
+      var _icon = document.getElementsByClassName("js-eye")[0];
+
+      _fields.forEach(function(el) {
+        if (el.type === "password") {
+          el.type = "text";
+          _icon.innerText = "visibility_off";
+        } else {
+          el.type = "password";
+          _icon.innerText = "visibility";
+        }
+      })
+    }
+  </script>
+<% end %>

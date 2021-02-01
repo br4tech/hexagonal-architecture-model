@@ -1,0 +1,16 @@
+<div class="column">
+  <div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li class="<%= 'is-active' if params[:tipo] == 'receita' %>">
+        <%= link_to reports_category_path(tipo: :receita), :remote => true do %>
+          <span>Receitas</span>
+        <% end %>
+      </li>
+      <li class="<%= 'is-active' if params[:tipo] != 'receita' %>">
+        <%= link_to reports_category_path(tipo: :hora), :remote => true do %>
+          <span>Horas</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

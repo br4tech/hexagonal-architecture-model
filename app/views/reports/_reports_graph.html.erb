@@ -1,0 +1,66 @@
+<div class="column">
+  <div class="tabs is-toggle is-fullwidth">
+    <ul>
+      <li class="<%= 'is-active' if params[:tipo] == 'receita' %>">
+        <%= link_to reports_category_path(tipo: :receita), :remote => true do %>
+          <span>Receitas</span>
+        <% end %>
+      </li>
+      <li class="<%= 'is-active' if params[:tipo] != 'receita' %>">
+        <%= link_to reports_category_path(tipo: :hora), :remote => true do %>
+          <span>Horas</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column is-6">
+    <div class="card card-info">
+      <header class="card-header"> 
+        <% if params[:tipo] == 'receita' %>
+          Receita por unidade  
+        <% else %>
+          Hora por unidade  
+        <% end %>
+      </header>
+      <div class="card-content">
+        <%= column_chart @per_unit%>
+      </div>
+    </div>
+  </div>
+  <div class="column is-6">
+    <div class="card card-info">
+      <header class="card-header">      
+        <% if params[:tipo] == 'receita' %>
+          Receita por sala 
+        <% else %>
+          Hora por sala 
+        <% end %>
+      </header>
+      <div class="card-content">
+        <%= column_chart @per_office%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field">
+  <% if params[:tipo] == 'receita' %>
+    <%= link_to export_report_all_for_revenues_path(format: "xlsx"), class: 'button is-primary export is-pulled-right' do %>
+      <span class="icon">
+        <i class="material-icons">get_app</i>
+      </span>
+      <span>Exportar Unidades x Receita </span>
+    <% end %>
+  <% else %>
+    <%= link_to export_report_all_for_hours_path(format: "xlsx"), class: 'button is-primary export is-pulled-right' do %>
+      <span class="icon">
+        <i class="material-icons">get_app</i>
+      </span>
+      <span>Exportar Unidades x Horas </span>
+    <% end %>
+  <% end %>
+</div>
+

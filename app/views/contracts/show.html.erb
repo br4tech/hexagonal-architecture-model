@@ -1,0 +1,30 @@
+<%= content_for(:page){ "#{formal_doctor_name(@doctor)} <small class='has-text-grey-light'>Novo Contrato</small>".html_safe } %>
+
+<div class="tabs is-toggle is-fullwidth">
+  <ul>
+    <li class="<%= 'is-active' if params[:tipo] == 'density' %>">
+      <%= link_to new_contract_path(tipo: :density) do %>
+        <span>Contrato Density</span>
+      <% end %>
+    </li>
+    <li class="<%= 'is-active' if params[:tipo] != 'density' %>">
+      <%= link_to new_contract_path(tipo: :pronto) do %>
+        <span>Contrato Pronto Consultórios</span>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="columns is-centered resource">
+  <div class="column">
+    <div class="card">
+      <div class="card-content is-3">
+        <% if current_user.role == "admin" %>
+          <%= render 'contracts/form/manager', contract: @contract %>
+        <% else %>
+          <%= render 'contracts/form/secretary', contract: @contract %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
