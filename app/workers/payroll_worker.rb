@@ -18,7 +18,7 @@ class PayrollWorker
                   end
 
           first = Date.new(group.first.year, month, 21)
-          last = Date.new(group.last.year, group.last.month, 20)               
+          last = Date.new(group.last.year, group.last.month, 20)
 
           payroll = Payroll.where(
             emission: last.beginning_of_month,
@@ -44,78 +44,75 @@ class PayrollWorker
           ) if payroll.nil?
 
           reservations_one = Reservation.select("id, clinic_id, date, start_at, end_at, odd")
-            .where("contract_id= #{contract.id} AND odd = false AND date BETWEEN ? AND ?", first, last) 
+            .where("contract_id= #{contract.id} AND odd = false AND date BETWEEN ? AND ?", first, last)
 
           reservations_two= Reservation.select("id, clinic_id, date, start_at, end_at, odd")
             .where("contract_id= #{contract.id} AND odd = true AND date > ? AND date < ?", payroll.due_at - 1.month, payroll.revenues_at)
-            
+
            reservations = reservations_one.or(reservations_two)
-              
-          reservations.each do |reserve|    
-            hours = time_diff(reserve.start_at, reserve.end_at)    
-            amount = amount_for_kind_contract(contract, reserve, first, last, hours)            
-        
+
+          reservations.each do |reserve|
+            hours = time_diff(reserve.start_at, reserve.end_at)
+            amount = amount_for_kind_contract(contract, reserve, first, last, hours)
+
             PayrollItem.find_or_create_by(
             period: reserve.date,
             clinic_id: reserve.clinic_id,
-            hours: hours, 
+            hours: hours,
             amount: amount,
             payroll_id: payroll.id,
             odd: reserve.odd,
-            reservations_id: reserve.id)                              
-          end          
+            reservations_id: reserve.id)
+          end
         end
-      end   
-    end  
+      end
+    end
 
     p "Boleto(s) gerado com sucesso!"
   end
 
-
-
-
   def time_diff(start_at, end_at)
-    (start_at - end_at).to_i.abs / 3600     
+    (start_at - end_at).to_i.abs / 3600
   end
 
-  def amount_for_kind_contract(contract, reserve, first, last, hours) 
+  def amount_for_kind_contract(contract, reserve, first, last, hours)
     amount = 0
     case contract.kind
-    when 0..1    
-      unless contract.discounts.empty?  
-        contract.discounts.each do |d|  
-          unless d.starts_at.nil? && d.ends_at.nil?    
-            if reserve.start_at >=   d.starts_at  && reserve.end_at <= d.ends_at       
+    when 0..1
+      unless contract.discounts.empty?
+        contract.discounts.each do |d|
+          unless d.starts_at.nil? && d.ends_at.nil?
+            if reserve.start_at >=   d.starts_at  && reserve.end_at <= d.ends_at
               amount = contract.amount * hours - (contract.amount * hours) * (d.amount/100)
             else
               amount = contract.amount * hours
             end
           else
-            amount = contract.amount * hours      
+            amount = contract.amount * hours
           end
         end
       else
         amount = contract.amount * hours
-      end      
-    when 2  
-      unless contract.discounts.empty?  
+      end
+    when 2
+      unless contract.discounts.empty?
         contract.discounts.each do |d|
           unless d.starts_at.nil? && d.ends_at.nil?
             months =  (d.starts_at.month..d.ends_at.month).map{ |m| m}.uniq
             if  months.include?(reserve.start_at.month)
               amount = (contract.amount - contract.amount * (d.amount/100))
             else
-              amount = contract.amount 
+              amount = contract.amount
             end
           else
-            amount = contract.amount 
+            amount = contract.amount
           end
         end
       else
         amount = contract.amount
-      end        
+      end
     end
 
     amount
-  end   
+  end
 end

@@ -3,8 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
-
+ruby '2.7.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.0'
 # Use postgresql as the database for Active Record
@@ -41,11 +40,10 @@ gem 'pundit'
 # Allow Numeric - A numeric field validation Gem.
 gem 'allow_numeric'
 # xlsx generation with charts, images, automated column width, customizable
-gem  'caxlsx' 
+gem  'caxlsx'
 gem  'caxlsx_rails'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
 gem 'kaminari'
-
 gem 'sendgrid-ruby'
 gem "aws-sdk-s3"
 # gem 'image_processing', '~> 1.2'
@@ -58,8 +56,8 @@ gem 'ransack'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'factory_bot_rails'
 gem 'faker'
-
 gem 'jquery-rails'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
