@@ -2,6 +2,8 @@
 
 # Financeiro
 class Payroll < ApplicationRecord
+  paginates_per  50 
+
   belongs_to :contract
   has_many :payroll_items
 

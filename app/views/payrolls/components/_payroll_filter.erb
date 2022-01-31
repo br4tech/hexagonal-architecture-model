@@ -1,0 +1,37 @@
+  <div class="column is-half is-four-fifths">
+    <div class="card">
+      <div class="card-content">
+        <div class="content">
+          <div class="columns">
+            <div class="field column">
+              <div class="control is-two-fifths">
+                <label class="label">Contrato</label>             
+                <div class="select is-two-fifths">
+                  <%= select_tag 'contract_id', options_for_select(@contracts.collect{ |contract| [contract.client.name, contract.id] }), id: "selected_contract" %>	
+                </div>
+              </div>
+            </div>        
+            <div class="field column">
+              <label class="label">Vencimento</label>
+              <div class="control">
+                <input class="input is-date is-start" type="text">
+              </div>
+            </div>          
+            <div class="field column">
+              <label class="label">Tipo</label>
+              <div class="control">
+                <label class="radio">
+                <input type="radio" name="tipo">
+                  Density
+                </label>
+                <label class="radio">
+                  <input type="radio" name="tipo">
+                  Pronto
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

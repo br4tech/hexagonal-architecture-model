@@ -1,4 +1,4 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus"
 import moment from 'moment';
 
 export default class extends Controller {
@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = [ "clinic" ];
 
   connect(){
-    console.log("aqui");
     let daysOff = []
       
     fetch('/days_off.json')

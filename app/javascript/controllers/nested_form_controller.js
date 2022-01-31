@@ -1,4 +1,4 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus"
 import { PRONTO } from "../packs/config";
 
 export default class extends Controller {

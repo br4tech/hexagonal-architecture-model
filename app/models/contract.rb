@@ -28,21 +28,4 @@ class Contract < ApplicationRecord
   attribute :due_at, :integer, default: 01
   attribute :revenues_at, :integer, default: 20
   attribute :rescheduling_allowed, :integer, default: 0
-
-
-  def parking_value=(value)
-    super(value.blank? ? nil : value.match(/(\d.+)/)[1].gsub('.','').gsub(',','.')) 
-  end
-
-  def  amount=(value)
-    if value.kind_of? String
-      super(value.blank? ? nil : value.match(/(\d.+)/)[1].gsub('.','').gsub(',','.'))
-    end
-  end
-
-  def contract_type_private
-    if kind == Contract.contract_types[:type_private]   
-      attendances.map{ |k| k.frequency = Attendance.frequencies[:weekly]}     
-    end
-  end
 end

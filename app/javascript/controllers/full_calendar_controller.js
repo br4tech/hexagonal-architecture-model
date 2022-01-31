@@ -1,4 +1,4 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus"
 import { Calendar } from "@fullcalendar/core";
 import moment from 'moment';
 import interactionPlugin from '@fullcalendar/interaction'; // for selectable
@@ -7,6 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 
 export default class extends Controller {
   static targets = ["expertises", "errors"];
+  
   connect() {   
 
     let daysOff = []
@@ -92,6 +93,6 @@ export default class extends Controller {
       }
     });   
     calendar.render();  
-    $(".fc-buttomReservationWithoutContract-button").attr("data-remote", "true")
+    // $(".fc-buttomReservationWithoutContract-button").attr("data-remote", "true")
   }
 }

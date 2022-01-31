@@ -1,0 +1,75 @@
+<input type="checkbox"  class="checkbox chk_all" />  
+  <% @payrolls.each do |payroll| %> 
+  <% unless payroll.payroll_items.last.nil?  %>    
+    <div class="card is-fullwidth">
+      <header class="card-header" style="height: 60px">          
+        <p class="card-header-title">
+          <input type="checkbox"  class="checkbox chk_group" value="<%= payroll.id %>"/> &nbsp;&nbsp;                                       
+          <%= payroll.contract.contract_combo.client.name %>  
+          <% if payroll.contract.category == 1%>
+            <span class="tag is-link is-normal">Pronto</span>
+          <% else %>
+           <span class="tag is-link is-normal">Density</span>
+          <% end %>
+        </p>   
+        <% unless payroll.contract.kind == 2 %>        
+          <a class="card-header-icon card-toggle">              
+            <i class="material-icons">expand_more</i>
+          </a>
+        <% end %>                                          
+      </header>
+      <div class="card-content is-hidden">
+        <div class="content">           
+          <% unless payroll.contract.kind == 2 %>             
+            <table class="table is-striped table-item">
+              <thead> 
+                <tr>
+                  <th>Periodo</th>
+                  <th>Unidade</th>
+                  <th>Sala</th>
+                  <th>Horas</th>
+                  <th>Tipo Reserva</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% payroll.payroll_items.each do | item| %>  
+                  <tr>
+                    <td>              
+                      <%= l(item.period) %>
+                    </td>
+                    <td><%= item.clinic.office.name %></td>
+                    <td><%= item.clinic.code %></td>
+                    <td><%= item.hours %></td>
+                    <td><%= item.odd? ? "Avulso": "Contrato" %></td>
+                    <td><%= "R$ %0.02f\n" %item.amount %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>          
+          <% end %>      
+        </div>
+      </div>
+      <footer class="card-footer">
+        <div class="card-footer-item">
+          <i class="material-icons">date_range</i> 
+          Faturamento: <%= l(payroll.revenues_at) %> 
+        </div>
+        <div class="card-footer-item">
+          <i class="material-icons">date_range</i> 
+          Vencimento: <%= l(payroll.due_at) %>
+        </div>
+        <div class="card-footer-item">
+          <% unless payroll.contract.kind == 2 %>               
+            <i class="material-icons">monetization_on</i> Valor: <%= number_to_currency(payroll.payroll_items.inject(0.0){ |sum, i| sum + i.amount }.round(1) + payroll.parking_value.to_d, :unit => "R$", :separator => ",", :delimiter => ".") %>
+          <% else %>        
+            <i class="material-icons">monetization_on</i> Valor: <%= number_to_currency(payroll.payroll_items.last.amount.round(1) + payroll.parking_value.to_d, :unit => "R$", :separator => ",", :delimiter => ".")%>                             
+          <% end %>  
+        </div>
+      </footer>
+    </div> 
+  <% end %>     
+<% end %>
+<%= paginate @payrolls,  outer_window: 3 %>
+<%= rel_next_prev_link_tags @payrolls %>
+  

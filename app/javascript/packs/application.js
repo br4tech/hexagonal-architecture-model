@@ -12,11 +12,10 @@ require("@rails/ujs").start();
 require("turbolinks").start();
 require("@rails/activestorage").start();
 require("channels");
-require("jquery");
-require("jquery-ui");
 require("chartkick");
 require("chart.js");
 require("timepicker/jquery.timepicker");
+require("jquery-ui")
 require("jquery-minicolors/jquery.minicolors")
 require("jquery-mask-plugin/dist/jquery.mask.js")
 require("cocoon")
@@ -27,6 +26,10 @@ import "controllers"; // Stimulus
 import IMask from "imask";
 
 document.addEventListener("turbolinks:load", () => {
+
+  window.jQuery = $;
+  window.$ = $;
+
   PRONTO.perfum(); // <- Init Plugins
   // Modal
   const _modal_btn = document.getElementById("is-modal-btn");
