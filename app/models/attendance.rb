@@ -9,10 +9,12 @@ class Attendance < ApplicationRecord
   belongs_to :office
   belongs_to :clinic
 
+  has_many :reservations, dependent: :delete_all
+
   validates_presence_of :weekdays, :starts_at, :ends_at, :time_starts, :time_ends, :frequency
 
-  before_update :alter_reserves
-  before_destroy :alter_reservation_for_available
+  # before_update :alter_reserves
+  # before_destroy :alter_reservation_for_available
 
 
   def alter_reserves

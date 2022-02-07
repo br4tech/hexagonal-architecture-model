@@ -6,7 +6,7 @@
         <p class="card-header-title">
           <input type="checkbox"  class="checkbox chk_group" value="<%= payroll.id %>"/> &nbsp;&nbsp;                                       
           <%= payroll.contract.contract_combo.client.name %>  
-          <% if payroll.contract.category == 1%>
+          <% if payroll.contract.category == 0%>
             <span class="tag is-link is-normal">Pronto</span>
           <% else %>
            <span class="tag is-link is-normal">Density</span>

@@ -1,10 +1,11 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
 
-  def index 
+  def index  
     @office =  session[:office_id].nil? ? current_user.offices.first : Office.find(session[:office_id])
-    @reservations = Reservation.includes([:clinic, contract: :client])
+    @reservations = Reservation.includes([:clinic, attendance: :contract])
                                .where('office_id = ? AND canceled=false AND date BETWEEN ? AND ?',@office.id, params[:start], params[:end])
+                               
   end
 
   def show

@@ -21,7 +21,7 @@ module Bills
     end
 
     def bill_build(reservation)
-      Bill.find_or_create_by(
+      Payroll.find_or_create_by(
         emission: Time.zone.today,
         due_at: reservation.with_contract_due_at,
         revenues_at: reservation.with_contract_date_cut_start,
@@ -33,12 +33,12 @@ module Bills
 
     def bill_items(reservations, bill_id)
       reservations.each do |reservation|
-        BillItem.find_or_create_by(
+        PayrollItem.find_or_create_by(
           period: reservation.date,
           clinic_id: reservation.clinic_id,
           hours: worked_hours(reservation),
-          bill_id: bill_id,
-          reservation_id: reservation.id,
+          payroll_id: bill_id,
+          reservations_id: reservation.id,
           amount: amount(reservation)
         )
       end
@@ -54,7 +54,7 @@ module Bills
     end
 
     def discount_amount(hours, amount)
-      amount = discount_no_aplyed(hours) if contract.discounts.empty?
+      return discount_no_aplyed(hours, amount) if contract.discounts.empty?
 
       contract.discounts.each do |discount|
         amount = if validate_discount(discount)
@@ -72,15 +72,15 @@ module Bills
     end
 
     def discount_applyed(hours, discount, amount)
-      if contract.contract_type?
+      if contract.category?
         discounts_private_applyed(discount, amount)
       else
         discount_settled_aplyed(hours, discount, amount)
       end
     end
 
-    def discount_no_aplyed(hours, amount)
-      if contract.contract_type?
+    def discount_no_aplyed(hours, amount)    
+      unless contract.category?
         amount
       else
         amount * hours

@@ -20,13 +20,11 @@ module Reservations
     end
 
     def reservation_per_attendance
-      reservations = []
       @contract.attendances.each do |attendance|
-        reservations << reservation_with_type_attendance(attendance)
-        ReservationCreator.build_reservation(reservations[0], attendance)
-      end
-      
-      reservations
+        reservations = []
+        reservations << reservation_with_type_attendance(attendance) 
+        Reservations::ReservationCreator.build_reservation(reservations[0], attendance)      
+      end      
     end
 
     def reservation_with_type_attendance(attendance)
@@ -45,7 +43,7 @@ module Reservations
     end
 
     def reservation_per_biweekweeklyly(attendance)
-      work_days = agroup_reservation(attendance)
+      work_days = agroup_reservation(attendance)      
       agroup_per_biweekweeklyly(work_days, attendance)
     end
 
@@ -53,7 +51,7 @@ module Reservations
       start_at = attendance.starts_at.to_date.beginning_of_week
       end_at = attendance.ends_at.to_date
 
-      WorkDay.work_day_between(
+      Reservations::WorkDay.work_day_between(
         start_at,
         end_at
       )
@@ -92,7 +90,7 @@ module Reservations
       reservations.select do |reservation|
         week_days << reservation if attendance.weekdays.include?(reservation.wday)
       end
-      WorkDay.remove_days_off(week_days)
+      Reservations::WorkDay.remove_days_off(week_days)
     end
 
     def clear_agroup(reservations)

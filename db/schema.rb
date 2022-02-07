@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_31_150350) do
+ActiveRecord::Schema.define(version: 2022_02_07_125840) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2022_01_31_150350) do
     t.time "time_starts"
     t.time "time_ends"
     t.integer "frequency"
+    t.decimal "amount", precision: 8, scale: 2
     t.index ["clinic_id"], name: "index_attendances_on_clinic_id"
     t.index ["contract_id"], name: "index_attendances_on_contract_id"
     t.index ["office_id"], name: "index_attendances_on_office_id"
@@ -294,7 +295,6 @@ ActiveRecord::Schema.define(version: 2022_01_31_150350) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.bigint "contract_id", null: false
     t.date "date"
     t.bigint "office_id", null: false
     t.bigint "clinic_id", null: false
@@ -305,10 +305,9 @@ ActiveRecord::Schema.define(version: 2022_01_31_150350) do
     t.boolean "odd", default: false
     t.integer "category"
     t.boolean "canceled", default: false
-    t.bigint "attendances_id", null: false
-    t.index ["attendances_id"], name: "index_reservations_on_attendances_id"
+    t.bigint "attendance_id", null: false
+    t.index ["attendance_id"], name: "index_reservations_on_attendance_id"
     t.index ["clinic_id"], name: "index_reservations_on_clinic_id"
-    t.index ["contract_id"], name: "index_reservations_on_contract_id"
     t.index ["office_id"], name: "index_reservations_on_office_id"
   end
 
@@ -353,8 +352,7 @@ ActiveRecord::Schema.define(version: 2022_01_31_150350) do
   add_foreign_key "reservation_without_contracts", "clients"
   add_foreign_key "reservation_without_contracts", "clinics"
   add_foreign_key "reservation_without_contracts", "offices"
-  add_foreign_key "reservations", "attendances", column: "attendances_id"
+  add_foreign_key "reservations", "attendances"
   add_foreign_key "reservations", "clinics"
-  add_foreign_key "reservations", "contracts"
   add_foreign_key "reservations", "offices"
 end
