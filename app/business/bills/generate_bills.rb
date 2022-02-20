@@ -80,7 +80,7 @@ module Bills
     end
 
     def discount_no_aplyed(hours, amount)    
-      unless contract.category?
+     if contract.kind == 2
         amount
       else
         amount * hours

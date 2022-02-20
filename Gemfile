@@ -42,6 +42,8 @@ gem 'allow_numeric'
 # xlsx generation with charts, images, automated column width, customizable
 gem  'caxlsx'
 gem  'caxlsx_rails'
+# xlsx generation plan
+gem 'axlsx_rails'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
 gem 'kaminari'
 gem 'sendgrid-ruby'

@@ -3,7 +3,7 @@
 class PayrollsController < ApplicationController
   def index
     @contracts =  ContractCombo.includes(:client).order('clients.name') 
-    @payrolls = Payroll.page(params[:page]).per(50)
+    @payrolls = Payroll.all
   end
 
   def show; end
@@ -17,6 +17,15 @@ class PayrollsController < ApplicationController
 
   def reprocess_payroll
     ReprocessPayrollWorker.new.perform(session[:month_selected].to_i + 1)
+  end
+
+  def export_to_exel
+    reference_date =  DateTime.now + 1.month
+    @bills = Bills::ReportBills.new(reference_date).generate
+    
+    respond_to do |format|
+      format.xlsx
+    end
   end
 
   private

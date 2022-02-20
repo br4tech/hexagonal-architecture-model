@@ -305,7 +305,7 @@ ActiveRecord::Schema.define(version: 2022_02_07_125840) do
     t.boolean "odd", default: false
     t.integer "category"
     t.boolean "canceled", default: false
-    t.bigint "attendance_id", null: false
+    t.bigint "attendance_id"
     t.index ["attendance_id"], name: "index_reservations_on_attendance_id"
     t.index ["clinic_id"], name: "index_reservations_on_clinic_id"
     t.index ["office_id"], name: "index_reservations_on_office_id"
