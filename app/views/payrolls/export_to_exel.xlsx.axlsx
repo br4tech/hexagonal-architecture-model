@@ -1,11 +1,46 @@
 wb = xlsx_package.workbook
+
+father = wb.styles.add_style(
+  { alignment:
+      { horizontal: :center,
+        vertica: :center,
+        wrap_text: true
+      },
+    b: true,
+    bg_color: '00',
+    fg_colog: 'ff'
+  })
+
+children = wb.styles.add_style(
+  { alignment:
+      { horizontal: :center,
+        vertica: :center,
+        wrap_text: true
+      },
+    b: true,
+    bg_color: 'a9a9a9',
+    fg_colog: '00'
+  })
+
+ amount = wb.styles.add_style(
+  { alignment:
+      { horizontal: :center,
+        vertica: :center,
+        wrap_text: true
+      },
+    b: true,
+    bg_color: 'ffff00',
+    fg_colog: '00'
+  })
+
 wb.add_worksheet(name: "Boletos") do |sheet|
   @bills.each do |bill|
-    sheet.add_row ["Codigo", "Cliente", "Contrato"]
+    sheet.add_row ["Codigo", "Cliente", "Contrato"],  style: father
     sheet.add_row [bill[:id], bill[:client], bill[:kind]]
-    sheet.add_row ["Cód. Reserva", "Unidade", "Sala", "Qtd. Horas", "Valor"]
+    sheet.add_row ["Cód. Reserva", "Unidade", "Sala", "Qtd. Horas", "Valor"],  style: children
     bill[:items].each do |item|
       sheet.add_row [item[:id], item[:office], item[:clinic], item[:hours], item[:amount]]
     end
+    sheet.add_row [nil, nil, nil, "Total", bill[:sum_amount] ], style: amount
   end
 end

@@ -22,7 +22,7 @@ class PayrollsController < ApplicationController
   def export_to_exel
     reference_date =  DateTime.now + 1.month
     @bills = Bills::ReportBills.new(reference_date).generate
-    
+
     respond_to do |format|
       format.xlsx
     end

@@ -17,6 +17,7 @@ module Bills
         hash[:client] = bill.contract.client.name
         hash[:kind] = contract_type(bill.contract.category)
         hash[:items] = sub_plan(bill.id)
+        hash[:sum_amount] = contract_type_private(bill)
         @plan << hash
       end
       @plan
@@ -33,6 +34,15 @@ module Bills
 
     def contract_type(category)
       category.zero? ? 'pronto' : 'density'
+    end
+
+    def contract_type_private(bill)
+      items = sub_plan(bill.id)
+      if bill.contract.kind.zero?
+        items.inject(0) { |sum, item| sum + item[:amount]}.to_f
+      else
+        bill.contract.amount.to_f
+      end
     end
 
     def hash_items(items)
