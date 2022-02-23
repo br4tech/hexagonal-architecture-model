@@ -22,6 +22,8 @@ children = wb.styles.add_style(
     fg_colog: '00'
   })
 
+ date_format = wb.styles.add_style :format_code => 'dd/mm/yyyy'
+
  amount = wb.styles.add_style(
   { alignment:
       { horizontal: :center,
@@ -37,9 +39,9 @@ wb.add_worksheet(name: "Boletos") do |sheet|
   @bills.each do |bill|
     sheet.add_row ["Codigo", "Cliente", "Contrato"],  style: father
     sheet.add_row [bill[:id], bill[:client], bill[:kind]]
-    sheet.add_row ["Cód. Reserva", "Unidade", "Sala", "Qtd. Horas", "Valor"],  style: children
+    sheet.add_row ["Dia", "Unidade", "Sala", "Qtd. Horas", "Valor"],  style: children
     bill[:items].each do |item|
-      sheet.add_row [item[:id], item[:office], item[:clinic], item[:hours], item[:amount]]
+      sheet.add_row [item[:period], item[:office], item[:clinic], item[:hours], item[:amount]], style: [date_format, nil, nil, nil, nil]
     end
     sheet.add_row [nil, nil, nil, "Total", bill[:sum_amount] ], style: amount
   end

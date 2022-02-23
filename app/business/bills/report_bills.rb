@@ -50,6 +50,7 @@ module Bills
       items.each do |item|
         hash = {}
         hash[:id] = item.id
+        hash[:period] = item.period
         hash[:office] = item.clinic.office.name
         hash[:clinic] = item.clinic.code
         hash[:amount] = item.amount
