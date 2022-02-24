@@ -1,0 +1,143 @@
+.dropdown-menu {
+	left: 0
+}
+
+.dropdown-menu:after,
+.dropdown-menu:before {
+	display: none!important
+}
+
+.dropdown-menu>.dropdown-item,
+.dropdown-menu>li>a {
+	outline: 0!important;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1
+}
+
+.dropdown-menu>.dropdown-item>i:before,
+.dropdown-menu>li>a>i:before {
+	line-height: 0;
+	vertical-align: middle
+}
+
+.dropdown-menu.dropdown-menu-anim-up {
+	-webkit-animation: animation-dropdown-menu-fade-in .3s ease 1, animation-dropdown-menu-move-up .3s ease-out 1;
+	animation: animation-dropdown-menu-fade-in .3s ease 1, animation-dropdown-menu-move-up .3s ease-out 1
+}
+
+.dropdown-menu .dropdown-menu-anim-down.dropdown-menu-anim,
+.dropup .dropdown-menu.dropdown-menu-anim {
+	-webkit-animation: animation-dropdown-menu-fade-in .3s ease 1, animation-dropdown-menu-move-down .3s ease-out 1;
+	animation: animation-dropdown-menu-fade-in .3s ease 1, animation-dropdown-menu-move-down .3s ease-out 1
+}
+
+@media (max-width:600px) {
+	.dropdown-menu {
+		width: 75vw
+	}
+}
+
+@media (min-width:205px) {
+	.dropdown-menu.dropdown-menu-sm {
+		width: 175px
+	}
+}
+
+@media (min-width:280px) {
+	.dropdown-menu.dropdown-menu-md {
+		width: 250px
+	}
+}
+
+@media (min-width:380px) {
+	.dropdown-menu.dropdown-menu-lg {
+		width: 350px
+	}
+}
+
+@media (min-width:430px) {
+	.dropdown-menu.dropdown-menu-xl {
+		width: 400px
+	}
+}
+
+@media (min-width:630px) {
+	.dropdown-menu.dropdown-menu-xxl {
+		width: 600px
+	}
+}
+
+.dropdown-inline {
+	display: inline-block
+}
+
+.dropdown.dropdown-hover:hover>.dropdown-menu {
+	display: block
+}
+
+.dropdown.dropdown-hover:hover>.dropdown-menu.dropdown-menu-right {
+	left: auto;
+	right: 0
+}
+
+.dropdown.dropdown-hover:hover>.dropdown-toggle:active {
+	pointer-events: none
+}
+
+@-webkit-keyframes animation-dropdown-menu-fade-in {
+	from {
+		opacity: 0
+	}
+	to {
+		opacity: 1
+	}
+}
+
+@keyframes animation-dropdown-menu-fade-in {
+	from {
+		opacity: 0
+	}
+	to {
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes animation-dropdown-menu-move-down {
+	from {
+		margin-top: 10px
+	}
+	to {
+		margin-top: 0
+	}
+}
+
+@keyframes animation-dropdown-menu-move-down {
+	from {
+		margin-top: 10px
+	}
+	to {
+		margin-top: 0
+	}
+}
+
+@-webkit-keyframes animation-dropdown-menu-move-up {
+	from {
+		margin-top: 10px
+	}
+	to {
+		margin-top: 0
+	}
+}
+
+@keyframes animation-dropdown-menu-move-up {
+	from {
+		margin-top: 10px
+	}
+	to {
+		margin-top: 0
+	}
+}

@@ -1,0 +1,40 @@
+.dialog {
+	width: 130px;
+	margin: 0 auto;
+	position: fixed;
+	z-index: 1100;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 1rem;
+	-webkit-box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .1);
+	box-shadow: 0 3px 12px 0 rgba(0, 0, 0, .1);
+	background-color: #fff;
+	border-radius: .42rem
+}
+
+.dialog.dialog-top-center {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	top: -100px;
+	left: 50%;
+	margin-left: -65px;
+	-webkit-transition: top .6s ease;
+	transition: top .6s ease;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0
+}
+
+.dialog.dialog-top-center.dialog-shown {
+	top: 0;
+	-webkit-transition: top .6s ease;
+	transition: top .6s ease
+}
+
+.dialog.dialog-loader {
+	font-size: 1rem;
+	padding: .75rem;
+	font-weight: 400;
+	color: #3f4254
+}

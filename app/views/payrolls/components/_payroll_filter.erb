@@ -1,38 +1,67 @@
-  <div class="column is-half is-four-fifths">
-    <div class="card">
-      <div class="card-content">
-        <div class="content">
-          <div class="columns">
-            <div class="field column">
-              <div class="control is-two-fifths">
-                <label class="label">Contrato</label>             
-                <div class="select is-two-fifths">
-                  <%= select_tag 'contract_id', options_for_select(@contracts.collect{ |contract| [contract.client.name, contract.id] }), id: "selected_contract" %>	
-                </div>
-              </div>
-            </div>        
-            <div class="field column">
-              <label class="label">Vencimento</label>
-              <div class="control">
-                <input class="input is-date is-start" type="text">
-              </div>
-            </div>          
-            <div class="field column">
-              <label class="label">Tipo</label>
-              <div class="control">
-                <label class="radio">
-                <input type="radio" name="tipo">
-                  Density
-                </label>
-                <label class="radio">
-                  <input type="radio" name="tipo">
-                  Pronto
-                </label>
-                <%= link_to 'Download as .xlsx', export_to_exel_path(format: :xlsx) %>
-              </div>
-            </div>
+<div class="card card-custom">
+  <div class="card-header">
+    <h3 class="card-title">Filtrar Contas</h3>
+  </div>
+  <div class="card-body">
+    <div class="form-group row">
+      <div class="col-lg-3">
+        <label>Contrato</label>
+        <select class="form-control" name="contract">
+          <option value="01">Guilherme Henrique</option>
+        </select>
+      </div>
+      <div class="col-lg-2">
+        <label>Data Inicio</label>
+        <div class="input-group">
+          <input type="text" class="form-control" >
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-calendar"></i>
+            </span>
           </div>
         </div>
       </div>
+      <div class="col-lg-2">
+        <label>Data Fim</label>
+        <div class="input-group">
+          <input type="text" class="form-control" >
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-calendar"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <label>Tipo</label>
+        <select class="form-control" name="contract">
+          <option value="01">Todos</option>
+          <option value="01">Density</option>
+          <option value="01">Pronto</option>
+        </select>
+      </div>
+      <div class="col-lg-3">
+        <label>Status</label>
+        <div class="radio-inline">
+          <label class="radio radio-solid">
+            <input type="radio" name="example_1" checked="checked" value="1">
+            <span></span>
+            Aberto
+          </label>
+          <label class="radio radio-solid">
+            <input type="radio" name="example_2" value="2">
+            <span></span>
+            Fechado
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-10"></div>
+      <div class="col-lg-2">
+        <button type="submit" class="btn btn-primary font-weight-bold mr-2">Filtrar</button>
+        <button type="reset" class="btn btn-light-primary font-weight-bold">Limpar</button>
+      </div>
     </div>
   </div>
+</div>

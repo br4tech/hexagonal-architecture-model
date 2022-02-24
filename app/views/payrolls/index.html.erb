@@ -1,24 +1,6 @@
-<%= content_for(:page){ "Financeiro" } %> <%= content_for(:top_actions) do %> 
-  <div class="navbar-item">
-    <div class="columns">
-      <div class="column">
-        <%= link_to root_path, class: 'button is-primary export', :remote => true do %>
-          <span class="icon">
-            <i class="material-icons">get_app</i>
-          </span>
-          <span>Exportar</span>
-        <% end %>      
-      </div>   
-    </div>
-  </div>
-<% end %>
+<%= render partial:'payrolls/components/payroll_filter'%>
+<br />
+<%= render partial:'payrolls/components/payroll_item', locals: { payrolls: @payrolls}%>
 
-<div class="columns is-mobile is-centered">
-  <%= render partial:'payrolls/components/payroll_filter'%>
-</div>
 
-<div class="columns"  data-controller="payroll">
-  <div class="column">
-    <%= render partial:'payrolls/components/payroll_item', locals: { payrolls: @payrolls}%>
-  </div>
-</div>
+

@@ -3,7 +3,7 @@
 # Main Controller
 class MainController < ApplicationController  
 
-  def index   
+  def index
     @offices = current_user.offices
     
     unless @offices.empty?

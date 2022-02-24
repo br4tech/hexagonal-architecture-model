@@ -1,3 +1,31 @@
 // Place all the styles related to the contracts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "globals/_variables";
+@import "bulma/bulma";
+@import "globals/_main";
+@import "globals/_mixins";
+
+// Components
+@import "components/_autocomplete";
+@import "components/_breadcrumb";
+@import "components/_card-info";
+@import "components/_modal";
+// @import "components/_nested_field";
+@import "components/_notification";
+@import "components/_schedule";
+@import "components/_search";
+@import "components/_sidemenu";
+@import "components/_switch";
+@import "components/_tabs";
+@import "components/_topbar";
+
+// Elements
+@import "elements/_button";
+@import "elements/_custom";
+@import "elements/_form";
+@import "elements/_text";
+@import "elements/_icons";
+

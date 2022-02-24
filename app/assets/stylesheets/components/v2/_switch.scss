@@ -1,0 +1,526 @@
+.switch {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font-size: 1rem
+}
+
+.switch label {
+	margin: 0
+}
+
+.switch input:empty {
+	margin-left: -999px;
+	height: 0;
+	width: 0;
+	overflow: hidden;
+	position: absolute;
+	opacity: 0
+}
+
+.switch input:empty~span {
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 1px;
+	text-indent: 0;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none
+}
+
+.switch input:empty~span:after,
+.switch input:empty~span:before {
+	position: absolute;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	content: " ";
+	-webkit-transition: all .1s ease-in;
+	transition: all .1s ease-in
+}
+
+.switch input[disabled] {
+	cursor: not-allowed
+}
+
+.switch input[disabled]~span:after,
+.switch input[disabled]~span:before {
+	cursor: not-allowed;
+	opacity: .5
+}
+
+.switch.switch-icon input:checked~span:after {
+	font-family: Ki;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	line-height: 1;
+	text-decoration: inherit;
+	text-rendering: optimizeLegibility;
+	text-transform: none;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	content: "";
+	line-height: 0
+}
+
+.switch input:empty~span {
+	margin: 2px 0;
+	height: 30px;
+	width: 57px;
+	border-radius: 15px
+}
+
+.switch input:empty~span:after,
+.switch input:empty~span:before {
+	width: 54px;
+	border-radius: 15px
+}
+
+.switch input:empty~span:after {
+	height: 24px;
+	width: 24px;
+	top: 3px;
+	bottom: 3px;
+	margin-left: 3px;
+	font-size: .65em;
+	text-align: center;
+	vertical-align: middle
+}
+
+.switch input:checked~span:after {
+	margin-left: 26px
+}
+
+.switch.switch-sm input:empty~span {
+	margin: 2px 0;
+	height: 24px;
+	width: 40px;
+	border-radius: 12px
+}
+
+.switch.switch-sm input:empty~span:after,
+.switch.switch-sm input:empty~span:before {
+	width: 38px;
+	border-radius: 12px
+}
+
+.switch.switch-sm input:empty~span:after {
+	height: 20px;
+	width: 20px;
+	top: 2px;
+	bottom: 2px;
+	margin-left: 2px;
+	font-size: .55em;
+	text-align: center;
+	vertical-align: middle
+}
+
+.switch.switch-sm input:checked~span:after {
+	margin-left: 16px
+}
+
+.switch.switch-lg input:empty~span {
+	margin: 2px 0;
+	height: 40px;
+	width: 75px;
+	border-radius: 20px
+}
+
+.switch.switch-lg input:empty~span:after,
+.switch.switch-lg input:empty~span:before {
+	width: 72px;
+	border-radius: 20px
+}
+
+.switch.switch-lg input:empty~span:after {
+	height: 34px;
+	width: 34px;
+	top: 3px;
+	bottom: 3px;
+	margin-left: 3px;
+	font-size: .75em;
+	text-align: center;
+	vertical-align: middle
+}
+
+.switch.switch-lg input:checked~span:after {
+	margin-left: 34px
+}
+
+.switch input:empty~span:before {
+	background-color: #ebedf3
+}
+
+.switch input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch input:checked~span:before {
+	background-color: #ebedf3
+}
+
+.switch input:checked~span:after {
+	opacity: 1;
+	color: #fff;
+	background-color: #1bc5bd
+}
+
+.switch.switch-primary:not(.switch-outline) input:empty~span:before {
+	background-color: #1bc5bd
+}
+
+.switch.switch-primary:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-primary:not(.switch-outline) input:checked~span:before {
+	background-color: #1bc5bd
+}
+
+.switch.switch-primary:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #1bc5bd;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-primary input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-primary input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-primary input:checked~span:before {
+	border: 2px solid #1bc5bd;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-primary input:checked~span:after {
+	color: #fff;
+	background-color: #1bc5bd
+}
+
+.switch.switch-secondary:not(.switch-outline) input:empty~span:before {
+	background-color: #e4e6ef
+}
+
+.switch.switch-secondary:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-secondary:not(.switch-outline) input:checked~span:before {
+	background-color: #e4e6ef
+}
+
+.switch.switch-secondary:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #e4e6ef;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-secondary input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-secondary input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-secondary input:checked~span:before {
+	border: 2px solid #e4e6ef;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-secondary input:checked~span:after {
+	color: #fff;
+	background-color: #e4e6ef
+}
+
+.switch.switch-success:not(.switch-outline) input:empty~span:before {
+	background-color: #3699ff
+}
+
+.switch.switch-success:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-success:not(.switch-outline) input:checked~span:before {
+	background-color: #3699ff
+}
+
+.switch.switch-success:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #3699ff;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-success input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-success input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-success input:checked~span:before {
+	border: 2px solid #3699ff;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-success input:checked~span:after {
+	color: #fff;
+	background-color: #3699ff
+}
+
+.switch.switch-info:not(.switch-outline) input:empty~span:before {
+	background-color: #6993ff
+}
+
+.switch.switch-info:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-info:not(.switch-outline) input:checked~span:before {
+	background-color: #6993ff
+}
+
+.switch.switch-info:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #6993ff;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-info input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-info input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-info input:checked~span:before {
+	border: 2px solid #6993ff;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-info input:checked~span:after {
+	color: #fff;
+	background-color: #6993ff
+}
+
+.switch.switch-warning:not(.switch-outline) input:empty~span:before {
+	background-color: #ffa800
+}
+
+.switch.switch-warning:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-warning:not(.switch-outline) input:checked~span:before {
+	background-color: #ffa800
+}
+
+.switch.switch-warning:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #ffa800;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-warning input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-warning input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-warning input:checked~span:before {
+	border: 2px solid #ffa800;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-warning input:checked~span:after {
+	color: #fff;
+	background-color: #ffa800
+}
+
+.switch.switch-danger:not(.switch-outline) input:empty~span:before {
+	background-color: #f64e60
+}
+
+.switch.switch-danger:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-danger:not(.switch-outline) input:checked~span:before {
+	background-color: #f64e60
+}
+
+.switch.switch-danger:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #f64e60;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-danger input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-danger input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-danger input:checked~span:before {
+	border: 2px solid #f64e60;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-danger input:checked~span:after {
+	color: #fff;
+	background-color: #f64e60
+}
+
+.switch.switch-light:not(.switch-outline) input:empty~span:before {
+	background-color: #f3f6f9
+}
+
+.switch.switch-light:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-light:not(.switch-outline) input:checked~span:before {
+	background-color: #f3f6f9
+}
+
+.switch.switch-light:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #f3f6f9;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-light input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-light input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-light input:checked~span:before {
+	border: 2px solid #f3f6f9;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-light input:checked~span:after {
+	color: #fff;
+	background-color: #f3f6f9
+}
+
+.switch.switch-dark:not(.switch-outline) input:empty~span:before {
+	background-color: #181c32
+}
+
+.switch.switch-dark:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-dark:not(.switch-outline) input:checked~span:before {
+	background-color: #181c32
+}
+
+.switch.switch-dark:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #181c32;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-dark input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-dark input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-dark input:checked~span:before {
+	border: 2px solid #181c32;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-dark input:checked~span:after {
+	color: #fff;
+	background-color: #181c32
+}
+
+.switch.switch-white:not(.switch-outline) input:empty~span:before {
+	background-color: #fff
+}
+
+.switch.switch-white:not(.switch-outline) input:empty~span:after {
+	background-color: #fff;
+	opacity: .7
+}
+
+.switch.switch-white:not(.switch-outline) input:checked~span:before {
+	background-color: #fff
+}
+
+.switch.switch-white:not(.switch-outline) input:checked~span:after {
+	opacity: 1;
+	color: #fff;
+	background-color: #fff
+}
+
+.switch.switch-outline.switch-white input:empty~span:before {
+	border: 2px solid #ebedf3;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-white input:empty~span:after {
+	background-color: #ebedf3
+}
+
+.switch.switch-outline.switch-white input:checked~span:before {
+	border: 2px solid #fff;
+	background-color: transparent
+}
+
+.switch.switch-outline.switch-white input:checked~span:after {
+	color: #fff;
+	background-color: #fff
+}

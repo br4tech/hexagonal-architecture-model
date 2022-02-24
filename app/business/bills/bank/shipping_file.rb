@@ -32,7 +32,7 @@ module Bills
         banck_account(company)
 
         all_bills.each do |bill|
-          @bank.pagamentos << bank_payments(bill)
+          @bank.pagamentos << payments(bill)
         end
 
         @banck
@@ -41,8 +41,8 @@ module Bills
       def banck_account(company)
         @bank.carteira = company.wallet
         @bank.agencia = company.agency
-        @banck.conta_corrente = company.current_account
-        @bank.digito_conta = company.digi
+        @bank.conta_corrente = company.current_account
+        @bank.digito_conta = company.digit
       end
 
       def payments(bill)

@@ -1,0 +1,1219 @@
+.text-white {
+	color: #fff!important
+}
+
+.text-inverse-white {
+	color: #3f4254!important
+}
+
+.text-light-white {
+	color: #fff!important
+}
+
+.text-hover-white,
+a.text-hover-white {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-white:hover,
+a.text-hover-white:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #fff!important
+}
+
+.text-hover-white:hover i,
+a.text-hover-white:hover i {
+	color: #fff!important
+}
+
+.text-hover-white:hover .svg-icon svg g [fill],
+a.text-hover-white:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #fff
+}
+
+.text-hover-white:hover .svg-icon svg:hover g [fill],
+a.text-hover-white:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-white,
+.hoverable:hover a.text-hover-white {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #fff!important
+}
+
+.hoverable:hover .text-hover-white i,
+.hoverable:hover a.text-hover-white i {
+	color: #fff!important
+}
+
+.hoverable:hover .text-hover-white .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-white .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #fff!important
+}
+
+.hoverable:hover .text-hover-white .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-white .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-primary {
+	color: #1bc5bd!important
+}
+
+.text-inverse-primary {
+	color: #fff!important
+}
+
+.text-light-primary {
+	color: #c9f7f5!important
+}
+
+.text-hover-primary,
+a.text-hover-primary {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-primary:hover,
+a.text-hover-primary:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #1bc5bd!important
+}
+
+.text-hover-primary:hover i,
+a.text-hover-primary:hover i {
+	color: #1bc5bd!important
+}
+
+.text-hover-primary:hover .svg-icon svg g [fill],
+a.text-hover-primary:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #1bc5bd
+}
+
+.text-hover-primary:hover .svg-icon svg:hover g [fill],
+a.text-hover-primary:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-primary,
+.hoverable:hover a.text-hover-primary {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #1bc5bd!important
+}
+
+.hoverable:hover .text-hover-primary i,
+.hoverable:hover a.text-hover-primary i {
+	color: #1bc5bd!important
+}
+
+.hoverable:hover .text-hover-primary .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-primary .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #1bc5bd!important
+}
+
+.hoverable:hover .text-hover-primary .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-primary .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-secondary {
+	color: #181c32!important
+}
+
+.text-inverse-secondary {
+	color: #3f4254!important
+}
+
+.text-light-secondary {
+	color: #ebedf3!important
+}
+
+.text-hover-secondary,
+a.text-hover-secondary {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-secondary:hover,
+a.text-hover-secondary:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #181c32!important
+}
+
+.text-hover-secondary:hover i,
+a.text-hover-secondary:hover i {
+	color: #181c32!important
+}
+
+.text-hover-secondary:hover .svg-icon svg g [fill],
+a.text-hover-secondary:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #181c32
+}
+
+.text-hover-secondary:hover .svg-icon svg:hover g [fill],
+a.text-hover-secondary:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-secondary,
+.hoverable:hover a.text-hover-secondary {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #181c32!important
+}
+
+.hoverable:hover .text-hover-secondary i,
+.hoverable:hover a.text-hover-secondary i {
+	color: #181c32!important
+}
+
+.hoverable:hover .text-hover-secondary .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-secondary .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #181c32!important
+}
+
+.hoverable:hover .text-hover-secondary .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-secondary .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-success {
+	color: #3699ff!important
+}
+
+.text-inverse-success {
+	color: #fff!important
+}
+
+.text-light-success {
+	color: #e1f0ff!important
+}
+
+.text-hover-success,
+a.text-hover-success {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-success:hover,
+a.text-hover-success:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #3699ff!important
+}
+
+.text-hover-success:hover i,
+a.text-hover-success:hover i {
+	color: #3699ff!important
+}
+
+.text-hover-success:hover .svg-icon svg g [fill],
+a.text-hover-success:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #3699ff
+}
+
+.text-hover-success:hover .svg-icon svg:hover g [fill],
+a.text-hover-success:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-success,
+.hoverable:hover a.text-hover-success {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #3699ff!important
+}
+
+.hoverable:hover .text-hover-success i,
+.hoverable:hover a.text-hover-success i {
+	color: #3699ff!important
+}
+
+.hoverable:hover .text-hover-success .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-success .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #3699ff!important
+}
+
+.hoverable:hover .text-hover-success .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-success .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-info {
+	color: #6993ff!important
+}
+
+.text-inverse-info {
+	color: #fff!important
+}
+
+.text-light-info {
+	color: #e1e9ff!important
+}
+
+.text-hover-info,
+a.text-hover-info {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-info:hover,
+a.text-hover-info:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #6993ff!important
+}
+
+.text-hover-info:hover i,
+a.text-hover-info:hover i {
+	color: #6993ff!important
+}
+
+.text-hover-info:hover .svg-icon svg g [fill],
+a.text-hover-info:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #6993ff
+}
+
+.text-hover-info:hover .svg-icon svg:hover g [fill],
+a.text-hover-info:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-info,
+.hoverable:hover a.text-hover-info {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #6993ff!important
+}
+
+.hoverable:hover .text-hover-info i,
+.hoverable:hover a.text-hover-info i {
+	color: #6993ff!important
+}
+
+.hoverable:hover .text-hover-info .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-info .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #6993ff!important
+}
+
+.hoverable:hover .text-hover-info .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-info .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-warning {
+	color: #ffa800!important
+}
+
+.text-inverse-warning {
+	color: #fff!important
+}
+
+.text-light-warning {
+	color: #fff4de!important
+}
+
+.text-hover-warning,
+a.text-hover-warning {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-warning:hover,
+a.text-hover-warning:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #ffa800!important
+}
+
+.text-hover-warning:hover i,
+a.text-hover-warning:hover i {
+	color: #ffa800!important
+}
+
+.text-hover-warning:hover .svg-icon svg g [fill],
+a.text-hover-warning:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #ffa800
+}
+
+.text-hover-warning:hover .svg-icon svg:hover g [fill],
+a.text-hover-warning:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-warning,
+.hoverable:hover a.text-hover-warning {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #ffa800!important
+}
+
+.hoverable:hover .text-hover-warning i,
+.hoverable:hover a.text-hover-warning i {
+	color: #ffa800!important
+}
+
+.hoverable:hover .text-hover-warning .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-warning .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #ffa800!important
+}
+
+.hoverable:hover .text-hover-warning .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-warning .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-danger {
+	color: #f64e60!important
+}
+
+.text-inverse-danger {
+	color: #fff!important
+}
+
+.text-light-danger {
+	color: #ffe2e5!important
+}
+
+.text-hover-danger,
+a.text-hover-danger {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-danger:hover,
+a.text-hover-danger:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #f64e60!important
+}
+
+.text-hover-danger:hover i,
+a.text-hover-danger:hover i {
+	color: #f64e60!important
+}
+
+.text-hover-danger:hover .svg-icon svg g [fill],
+a.text-hover-danger:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #f64e60
+}
+
+.text-hover-danger:hover .svg-icon svg:hover g [fill],
+a.text-hover-danger:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-danger,
+.hoverable:hover a.text-hover-danger {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #f64e60!important
+}
+
+.hoverable:hover .text-hover-danger i,
+.hoverable:hover a.text-hover-danger i {
+	color: #f64e60!important
+}
+
+.hoverable:hover .text-hover-danger .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-danger .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #f64e60!important
+}
+
+.hoverable:hover .text-hover-danger .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-danger .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-light {
+	color: #f3f6f9!important
+}
+
+.text-inverse-light {
+	color: #7e8299!important
+}
+
+.text-light-light {
+	color: #f3f6f9!important
+}
+
+.text-hover-light,
+a.text-hover-light {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-light:hover,
+a.text-hover-light:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #f3f6f9!important
+}
+
+.text-hover-light:hover i,
+a.text-hover-light:hover i {
+	color: #f3f6f9!important
+}
+
+.text-hover-light:hover .svg-icon svg g [fill],
+a.text-hover-light:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #f3f6f9
+}
+
+.text-hover-light:hover .svg-icon svg:hover g [fill],
+a.text-hover-light:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-light,
+.hoverable:hover a.text-hover-light {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #f3f6f9!important
+}
+
+.hoverable:hover .text-hover-light i,
+.hoverable:hover a.text-hover-light i {
+	color: #f3f6f9!important
+}
+
+.hoverable:hover .text-hover-light .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-light .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #f3f6f9!important
+}
+
+.hoverable:hover .text-hover-light .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-light .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-dark {
+	color: #181c32!important
+}
+
+.text-inverse-dark {
+	color: #fff!important
+}
+
+.text-light-dark {
+	color: #d1d3e0!important
+}
+
+.text-hover-dark,
+a.text-hover-dark {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-dark:hover,
+a.text-hover-dark:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #181c32!important
+}
+
+.text-hover-dark:hover i,
+a.text-hover-dark:hover i {
+	color: #181c32!important
+}
+
+.text-hover-dark:hover .svg-icon svg g [fill],
+a.text-hover-dark:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #181c32
+}
+
+.text-hover-dark:hover .svg-icon svg:hover g [fill],
+a.text-hover-dark:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-dark,
+.hoverable:hover a.text-hover-dark {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #181c32!important
+}
+
+.hoverable:hover .text-hover-dark i,
+.hoverable:hover a.text-hover-dark i {
+	color: #181c32!important
+}
+
+.hoverable:hover .text-hover-dark .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-dark .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #181c32!important
+}
+
+.hoverable:hover .text-hover-dark .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-dark .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-dark-75 {
+	color: #3f4254!important
+}
+
+.text-hover-dark-75,
+a.text-hover-dark-75 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-dark-75:hover,
+a.text-hover-dark-75:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #3f4254!important
+}
+
+.text-hover-dark-75:hover i,
+a.text-hover-dark-75:hover i {
+	color: #3f4254!important
+}
+
+.text-hover-dark-75:hover .svg-icon svg g [fill],
+a.text-hover-dark-75:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #3f4254
+}
+
+.text-hover-dark-75:hover .svg-icon svg:hover g [fill],
+a.text-hover-dark-75:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-dark-75,
+.hoverable:hover a.text-hover-dark-75 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #3f4254!important
+}
+
+.hoverable:hover .text-hover-dark-75 i,
+.hoverable:hover a.text-hover-dark-75 i {
+	color: #3f4254!important
+}
+
+.hoverable:hover .text-hover-dark-75 .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-dark-75 .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #3f4254!important
+}
+
+.hoverable:hover .text-hover-dark-75 .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-dark-75 .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-dark-65 {
+	color: #5e6278!important
+}
+
+.text-hover-dark-65,
+a.text-hover-dark-65 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-dark-65:hover,
+a.text-hover-dark-65:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #5e6278!important
+}
+
+.text-hover-dark-65:hover i,
+a.text-hover-dark-65:hover i {
+	color: #5e6278!important
+}
+
+.text-hover-dark-65:hover .svg-icon svg g [fill],
+a.text-hover-dark-65:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #5e6278
+}
+
+.text-hover-dark-65:hover .svg-icon svg:hover g [fill],
+a.text-hover-dark-65:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-dark-65,
+.hoverable:hover a.text-hover-dark-65 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #5e6278!important
+}
+
+.hoverable:hover .text-hover-dark-65 i,
+.hoverable:hover a.text-hover-dark-65 i {
+	color: #5e6278!important
+}
+
+.hoverable:hover .text-hover-dark-65 .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-dark-65 .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #5e6278!important
+}
+
+.hoverable:hover .text-hover-dark-65 .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-dark-65 .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-dark-50 {
+	color: #7e8299!important
+}
+
+.text-hover-dark-50,
+a.text-hover-dark-50 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-dark-50:hover,
+a.text-hover-dark-50:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #7e8299!important
+}
+
+.text-hover-dark-50:hover i,
+a.text-hover-dark-50:hover i {
+	color: #7e8299!important
+}
+
+.text-hover-dark-50:hover .svg-icon svg g [fill],
+a.text-hover-dark-50:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #7e8299
+}
+
+.text-hover-dark-50:hover .svg-icon svg:hover g [fill],
+a.text-hover-dark-50:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-dark-50,
+.hoverable:hover a.text-hover-dark-50 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #7e8299!important
+}
+
+.hoverable:hover .text-hover-dark-50 i,
+.hoverable:hover a.text-hover-dark-50 i {
+	color: #7e8299!important
+}
+
+.hoverable:hover .text-hover-dark-50 .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-dark-50 .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #7e8299!important
+}
+
+.hoverable:hover .text-hover-dark-50 .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-dark-50 .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-dark-25 {
+	color: #d1d3e0!important
+}
+
+.text-hover-dark-25,
+a.text-hover-dark-25 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-dark-25:hover,
+a.text-hover-dark-25:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #d1d3e0!important
+}
+
+.text-hover-dark-25:hover i,
+a.text-hover-dark-25:hover i {
+	color: #d1d3e0!important
+}
+
+.text-hover-dark-25:hover .svg-icon svg g [fill],
+a.text-hover-dark-25:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #d1d3e0
+}
+
+.text-hover-dark-25:hover .svg-icon svg:hover g [fill],
+a.text-hover-dark-25:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-dark-25,
+.hoverable:hover a.text-hover-dark-25 {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #d1d3e0!important
+}
+
+.hoverable:hover .text-hover-dark-25 i,
+.hoverable:hover a.text-hover-dark-25 i {
+	color: #d1d3e0!important
+}
+
+.hoverable:hover .text-hover-dark-25 .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-dark-25 .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #d1d3e0!important
+}
+
+.hoverable:hover .text-hover-dark-25 .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-dark-25 .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.text-muted {
+	color: #b5b5c3!important
+}
+
+.text-hover-muted,
+a.text-hover-muted {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease
+}
+
+.text-hover-muted:hover,
+a.text-hover-muted:hover {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #b5b5c3!important
+}
+
+.text-hover-muted:hover i,
+a.text-hover-muted:hover i {
+	color: #b5b5c3!important
+}
+
+.text-hover-muted:hover .svg-icon svg g [fill],
+a.text-hover-muted:hover .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #b5b5c3
+}
+
+.text-hover-muted:hover .svg-icon svg:hover g [fill],
+a.text-hover-muted:hover .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.hoverable:hover .text-hover-muted,
+.hoverable:hover a.text-hover-muted {
+	-webkit-transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, -webkit-box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
+	transition: color .15s ease, background-color .15s ease, border-color .15s ease, box-shadow .15s ease, -webkit-box-shadow .15s ease;
+	color: #b5b5c3!important
+}
+
+.hoverable:hover .text-hover-muted i,
+.hoverable:hover a.text-hover-muted i {
+	color: #b5b5c3!important
+}
+
+.hoverable:hover .text-hover-muted .svg-icon svg g [fill],
+.hoverable:hover a.text-hover-muted .svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #b5b5c3!important
+}
+
+.hoverable:hover .text-hover-muted .svg-icon svg:hover g [fill],
+.hoverable:hover a.text-hover-muted .svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.justify-content-start {
+	-webkit-box-pack: start!important;
+	-ms-flex-pack: start!important;
+	justify-content: flex-start!important
+}
+
+.justify-content-end {
+	-webkit-box-pack: end!important;
+	-ms-flex-pack: end!important;
+	justify-content: flex-end!important
+}
+
+.justify-content-center {
+	-webkit-box-pack: center!important;
+	-ms-flex-pack: center!important;
+	justify-content: center!important
+}
+
+.justify-content-between {
+	-webkit-box-pack: justify!important;
+	-ms-flex-pack: justify!important;
+	justify-content: space-between!important
+}
+
+.justify-content-around {
+	-ms-flex-pack: distribute!important;
+	justify-content: space-around!important
+}
+
+.align-items-start {
+	-webkit-box-align: start!important;
+	-ms-flex-align: start!important;
+	align-items: flex-start!important
+}
+
+.align-items-end {
+	-webkit-box-align: end!important;
+	-ms-flex-align: end!important;
+	align-items: flex-end!important
+}
+
+.align-items-center {
+	-webkit-box-align: center!important;
+	-ms-flex-align: center!important;
+	align-items: center!important
+}
+
+.align-items-baseline {
+	-webkit-box-align: baseline!important;
+	-ms-flex-align: baseline!important;
+	align-items: baseline!important
+}
+
+.align-items-stretch {
+	-webkit-box-align: stretch!important;
+	-ms-flex-align: stretch!important;
+	align-items: stretch!important
+}
+
+.align-content-start {
+	-ms-flex-line-pack: start!important;
+	align-content: flex-start!important
+}
+
+.align-content-end {
+	-ms-flex-line-pack: end!important;
+	align-content: flex-end!important
+}
+
+.align-content-center {
+	-ms-flex-line-pack: center!important;
+	align-content: center!important
+}
+
+.align-content-between {
+	-ms-flex-line-pack: justify!important;
+	align-content: space-between!important
+}
+
+.align-content-around {
+	-ms-flex-line-pack: distribute!important;
+	align-content: space-around!important
+}
+
+.align-content-stretch {
+	-ms-flex-line-pack: stretch!important;
+	align-content: stretch!important
+}
+
+.align-self-auto {
+	-ms-flex-item-align: auto!important;
+	align-self: auto!important
+}
+
+.align-self-start {
+	-ms-flex-item-align: start!important;
+	align-self: flex-start!important
+}
+
+.align-self-end {
+	-ms-flex-item-align: end!important;
+	align-self: flex-end!important
+}
+
+.align-self-center {
+	-ms-flex-item-align: center!important;
+	align-self: center!important
+}
+
+.align-self-baseline {
+	-ms-flex-item-align: baseline!important;
+	align-self: baseline!important
+}
+
+.align-self-stretch {
+	-ms-flex-item-align: stretch!important;
+	align-self: stretch!important
+}
+.text-monospace {
+	font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace!important
+}
+
+.text-justify {
+	text-align: justify!important
+}
+
+.text-wrap {
+	white-space: normal!important
+}
+
+.text-nowrap {
+	white-space: nowrap!important
+}
+
+.text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.text-left {
+	text-align: left!important
+}
+
+.text-right {
+	text-align: right!important
+}
+
+.text-center {
+	text-align: center!important
+}
+
+@media (min-width:576px) {
+	.text-sm-left {
+		text-align: left!important
+	}
+	.text-sm-right {
+		text-align: right!important
+	}
+	.text-sm-center {
+		text-align: center!important
+	}
+}
+
+@media (min-width:768px) {
+	.text-md-left {
+		text-align: left!important
+	}
+	.text-md-right {
+		text-align: right!important
+	}
+	.text-md-center {
+		text-align: center!important
+	}
+}
+
+@media (min-width:992px) {
+	.text-lg-left {
+		text-align: left!important
+	}
+	.text-lg-right {
+		text-align: right!important
+	}
+	.text-lg-center {
+		text-align: center!important
+	}
+}
+
+@media (min-width:1200px) {
+	.text-xl-left {
+		text-align: left!important
+	}
+	.text-xl-right {
+		text-align: right!important
+	}
+	.text-xl-center {
+		text-align: center!important
+	}
+}
+
+@media (min-width:1400px) {
+	.text-xxl-left {
+		text-align: left!important
+	}
+	.text-xxl-right {
+		text-align: right!important
+	}
+	.text-xxl-center {
+		text-align: center!important
+	}
+}
+
+.text-lowercase {
+	text-transform: lowercase!important
+}
+
+.text-uppercase {
+	text-transform: uppercase!important
+}
+
+.text-capitalize {
+	text-transform: capitalize!important
+}

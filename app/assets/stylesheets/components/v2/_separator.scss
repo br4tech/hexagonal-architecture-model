@@ -1,0 +1,59 @@
+.separator {
+	height: 0
+}
+
+.separator.separator-dashed {
+	border-bottom: 1px dashed #ebedf3
+}
+
+.separator.separator-solid {
+	border-bottom: 1px solid #ebedf3
+}
+
+.separator.separator-border-2 {
+	border-bottom-width: 2px
+}
+
+.separator.separator-border-3 {
+	border-bottom-width: 3px
+}
+
+.separator.separator-border-4 {
+	border-bottom-width: 4px
+}
+
+.separator.separator-primary {
+	border-bottom-color: #1bc5bd
+}
+
+.separator.separator-secondary {
+	border-bottom-color: #e4e6ef
+}
+
+.separator.separator-success {
+	border-bottom-color: #3699ff
+}
+
+.separator.separator-info {
+	border-bottom-color: #6993ff
+}
+
+.separator.separator-warning {
+	border-bottom-color: #ffa800
+}
+
+.separator.separator-danger {
+	border-bottom-color: #f64e60
+}
+
+.separator.separator-light {
+	border-bottom-color: #f3f6f9
+}
+
+.separator.separator-dark {
+	border-bottom-color: #181c32
+}
+
+.separator.separator-white {
+	border-bottom-color: #fff
+}

@@ -1,12 +1,17 @@
-<nav class="navbar is-transparent" role="navigation" aria-label="dropdown navigation">
-  <div id="topbar" class="navbar-menu">
-    <div class="navbar-item">
-      <h3 class="title"><%= yield :page %></h3>
+<div class="subheader py-3 py-lg-8 subheader-transparent">
+  <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+    <div class="d-flex align-items-center mr-1">
+      <div class="d-flex align-items-baseline flex-wrap mr-5">
+        <h2 class="d-flex align-items-center text-dark font-weight-bold my-1 mr-3">
+          Pronto Consultorio
+        </h2>
+      </div>
     </div>
-
-    <div class="navbar-end">
-      <%= yield :top_actions %>
-      <%= render 'layouts/partials/user-menu' %>
+    <div class="d-flex align-items-center flex-wrap">
+      <a href="#" class="btn button-color btn-fixed-height px-2 px-lg-5 mr-2">
+        <i class="fa fa-user"></i> <%=  current_user.name %>
+      </a>
+      <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-icon font-weight-bold' %>
     </div>
   </div>
-</nav>
+</div>

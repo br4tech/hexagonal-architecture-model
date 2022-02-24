@@ -1,0 +1,85 @@
+.tooltip {
+	position: absolute;
+	z-index: 1070;
+	display: block;
+	margin: 0;
+	font-family: Poppins, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: left;
+	text-align: start;
+	text-decoration: none;
+	text-shadow: none;
+	text-transform: none;
+	letter-spacing: normal;
+	word-break: normal;
+	word-spacing: normal;
+	white-space: normal;
+	line-break: auto;
+	font-size: .9rem;
+	word-wrap: break-word;
+	opacity: 0
+}
+
+.tooltip.show {
+	opacity: 1
+}
+
+.tooltip .arrow {
+	position: absolute;
+	display: block;
+	width: .8rem;
+	height: .4rem
+}
+
+.tooltip .arrow::before {
+	position: absolute;
+	content: "";
+	border-color: transparent;
+	border-style: solid
+}
+
+.tooltip-inner {
+	max-width: 200px;
+	padding: .75rem 1rem;
+	color: #3f4254;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 3px
+}
+
+.tooltip .tooltip-inner {
+	-webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, .15)
+}
+
+.tooltip.tooltop-auto-width .tooltip-inner {
+	white-space: nowrap;
+	max-width: none
+}
+
+.tooltip.tooltip-dark .tooltip-inner {
+	color: #fff;
+	background-color: #181c32
+}
+
+.tooltip.tooltip-dark.bs-tooltip-auto[x-placement^=top] .arrow::before,
+.tooltip.tooltip-dark.bs-tooltip-top .arrow::before {
+	border-top-color: #181c32
+}
+
+.tooltip.tooltip-dark.bs-tooltip-auto[x-placement^=right] .arrow::before,
+.tooltip.tooltip-dark.bs-tooltip-right .arrow::before {
+	border-right-color: #181c32
+}
+
+.tooltip.tooltip-dark.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.tooltip.tooltip-dark.bs-tooltip-bottom .arrow::before {
+	border-bottom-color: #181c32
+}
+
+.tooltip.tooltip-dark.bs-tooltip-auto[x-placement^=left] .arrow::before,
+.tooltip.tooltip-dark.bs-tooltip-left .arrow::before {
+	border-left-color: #181c32
+}

@@ -1,0 +1,72 @@
+.option {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	padding: 1.4em;
+	border: 1px solid #ebedf3;
+	border-radius: .42rem
+}
+
+.option .option-control {
+	width: 2.7rem;
+	padding-top: .1rem
+}
+
+.option .option-control .kt-radio {
+	display: block
+}
+
+.option .option-label {
+	width: 100%
+}
+
+.option .option-label .option-head {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between
+}
+
+.option .option-label .option-head .option-title {
+	font-size: 1.1rem;
+	font-weight: 500;
+	color: #3f4254
+}
+
+.option .option-label .option-head .option-focus {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: #181c32
+}
+
+.option .option-label .option-body {
+	display: block;
+	padding-top: .7rem;
+	font-size: .9rem;
+	color: #b5b5c3
+}
+
+.option.option-plain {
+	border: 0;
+	padding: 0;
+	margin-top: -.2rem;
+	margin-bottom: 2rem;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center
+}
+
+.option.option-plain .option-control {
+	vertical-align: middle;
+	width: 2.7rem
+}
+
+.option.option-plain .option-control .radio {
+	margin-bottom: 1.6rem
+}
+
+.option.option-plain .option-label .option-body {
+	padding-top: .2rem
+}

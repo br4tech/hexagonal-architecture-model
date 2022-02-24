@@ -2,21 +2,19 @@
 
 # Controller payrolls
 class PayrollsController < ApplicationController
+
+  before_action :load_bills
+
   def index
     @contracts = ContractCombo.includes(:client).order('clients.name')
-    reference_date = DateTime.now + 1.month
-    @payrolls = Bills::ReportBills.new(reference_date).generate
-    
-    binding.pry
-    
   end
 
   def show; end
 
   def export_payroll
-    @export = ExportPayrollService.new(params[:payrolls])
-    remessa = @export.create_remessa
-
+    shipping = Bills::Bank::ShippingFile.new(params[:payrolls], 1)
+    remessa = shipping.generate_shipping 
+    
     send_data remessa, content_type: 'text/plain', filename: 'remessa.rst', disposition: 'attachment'
   end
 
@@ -34,6 +32,11 @@ class PayrollsController < ApplicationController
   end
 
   private
+
+  def load_bills
+    reference_date = DateTime.now + 1.month
+    @payrolls = Bills::ReportBills.new(reference_date).generate
+  end
 
   def export_params
     params.require(:export).permit(payrolls: {})

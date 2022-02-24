@@ -15,7 +15,9 @@ module Bills
         hash = {}
         hash[:id] = bill.id
         hash[:client] = bill.contract.client.name
+        hash[:document] = bill.contract.client.document
         hash[:kind] = contract_type(bill.contract.category)
+        hash[:due_at] = bill.due_at
         hash[:items] = sub_plan(bill.id)
         hash[:sum_amount] = contract_type_private(bill)
         @plan << hash

@@ -1,0 +1,58 @@
+.list .list-item .list-title {
+	-webkit-transition: all .15s ease;
+	transition: all .15s ease
+}
+
+.list .list-item .list-hidden {
+	opacity: 0;
+	-webkit-transition: all .15s ease;
+	transition: all .15s ease
+}
+
+.list .list-item.active .list-title,
+.list .list-item:hover .list-title {
+	-webkit-transition: all .15s ease;
+	transition: all .15s ease;
+	color: #1bc5bd!important
+}
+
+.list .list-item.active .list-hidden,
+.list .list-item:hover .list-hidden {
+	opacity: 1;
+	-webkit-transition: all .15s ease;
+	transition: all .15s ease
+}
+
+.list.list-border .list-item {
+	border-bottom: 1px solid #ebedf3
+}
+
+.list.list-border .list-item:last-child {
+	border-bottom: 0
+}
+
+.list.list-dashed .list-item {
+	border-bottom: 1px dashed #ebedf3
+}
+
+.list.list-dashed .list-item:last-child {
+	border-bottom: 0
+}
+
+.list.list-hover .list-item {
+	cursor: pointer;
+	border-radius: .42rem
+}
+
+.list.list-hover .list-item:hover {
+	-webkit-transition: all .15s ease;
+	transition: all .15s ease;
+	background-color: #f3f6f9;
+	cursor: pointer
+}
+
+.list.list-hover .list-item.active {
+	-webkit-transition: all .15s ease;
+	transition: all .15s ease;
+	background-color: #f0f3f7
+}

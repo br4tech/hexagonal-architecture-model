@@ -10,33 +10,25 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>    
   </head>
   <body>
-    <div class="container is-fluid is-marginless">
-      <%= render 'layouts/partials/sidemenu' %>
-
-      <div class="content" id="main">
-        <%= render 'layouts/partials/topbar' %>
-
-        <div class="yield">
-          <div class="container is-fluid">
-            <% flash.each do |type, message| %>
-              <div class="notification <%= flash_style(type) %>">
-                <%= message %>
+    <div class="d-flex flex-column flex-root">
+      <div class="d-flex flex-row flex-column-fluid page">
+        <%= render 'layouts/partials/sidemenu' %>
+        <div class="d-flex flex-column flex-row-fluid wrapper">
+          <div class="content d-flex flex-column flex-column-fluid">
+            <%= render 'layouts/partials/topbar' %>
+            <div class="d-flex flex-column-fluid">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 col-xxl-12">
+                    <%= yield %>
+                  </div>
+                </div>
               </div>
-            <% end %> 
-
-            <div id="root" data-resource="<%= controller_name %>">
-              <%= yield %>
             </div>
           </div>
-          
-          <div class="pageloader">
-            <span class="title">Processando</span>
-          </div>   
         </div>
-      </div><!-- /.content -->
-
-    </div>
-    
+      </div>
+    </div>    
     <%= yield :js %>
   </body>
 </html>

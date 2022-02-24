@@ -4,14 +4,21 @@ export default class extends Controller {
   
   connect(){  
     var cardToggles = document.getElementsByClassName('card-toggle');
+    
     for (let i = 0; i < cardToggles.length; i++) {
       cardToggles[i].addEventListener('click', e => {
-        e.currentTarget.parentElement.parentElement.childNodes[3].classList.toggle('is-hidden');
+        let count = 3
+        let position = e.currentTarget.children[1].value 
+        if(position > 0){
+          for(let i = 0; i < position; i++){
+            count += 4;
+          }
+        }      
+        e.currentTarget.parentElement.parentElement.parentElement.childNodes[count].classList.toggle('is-hidden');
       });
     } 
 
     $(".chk_all").on("click", function() {
-      console.log("aqui")  
       if (this.checked) {
         $(".checkbox").each(function() {
           this.checked = true;
@@ -23,12 +30,13 @@ export default class extends Controller {
       }
     });
      
-    $(".export").on("click", function() {   
+    $(".shipping_file").on("click", function() {   
       var payrolls = [];
 
       $(".chk_group:checked").each(function() {
         payrolls.push(this.value);
       });
+      console.log("aqui")
 
       $.ajax({
         type: "POST",

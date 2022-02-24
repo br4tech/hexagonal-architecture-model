@@ -1,0 +1,402 @@
+svg-icon svg {
+	height: 2.5rem   !important;
+	width: 2.5rem   !important;
+}
+
+.svg-icon svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #b5b5c3;
+}
+
+.svg-icon svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+}
+
+.svg-icon.svg-icon-white svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #fff   !important;
+}
+
+.svg-icon.svg-icon-white svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+}
+
+.svg-icon.svg-logo-white svg path {
+	fill: #fff  !important;
+}
+
+.svg-icon.svg-icon-primary svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #1bc5bd   !important;
+}
+
+.svg-icon.svg-icon-primary svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+}
+
+.svg-icon.svg-logo-primary svg path {
+	fill: #1bc5bd   !important;
+}
+
+.svg-icon.svg-icon-secondary svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #181c32   !important;
+}
+
+.svg-icon.svg-icon-secondary svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+}
+
+.svg-icon.svg-logo-secondary svg path {
+	fill: #181c32   !important;
+}
+
+.svg-icon.svg-icon-success svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #3699ff   !important;
+}
+
+.svg-icon.svg-icon-success svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-success svg path {
+	fill: #3699ff !important;
+}
+
+.svg-icon.svg-icon-info svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #6993ff !important;
+}
+
+.svg-icon.svg-icon-info svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-info svg path {
+	fill: #6993ff !important;
+}
+
+.svg-icon.svg-icon-warning svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #ffa800 !important;
+}
+
+.svg-icon.svg-icon-warning svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-warning svg path {
+	fill: #ffa800 !important;
+}
+
+.svg-icon.svg-icon-danger svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #f64e60 !important;
+}
+
+.svg-icon.svg-icon-danger svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-danger svg path {
+	fill: #f64e60 !important;
+}
+
+.svg-icon.svg-icon-light svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #f3f6f9 !important;
+}
+
+.svg-icon.svg-icon-light svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-light svg path {
+	fill: #f3f6f9 !important;
+}
+
+.svg-icon.svg-icon-dark svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #181c32 !important;
+}
+
+.svg-icon.svg-icon-dark svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-dark svg path {
+	fill: #181c32 !important;
+}
+
+.svg-icon.svg-icon-dark-75 svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #3f4254 !important;
+}
+
+.svg-icon.svg-icon-dark-75 svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-dark-75 svg path {
+	fill: #3f4254 !important;
+}
+
+.svg-icon.svg-icon-dark-65 svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #5e6278 !important;
+}
+
+.svg-icon.svg-icon-dark-65 svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-dark-65 svg path {
+	fill: #5e6278 !important;
+}
+
+.svg-icon.svg-icon-dark-50 svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #7e8299 !important;
+}
+
+.svg-icon.svg-icon-dark-50 svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-dark-50 svg path {
+	fill: #7e8299 !important;
+}
+
+.svg-icon.svg-icon-dark-25 svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #d1d3e0 !important;
+}
+
+.svg-icon.svg-icon-dark-25 svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-dark-25 svg path {
+	fill: #d1d3e0 !important;
+}
+
+.svg-icon.svg-icon-muted svg g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease;
+	fill: #b5b5c3 !important;
+}
+
+.svg-icon.svg-icon-muted svg:hover g [fill] {
+	-webkit-transition: fill .3s ease;
+	transition: fill .3s ease
+}
+
+.svg-icon.svg-logo-muted svg path {
+	fill: #b5b5c3 !important;
+}
+
+.svg-icon.svg-icon-sm svg {
+	height: 1.25rem   !important;
+	width: 1.25rem   !important;
+}
+
+.svg-icon.svg-icon-md svg {
+	height: 1.5rem   !important;
+	width: 1.5rem   !important;
+}
+
+.svg-icon.svg-icon-lg svg {
+	height: 1.75rem   !important;
+	width: 1.75rem   !important;
+}
+
+.svg-icon.svg-icon-xl svg {
+	height: 2rem   !important;
+	width: 2rem  !important;
+}
+
+.svg-icon.svg-icon-xxl svg {
+	height: 2.25rem   !important;
+	width: 2.25rem   !important;
+}
+
+.svg-icon.svg-icon-1x svg {
+	height: 1rem   !important;
+	width: 1rem   !important;
+}
+
+.svg-icon.svg-icon-2x svg {
+	height: 2rem   !important;
+	width: 2rem   !important;
+}
+
+.svg-icon.svg-icon-3x svg {
+	height: 3rem   !important;
+	width: 3rem   !important;
+}
+
+.svg-icon.svg-icon-4x svg {
+	height: 4rem   !important;
+	width: 4rem   !important;
+}
+
+.svg-icon.svg-icon-5x svg {
+	height: 5rem   !important;
+	width: 5rem   !important;
+}
+
+.svg-icon.svg-icon-6x svg {
+	height: 6rem   !important;
+	width: 6rem   !important;
+}
+
+.svg-icon.svg-icon-7x svg {
+	height: 7rem   !important;
+	width: 7rem   !important;
+}
+
+.svg-icon.svg-icon-8x svg {
+	height: 8rem   !important;
+	width: 8rem   !important;
+}
+
+.svg-icon.svg-icon-9x svg {
+	height: 9rem   !important;
+	width: 9rem   !important;
+}
+
+.svg-icon.svg-icon-10x svg {
+	height: 10rem   !important;
+	width: 10rem   !important;
+}
+
+.svg-icon.svg-icon-full svg {
+	height: 100%  !important;
+	width: 100% !important;
+}
+
+.svg-icon.svg-icon-flip svg {
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+}
+
+.svg.svg-fill-white {
+	fill: #fff !important;
+}
+
+.svg.svg-fill-light-white {
+	fill: #fff !important;
+}
+
+.svg.svg-fill-primary {
+	fill: #1bc5bd !important;
+}
+
+.svg.svg-fill-light-primary {
+	fill: #c9f7f5 !important;
+}
+
+.svg.svg-fill-secondary {
+	fill: #181c32 !important;
+}
+
+.svg.svg-fill-light-secondary {
+	fill: #ebedf3 !important;
+}
+
+.svg.svg-fill-success {
+	fill: #3699ff !important;
+}
+
+.svg.svg-fill-light-success {
+	fill: #e1f0ff !important;
+}
+
+.svg.svg-fill-info {
+	fill: #6993ff !important;
+}
+
+.svg.svg-fill-light-info {
+	fill: #e1e9ff !important;
+}
+
+.svg.svg-fill-warning {
+	fill: #ffa800 !important;
+}
+
+.svg.svg-fill-light-warning {
+	fill: #fff4de !important;
+}
+
+.svg.svg-fill-danger {
+	fill: #f64e60 !important;
+}
+
+.svg.svg-fill-light-danger {
+	fill: #ffe2e5 !important;
+}
+
+.svg.svg-fill-light {
+	fill: #f3f6f9 !important;
+}
+
+.svg.svg-fill-light-light {
+	fill: #f3f6f9 !important;
+}
+
+.svg.svg-fill-dark {
+	fill: #181c32 !important;
+}
+
+.svg.svg-fill-light-dark {
+	fill: #d1d3e0 !important;
+}
+
+.svg.svg-fill-dark-75 {
+	fill: #3f4254 !important;
+}
+
+.svg.svg-fill-dark-65 {
+	fill: #5e6278 !important;
+}
+
+.svg.svg-fill-dark-50 {
+	fill: #7e8299 !important;
+}
+
+.svg.svg-fill-dark-25 {
+	fill: #d1d3e0 !important;
+}
+
+.svg.svg-fill-muted {
+	fill: #b5b5c3 !important;
+}
