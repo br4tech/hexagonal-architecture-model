@@ -1,9 +1,14 @@
 # frozen_string_literal: true
 
+# Controller payrolls
 class PayrollsController < ApplicationController
   def index
-    @contracts =  ContractCombo.includes(:client).order('clients.name') 
-    @payrolls = Payroll.all
+    @contracts = ContractCombo.includes(:client).order('clients.name')
+    reference_date = DateTime.now + 1.month
+    @payrolls = Bills::ReportBills.new(reference_date).generate
+    
+    binding.pry
+    
   end
 
   def show; end
@@ -12,7 +17,7 @@ class PayrollsController < ApplicationController
     @export = ExportPayrollService.new(params[:payrolls])
     remessa = @export.create_remessa
 
-    send_data remessa, :content_type => 'text/plain', :filename => "remessa.rst" , :disposition => "attachment"
+    send_data remessa, content_type: 'text/plain', filename: 'remessa.rst', disposition: 'attachment'
   end
 
   def reprocess_payroll
@@ -20,7 +25,7 @@ class PayrollsController < ApplicationController
   end
 
   def export_to_exel
-    reference_date =  DateTime.now + 1.month
+    reference_date = DateTime.now + 1.month
     @bills = Bills::ReportBills.new(reference_date).generate
 
     respond_to do |format|
