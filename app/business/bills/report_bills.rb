@@ -41,7 +41,7 @@ module Bills
     def contract_type_private(bill)
       items = sub_plan(bill.id)
       if bill.contract.kind.zero?
-        items.inject(0) { |sum, item| sum + item[:amount]}.to_f
+        items.inject(0) { |sum, item| sum + item[:amount] }.to_f
       else
         bill.contract.amount.to_f
       end

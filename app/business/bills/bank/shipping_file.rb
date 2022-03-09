@@ -46,30 +46,41 @@ module Bills
       end
 
       def payments(bill)
-        @payments = Brcobranca::Remessa::Pagamento.new
-        @payments.numero = bill.id
-        @payments.data_vencimento = bill.due_at
-        @payments.valor = bill.sum_amount
-        @payments.nosso_numero = "45#{bill.id} + #{bill.contract.id}".to_i
+        @payments = []
+        @payment = Brcobranca::Remessa::Pagamento.new
+        @payment.numero = bill.id
+        @payment.data_vencimento = bill.due_at
+        @payment.valor = payments_amount(bill)
+        @payment.nosso_numero = "45#{bill.id} + #{bill.contract.id}".to_i
         payment_defaults
         client_shipping(bill.contract.client)
-
-        @payments
+        
+        binding.pry
+        
+        @payments << @payment
       end
 
       def client_shipping(client)
-        @payments.nome_sacado = client.name
-        @payments.bairro_sacado = client.neighborhood
-        @payments.cep_sacado =  client.zipcode.gsub('-', '')
-        @payments.endereco_sacado = "#{client.street} + Nº #{client.number} + Complemento: #{client.complement}"
-        @payments.cidade_sacado = client.city
-        @payments.uf_sacado = client.state
+        @payment.nome_sacado = client.name
+        @payment.bairro_sacado = client.neighborhood
+        @payment.cep_sacado =  client.zipcode.gsub('-', '')
+        @payment.endereco_sacado = "#{client.street} + Nº #{client.number} + Complemento: #{client.complement}"
+        @payment.cidade_sacado = client.city
+        @payment.uf_sacado = client.state
       end
 
       def payment_defaults
-        @payments.codigo_multa = '2'
-        @payments.percentual_multa = 10.0
-        @payments.valor_mora = 0.03
+        @payment.codigo_multa = '2'
+        @payment.percentual_multa = 10.0
+        @payment.valor_mora = 0.03
+      end
+      
+      def payments_amount(bill)    
+        if bill.contract.kind.zero?
+          bill.payroll_items.inject(0) { |sum, item| sum + item[:amount] }.to_f
+        else
+          bill.contract.amount.to_f
+        end
       end
     end
   end
