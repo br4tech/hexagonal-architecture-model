@@ -1,34 +1,76 @@
-<% @contracts.each do |combo| %>
-<div class="doctors">
-  <div class="card card-info">
-    <div class="card-content">
-      <div class="columns columns-data">
-        <div class="column is-two-quarters-tablet is-4-widescreen">
-          <div class="name">
-            <h4><%= combo.client.name %></h4>
-          </div>
-        </div>
-
-        <div class="column is-hidden-tablet-only is-2-desktop">
-          <i class="material-icons">calendar_today</i> Início <%= l(combo.starts_at) %>
-        </div>
-
-        <div class="column is-hidden-tablet-only is-2-desktop">
-          <i class="material-icons">calendar_today</i> Término <%= l(combo.ends_at) %>
-        </div>
-
-        <div class="column is-one-quarter-tablet is-2-desktop">
-          <i class="material-icons">room</i> <%= t('activerecord.models.office', count: combo.offices.count) %> <%= names_for(combo.offices) %>
-        </div>
-
-        <div class="column is-one-quarter-tablet is-2-desktop">
-          <%= link_to 'Ver Contrato', combo_client_path(combo.client, combo.id, :pronto), class: "button is-primary is-outlined is-fullwidth is-small" %>
-        </div>
-      </div>
+<div class="card card-custom card-stretch gutter-b">
+  <div class="card-header border-0 py-5">
+    <h3 class="card-title align-items-start flex-column">
+      <span class="card-label font-weight-bolder text-dark">
+        Contratos
+      </span>
+      <span class="text-muted mt-3 font-weight-bold font-size-sm">
+       <%= @contracts.count %> contratos na base
+      </span>
+    </h3>
+    <div class="card-toolbar">
+      <a routerLink="/contract" class="btn btn-info font-weight-bolder font-size-sm mr-3">Novo contrato</a>
     </div>
   </div>
-</div>
-<% end %>
+  <div class="card-body pt-0 pb-3">
+    <div class="tab-content">
+      <div class="table-responsive">
+        <table class="table table-head-custom table-vertical-center table-head-bg table-borderless">
+          <thead>
+            <tr>
+              <th>Nº Contrato / Nome</th>
+              <th>Inicio</th>
+              <th>Termino</th>
+              <th>Unidade</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @contracts.each do |contract| %>
+              <tr *ngFor="let contract of contracts">
+                <td class="pl-0 py-8">
+                  <div class="d-flex align-items-center">
+                    <div class="symbol symbol-50 symbol-light mr-4">
+                      <span class="symbol-label">
+                        <%= contract.id %>
+                      </span>
+                    </div>
+                    <div>
+                      <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">
+                        <%= contract.client.name %><br />
+                        <span class="text-muted font-weight-bold d-block"><%= contract.client.document %></span>
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span class="text-dark-75 font-weight-bolder d-block font-size-lg">
+                     <%= l(contract.starts_at) %>
+                  </span>
+                </td>
+                <td>
+                  <span class="text-dark-75 font-weight-bolder d-block font-size-lg">
+                   <%= l(contract.ends_at) %>
+                  </span>
+                </td>
+                <td>
+                  <span class="text-dark-75 font-weight-bolder d-block font-size-lg">
+                  <%= names_for(contract.offices) %>
+                  </span>
+                </td>
+                <td class="pr-0 text-right">
+                  <%= link_to combo_client_path(contract.client,contract.id, :pronto), class: "btn btn-light-success font-weight-bolder font-size-sm" do %>                 
+                    <i class="fa fa-pencil-square-o fa-1x"></i> Editar
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>        
+        <%= paginate @contracts,  outer_window: 3  %>
+        <%= rel_next_prev_link_tags @contracts %>
+      </div>
+    </div>
+  </div> 
+</div
 
-<%= paginate @contracts,  outer_window: 3  %>
-<%= rel_next_prev_link_tags @contracts %>

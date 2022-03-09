@@ -1,21 +1,2 @@
-<%= content_for(:page){ "Contratos" } %>
-<%= content_for(:top_actions) do %>
-  <% if policy(User).index? %>
-    <div class="navbar-item">
-      <%= link_to new_contract_path(tipo: :pronto), class: 'button is-primary' do %>
-        <span class="icon">
-          <i class="material-icons">add_box</i>
-        </span>
-        <span>Adicionar Contrato</span>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
 
-<div class="columns is-centered resource">
-  <div class="column">
-    <div class="">
-      <%= render 'contracts' %>
-    </div>
-  </div>
-</div>
+<%= render 'contracts' %>
