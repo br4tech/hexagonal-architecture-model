@@ -9,7 +9,7 @@
       </span>
     </h3>
     <div class="card-toolbar">
-      <a routerLink="/contract" class="btn btn-info font-weight-bolder font-size-sm mr-3">Novo contrato</a>
+       <%= link_to 'Novo contrato', new_contract_path(tipo: :pronto), class: 'btn btn-info font-weight-bolder font-size-sm mr-3' %>
     </div>
   </div>
   <div class="card-body pt-0 pb-3">
