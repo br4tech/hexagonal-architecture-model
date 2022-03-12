@@ -1,94 +1,76 @@
-
-<h4>Contratante</h4>
-<div class="columns">
-  <div class="field column is-4">
-    <%= f.label :name, 'Nome/Razão Social', class: 'label' %>
-    <div class="control">     
-      <div class="search" data-controller="search" data-search-url="<%= search_clients_url %>" data-search-model="client">
-        <%= f.text_field  :name, class: "input", id: 'query', data: { action: "keyup->search#autocomplete", target: "search.query" }, autofocus: true, autocomplete: "off", required: true %>
-      </div>
+<div class="row">
+  <div class="col-lg-3 col-md-3">
+    <div class="form-group">
+      <%= f.label :name, 'Nome/Razão Social' %>
+      <%= f.text_field  :name, class: 'form-control form-control-solid', required: true %> 
+    </div>       
+  </div>
+  <div class="col-lg-3 col-md-3">
+    <div class="form-group">
+      <%= f.label :email, 'Email' %>
+      <%= f.text_field  :email, class: 'form-control form-control-solid', required: true%>           
     </div>
   </div>
-  <div class="field column is-3">
-    <%= f.label :email, 'Email', class: 'label' %>
-    <div class="control">
-      <%= f.text_field  :email, class: 'input', data: { field: 'email' }, autocomplete: "off" %>
-    </div>
+  <div class="col-lg-3 col-md-3">
+    <label>Tipo</label>
+    <% @kind.each do |k| %>
+      <%= f.radio_button :kind, k.id, class: 'form-check-input', data: { action: "click->contract#kind_people" } %>
+      <%= f.label k.description, class: 'form-check-label' %>
+    <% end %>                
   </div>
-  <div class="field column is-2">
-    <div class="control">
-      <% @kind.each do |k| %>
-        <%= f.radio_button :kind, k.id, class: "custom-radio", data: { action: "click->contract#kind_people" } %>
-        <%= f.label k.description %>
-      <% end %>
-    </div>
-  </div>
-  <div class="field column is-3">
-    <%= f.label :document, 'CPF', class: 'label cpf' %>
-    <%= f.label :document, 'CNPJ', class: 'label cnpj' %>
-    <div class="control">
-      <%= f.text_field  :document, class: 'input is-document-2', data: { field: 'document' }, autocomplete: "off"%>
-    </div>
-  </div> 
-</div>
-
-<h4>Endereço</h4>
-
-<div class="columns"> 
-  <div class="field is-3 column">
-    <div class="columns">
-      <div class="column is-8">
-        <%= f.label :zipcode, 'Cep', class: 'label' %>
-        <div class="control">
-          <%= f.text_field  :zipcode, class: 'input is-zipcode', data: { field: 'zipcode' }, autocomplete: "off" %>
-        </div>
-      </div>
-      <div class="column is-4">
-        <a data-remote="true" class="button is-fullwidth" data-action="click-> contract#loadAddress">buscar</a>
-      </div>
-    </div>
-  </div>   
-  <div class="field is-3 column">
-    <%= f.label :address, 'Endereço', class: 'label' %>
-    <div class="control">
-      <%= f.text_field  :street,  class: 'input is-address is-street', data: { field: 'address' }, autocomplete: "off", required: true %>
-    </div>
-  </div>
-  <div class="field is-1 column">
-    <%= f.label :number, 'Número', class: 'label' %>
-    <div class="control">
-      <%= f.text_field  :number, class: 'input is-number', data: { field: 'number' }, autocomplete: "off", required: true %>
-    </div>
-  </div>
-  <div class="field is-5 column">
-    <%= f.label :complement, 'Complemento', class: 'label' %>
-    <div class="control">
-      <%= f.text_field  :complement, class: 'input is-conmplement', data: { field: 'complement' }, autocomplete: "off" %>
-    </div>
+  <div class="col-lg-3 col-md-3">
+    <%= f.label :document, 'CPF', class: 'cpf' %>
+    <%= f.label :document, 'CNPJ', class: 'cnpj' %>
+    <%= f.text_field  :document, class: 'form-control form-control-solid', data: { field: 'document' }, autocomplete: "off"%>
   </div>
 </div>
 
-<div class="columns">    
-  <div class="field is-3 column">
-    <%= f.label :neighborhood, 'Bairro', class: 'label' %>
-      <div class="control">
-        <%= f.text_field  :neighborhood, class: 'input is-address is-neighborhood', data: { field: 'neighborhood' }, autocomplete: "off", required: true %>
-      </div>
+<div class="separator separator-dashed my-10"></div>
+
+<div class="form-group row">
+  <div class="col-lg-3 col-md-3">
+    <%= f.label :zipcode, 'Cep' %>
+     <%= f.text_field  :zipcode, class: 'form-control form-control-solid', required: true %>
   </div>
-  <div class="field is-3 column">
-    <%= f.label :city, 'Cidade', class: 'label' %>
-    <div class="control">
-      <%= f.text_field  :city, class: 'input is-address is-city', data: { field: 'city' }, autocomplete: "off", required: true %>
-    </div>
+  <div class="col-lg-3 col-md-3">
+    <%= f.label :address, 'Rua' %>
+    <%= f.text_field  :street,  class: 'form-control form-control-solid', required: true %>  
   </div>
-  <div class="field is-2 column">
-    <%= f.label :state, 'Estado', class: 'label' %>
-    <div class="control">
-      <%= f.text_field  :state, class: 'input is-address is-state', data: { field: 'state' }, autocomplete: "off", required: true %>
-    </div>
-  </div>      
+  <div class="col-lg-2 col-md-2">
+    <%= f.label :number, 'Número' %>
+    <%= f.text_field  :number, class: 'form-control form-control-solid', required: true %>   
+  </div>
+  <div class="col-lg-4 col-md-4">
+    <%= f.label :complement, 'Complemento' %>
+    <%= f.text_field  :complement, class: 'form-control form-control-solid' %>
+  </div>
 </div>
-<hr />
+<div class="form-group row">
+  <div class="col-lg-3 col-md-3">
+    <%= f.label :neighborhood, 'Bairro' %>
+    <%= f.text_field  :neighborhood, class: 'form-control form-control-solid', required: true %>
+  </div>
+  <div class="col-lg-9 col-md-9">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <%= f.label :state, 'Estado'%>
+        <select class="form-control" (change)="onChangeState($event.target)" formControlName="state_id">
+          <option value="00">Selecione uma Estado</option>
+          <option *ngFor="let state of states" [value]="state.id">{{ state.name }}</option>               
+        </select>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <%= f.label :state, 'Estado'%>
+        <select class="form-control" formControlName="city_id">
+          <option value="01">Selecione uma Cidade</option>
+          <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>    
+        </select>
+      </div>
+    </div>
+  </div>       
+</div>
+
+<p class="bg-primary text-white py-2 px-4">Medicos</p>
 
 <!-- PROFISSIONAIS -->
 <div id="doctors">
@@ -96,8 +78,9 @@
     <%= render partial: "contracts/doctor_fields", locals: {f: doctor_fields} %>
   <% end %>
 
-  <div class="field">    
-    <%= link_to_add_association('[Adicionar Medicos]',f, :doctors) %>
+  <div class="form-group row">
+    <div class="col-lg-12 col-md-12">
+      <%= link_to_add_association('[Adicionar Medicos]',f, :doctors, class: 'btn btn-success btn-sm mr-3 pull-right') %>
+    </div>
   </div>
 </div>
-<hr />
