@@ -1,38 +1,49 @@
 <div class="is-relative nested-fields">
-  <h6>Desconto</h6>
-  <div class="field columns">
-    <div class="column is-narrow">
-      <%= f.label :amount, class: 'label' %>
-      <div class="control">
-        <%= f.number_field :amount, class: 'input', autocomplete: "off",  in: 1..100 %>
-      </div>
-    </div>
-
-    <div class="column is-narrow">
-      <%= f.label :starts_at, class: 'label' %>
-      <div class="control has-icons-right">
-        <%= f.text_field :starts_at, value: formatted_date(f.object.starts_at), class: 'is-date input', autocomplete: "off" %>
-        <span class="icon is-small is-right">
-          <i class="material-icons">calendar_today</i>
-        </span>
-      </div>
-    </div>
-
-    <div class="column is-narrow">
-      <%= f.label :ends_at, class: 'label' %>
-      <div class="control has-icons-right">
-        <%= f.text_field :ends_at, value: formatted_date(f.object.ends_at), class: 'is-date input', autocomplete: "off" %>
-        <span class="icon is-small is-right">
-          <i class="material-icons">calendar_today</i>
-        </span>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="column">
-        <%= link_to_remove_association('Remover Desconto', f,  class: 'button-minus')%>
-      </div>
-    </div>
+  <div class="form-group row">
+    <div class="col-lg-12">
+      <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">
+        Desconto
+      </span>
+      <%= link_to_remove_association('Remover Desconto', f,  class: 'btn btn-danger btn-sm mr-3 pull-right')%>    
+    </div>           
   </div>
+  <div class="form-group row">
+    <div class="col-lg-2 col-md-2">
+      <%= f.label :amount %>
+      <div class="input-group">
+        <%= f.number_field :amount, class: 'form-control', autocomplete: "off",  in: 1..100 %>      
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-percent"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2">
+       <%= f.label :starts_at %>
+        <div class="input-group">
+        <%= f.text_field :starts_at, value: formatted_date(f.object.starts_at), class: 'form-control' %>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="dtDescStart.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <%= f.label :ends_at %>
+      <div class="input-group">
+        <%= f.text_field :ends_at, value: formatted_date(f.object.ends_at), class: 'form-control' %>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="dtDescAnd.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <label>Observação</label>
+      <input class="form-control form-control-solid" formControlName="discount_text">
+    </div>
+  </div> 
 </div>
-<br />

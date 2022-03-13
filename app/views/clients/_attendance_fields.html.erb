@@ -1,89 +1,100 @@
-<fieldset >
-  <div class="is-relative nested-fields" data-new-record="<%= f.object.new_record? %>" data-index="<%= f.index %>" data-controller="attendance">
-    <h6>Atendimento</h6>
-    <div class="columns" data-controller="office">
-      <div class="column is-narrow  is-3 kind-private">
-        <div class="field">
-          <%= f.label :frequency, class: 'label' %>
-          <div class="control">
-            <div class="">
-              <% Attendance.frequencies.each do |freq, i| %>
-                <%= f.label :frequency, value: i, class: 'custom-radio' do %>
-                  <%= f.radio_button :frequency, i %><span><%= t(freq) %></span>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="field is-2 column">
-        <%= f.label :starts_at, class: 'label' %>
-        <div class="control">
-          <%= f.text_field :starts_at, value: formatted_date(f.object.starts_at), class: 'input is-date is-start'%>
-        </div>
-      </div>
-
-      <div class="field is-2 column">
-        <%= f.label :ends_at, class: 'label' %>
-        <div class="control">
-          <%= f.text_field :ends_at, value: formatted_date(f.object.ends_at), class: 'input is-date is-end' %>
-        </div>
-      </div>   
-
-      <div class="field is-5 column is-half">
-        <%= f.label :weekdays, class: 'label' %>
-        <div class="control">
-          <% Attendance.wdays.except('Dom').each do |wday, i| %>
-            <span>
-              <%= f.check_box :weekdays, { multiple: true, class: 'switch-checkbox', id: "wday_#{wday}_#{f.index}", data: { action: "click->attendance#loadNotAvailableDays" } }, checked_value = i, unchecked_value = nil %>
-              <label for=<%= "wday_#{wday}_#{f.index}" %>><%= wday %></label>
-            </span>
+<div class="is-relative nested-fields" data-new-record="<%= f.object.new_record? %>" data-index="<%= f.index %>" data-controller="attendance">
+  <div class="form-group row">
+    <div class="col-lg-12">
+      <span class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">
+        Atendimento
+      </span>
+      <button class="btn btn-warning btn-sm mr-3 pull-right" type="button" (click)="modalAttendance.open()">
+        <i class="fa fa-pause-circle"></i>
+      </button>
+      <%= link_to_remove_association('Remover Atendimento', f,  class: 'btn btn-danger btn-sm mr-3 pull-right')%>  
+    </div>           
+  </div>
+  <div class="form-group row">
+    <div class="col-lg-2 col-md-2">
+      <%= f.label :frequency%>
+      <div class="radio-inline">
+        <% Attendance.frequencies.each do |freq, i| %>
+          <%= f.label :frequency, value: i, class: 'radio radio-solid' do %>
+            <%= f.radio_button :frequency, i %>
+            <span></span>
+            <%= t(freq) %>
           <% end %>
+        <% end %>       
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2">
+        <%= f.label :starts_at %>
+      <div class="input-group">
+        <%= f.text_field :starts_at, value: formatted_date(f.object.starts_at), class: 'form-control' %>  
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="dtAttStatr.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+          </button>
         </div>
       </div>
     </div>
-
-    <div class="columns">
-      <div class="field column is-one-fifth">
-        <%= f.hidden_field :_destroy %>
-        <%= f.label :office_id, class: 'label' %>
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= f.select :office_id, current_user.offices.all.collect{|office|[office.name, office.id]}, {}, { data: { action: 'change->attendance#loadRooms' }, class: "is-office" } %>
-          </div>
+    <div class="col-lg-2 col-md-2">
+      <%= f.label :ends_at %>
+      <div class="input-group">
+        <%= f.text_field :ends_at, value: formatted_date(f.object.ends_at), class: 'form-control' %>
+        <div class="input-gro-append">
+          <button class="btn btn-outline-secondary" (click)="dtAttEnd.toggle()" type="button">
+              <i class="fa fa-calendar"></i>
+          </button>
         </div>
       </div>
-
-      <div class="field column is-one-fifth">
-        <%= f.label :clinic_id, class: 'label' %>
-        <div class="control">
-          <div class="select is-fullwidth">
-            <%= f.select :clinic_id, (f.object.office || current_user.offices.first).clinics.collect{|clinic|["Sala #{clinic.code}", clinic.id]}, {}, { data: { target: 'attendance.clinic', action: "change->attendance#loadNotAvailableDays" }, class: "is-clinic" } %>
-          </div>
-        </div>
-      </div>
-
-      <div class="field column is-one-fifth">
-        <%= f.label :time_starts, class: 'label' %>
-        <div class="control">
-          <%= f.text_field :time_starts, value: formatted_hour(f.object.time_starts), class: 'input is-time is-time-start', placeholder: '00:00'%>
-        </div>
-      </div>
-
-      <div class="field column is-one-fifth">
-        <%= f.label :time_ends, class: 'label' %>
-        <div class="control">
-          <%= f.text_field :time_ends, value: formatted_hour(f.object.time_ends),class: 'input is-time is-time-end', placeholder: '00:00' %>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="column">
-          <%= link_to_remove_association('Remover Atendimento', f,  class: 'button-minus')%>
-        </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+        <%= f.label :weekdays %>
+      <div class="checkbox-inline">
+        <% Attendance.frequencies.each do |freq, i| %>
+          <%= f.label :frequency, value: i, class: 'checkbox checkbox-outlin' do %>
+            <%= f.radio_button :frequency, i %>
+            <span></span>
+            <%= t(freq) %>
+          <% end %>
+        <% end %>               
       </div>
     </div>
   </div>
-</fieldset>
-<br />
+  <div class="form-group row">
+    <div class="col-6 mt-4">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <%= f.hidden_field :_destroy %>
+          <%= f.label :office_id %>
+          <%= f.select :office_id, current_user.offices.all.collect{|office|[office.name, office.id]}, {}, { data: { action: 'change->attendance#loadRooms' }, class: "form-control" } %>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <%= f.label :clinic_id %>
+          <%= f.select :clinic_id, (f.object.office || current_user.offices.first).clinics.collect{|clinic|["Sala #{clinic.code}", clinic.id]}, {}, { data: { target: 'attendance.clinic', action: "change->attendance#loadNotAvailableDays" }, class: "form-control" } %>
+        </div>
+      </div>
+    </div>             
+    <div class="col-lg-2 col-md-2">
+      <label>Valor/Hora</label>
+      <div class="input-group mt-4">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fa fa-dollar"></i>
+          </span>
+        </div>
+        <input class="form-control form-control-solid" [ngClass]="applyCssErrorToArray('attendances','attendance_value', i )" formControlName="attendance_value">
+      </div>
+    </div>
+    <div class="col-lg-2 col">
+      <div class="form-group row">   
+        <%= f.label :time_starts, class: 'col-sm-4 col-form-label' %>              
+        <%= f.text_field :time_starts, value: formatted_hour(f.object.time_starts), class: 'form-control form-control-solid', placeholder: '00:00'%>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <div class="form-group row">  
+        <%= f.label :time_ends, class: 'col-sm-4 col-form-label' %>                    
+        <%= f.text_field :time_ends, value: formatted_hour(f.object.time_ends),class: 'form-control form-control-solid', placeholder: '00:00' %>
+      </div>
+    </div>
+  </div>   
+</div>
+

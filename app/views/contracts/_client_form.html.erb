@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="col-lg-3 col-md-3">
-    <label>Tipo</label>
+    <label>Tipo</label><br />
     <% @kind.each do |k| %>
       <%= f.radio_button :kind, k.id, class: 'form-check-input', data: { action: "click->contract#kind_people" } %>
       <%= f.label k.description, class: 'form-check-label' %>
@@ -73,7 +73,7 @@
 <p class="bg-primary text-white py-2 px-4">Medicos</p>
 
 <!-- PROFISSIONAIS -->
-<div id="doctors">
+<div id="doctors" class="col-md-12">
   <%= f.fields_for :doctors do |doctor_fields| %>
     <%= render partial: "contracts/doctor_fields", locals: {f: doctor_fields} %>
   <% end %>

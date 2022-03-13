@@ -12,13 +12,32 @@
       <% end %>
     <% end %> 
     <div class="card card-custom gutter-b example example-compact">
-      <div class="card-header"> 
-      </div>  
+      <div class="card-header">
+        <h3 class="card-title">Novo Contrato</h3>
+        <div class="card-toolbar">
+          <div class="example-tools justify-content-center">
+            <div class="radio-inline">
+              <label class="radio radio-solid">
+                <input type="radio" name="company" checked="checked" value="1">              
+                <span></span>
+                Contrato Density
+              </label>
+              <label class="radio radio-solid">
+                <input type="radio" name="company" value="2">
+                <span></span>
+                Contrato Pronto
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="card-body">
-        <!-- CLIENTE -->
+
+        <!-- CLIENTE --> 
         <%= f.fields_for :client do |client_form| %>
           <%= render partial: "contracts/client_form", locals: { f: client_form}%>
         <% end %>
+    
         <!-- DADOS DO CONTRATO -->
         <div class="separator separator-dashed my-10"></div>
         <p class="bg-primary text-white py-2 px-4">Dados do Contrato</p>
@@ -66,13 +85,15 @@
             </div>
           </div>
         </div>
+
         <!-- DESCONTOS -->
         <div class="separator separator-dashed my-10"></div>
         <p class="bg-primary text-white  py-2 px-4">Desconto</p>          
-        <div id="discounts">            
+        <div id="discounts" class="col-md-12">            
           <%= f.fields_for :discounts do |discount_field| %>
             <%= render partial: "contracts/discount_fields",  locals: { f: discount_field} %>
           <% end %>
+
           <div class="form-group row">
             <div class="col-lg-12 col-md-12">
               <%= link_to_add_association('[Adicionar Desconto]',f, :discounts, class: 'btn btn-success btn-sm mr-3 pull-right') %>             
@@ -81,13 +102,17 @@
         </div>
 
         <!-- ATENDIMENTO -->
-        <div id="attendances">
+        <div class="separator separator-dashed my-10"></div>
+        <p class="bg-primary text-white  py-2 px-4">Atendimentos</p>
+        <div id="attendances" class="col-md-12">
           <%= f.fields_for :attendances do |attendance_fields| %>
             <%= render partial: "contracts/attendance_fields", locals: { f: attendance_fields } %>
-          <% end %>    
+          <% end %>   
 
-          <div class="field">           
-            <%= link_to_add_association('[Adicionar Atendimento]',f, :attendances) %>
+           <div class="form-group row">
+            <div class="col-lg-12 col-md-12">
+             <%= link_to_add_association('[Adicionar Atendimento]',f, :attendances,  class: 'btn btn-success btn-sm mr-3 pull-right') %>            
+            </div>
           </div>
         </div>
 
@@ -122,17 +147,13 @@
           </div>
         <% end %>
         <br />
-
-        <div class="columns is-centered">
-          <div class="field column is-half">
-            <div class="columns">
-              <div class="column">
-                <%= link_to 'Cancelar', :back, class: 'button is-primary is-outlined is-fullwidth' %>
-              </div>
-              <div class="column">
-                <%= f.submit 'Salvar', class: 'button is-primary is-fullwidth' %>
-              </div>
-            </div>
+      </div>
+      <div class="card-footer">
+        <div class="row">
+          <div class="col-5"></div>
+          <div class="col-7">
+            <%= f.submit 'Salvar', class: 'btn btn-primary mr-2' %>
+            <%= link_to 'Cancelar', :back, class: 'btn btn-secondary' %>
           </div>
         </div>
       </div>

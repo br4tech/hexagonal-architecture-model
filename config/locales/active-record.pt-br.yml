@@ -17,8 +17,8 @@ pt-BR:
         is_recurrent: Criar Agendamentos?
         starts_at: Data de Início
         ends_at: Data de Término
-        time_starts: Hora de Início
-        time_ends: Hora de Término
+        time_starts: Inc.
+        time_ends: Fim
         is_recurrent: Criar Agendamento?
         frequency: Periodicidade
       clinic:
