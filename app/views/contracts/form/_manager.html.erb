@@ -116,35 +116,53 @@
           </div>
         </div>
 
-        <% if params[:category] == "density" %>
-          <h4 class="mt-2">Serviços Adicionais</h4>
-          <div class="columns">
-            <div class="column is-narrow">
-              <div class="field">
-                <%= f.label :parking, class: 'label' %>
-                <div class="control">
-                    <%= f.label :parking, value: true, class: 'custom-radio' do %>
-                    <%= f.radio_button :parking, true %> <span>Sim</span>
-                    <% end %>
-                    <%= f.label :parking, value: false, class: 'custom-radio' do %>
-                    <%= f.radio_button :parking, false %> <span>Não</span>
-                  <% end %>
+         <!-- SERVIÇOS ADICIONAIS -->
+        <% if params[:category] == "density" %>       
+        <div class="separator separator-dashed my-10"></div>
+        <p class="bg-primary text-white  py-2 px-4">Estacionamento</p>
+          <div class="form-group row">
+            <div class="col-lg-2">
+              <%= f.label :parking %>
+              <div class="radio-inline">
+                <%= f.label :parking, value: true, class: 'radio radio-solid' do %>
+                  <%= f.radio_button :parking, true %>
+                  <span></span>
+                  Sim
+                <% end %>
+                <%= f.label :parking, value: false, class: 'radio radio-solid' do %>
+                  <%= f.radio_button :parking, false %> 
+                  <span></span>
+                  Não
+                <% end %>           
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <%= f.label :car_license_plate %>
+              <div class="input-group">
+                <%= f.text_field :car_license_plate, class: 'form-control form-control-solid', autocomplete: "off" %>               
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i class="fa fa-car"></i>
+                  </span>
                 </div>
               </div>
             </div>
-            <div class="field column is-narrow">
-              <%= f.label :car_license_plate, class: 'label' %>
-              <div class="control">
-                <%= f.text_field :car_license_plate, class: 'input', autocomplete: "off" %>
+            <div class="col-lg-2">
+             <%= f.label :parking_value %>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text">
+                    <i class="fa fa-dollar"></i>
+                  </span>
+                </div>
+                <%= f.text_field :parking_value, value: formatted_currency(f.object.parking_value),class: 'form-control form-control-solid', placeholder: '00:00' %>
               </div>
             </div>
-            <div class="field column is-narrow">
-              <%= f.label :parking_value, class: 'label' %>
-              <div class="control">
-                <%= f.text_field :parking_value, class: 'input is-amount', autocomplete: "off" %>
-              </div>
+            <div class="col-lg-6">
+              <label>Observação</label>
+              <input class="form-control form-control-solid">
             </div>
-          </div>
+          </div>    
         <% end %>
         <br />
       </div>
