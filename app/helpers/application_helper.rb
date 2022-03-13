@@ -42,4 +42,8 @@ module ApplicationHelper
   def formatted_hour(date)
     date.strftime('%H:%M') if date.present?
   end
+
+  def formatted_currency(number)
+     number_to_currency(number, :unit => "R$ ", :separator => ",", :delimiter => ".")
+  end
 end

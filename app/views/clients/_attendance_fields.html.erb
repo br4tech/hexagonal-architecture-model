@@ -80,7 +80,7 @@
             <i class="fa fa-dollar"></i>
           </span>
         </div>
-        <input class="form-control form-control-solid" [ngClass]="applyCssErrorToArray('attendances','attendance_value', i )" formControlName="attendance_value">
+        <%= f.text_field :amount, value:formatted_currency(f.object.amount), class: 'form-control form-control-solid' %>
       </div>
     </div>
     <div class="col-lg-2 col">
