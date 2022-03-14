@@ -132,3 +132,19 @@ body, html {
 .is-hidden {
   display: none !important;
 }
+
+.w-code{
+  min-width: 60px;
+  max-width: 62px;
+}
+
+.w-default{
+  min-width: 140px !important;
+  max-width: 142px !important;  
+}
+
+.w-children{  
+  min-width: 180px;
+  max-width: 182px;
+  text-align: left;
+}

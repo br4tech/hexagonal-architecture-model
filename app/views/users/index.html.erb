@@ -1,67 +1,85 @@
-<%= content_for(:page){ "Usuários" } %>
-
-<%= content_for(:top_actions) do %>
-  <div class="navbar-item">
-    <div class="control has-icons-right is-search">
-      <input class="input reset" name="query" type="text" placeholder="Buscar Usuário...">
-      <span class="icon is-small is-right">
-        <i class="material-icons">search</i>
-      </span>
-    </div>
+<div class="card card-custom">
+  <div class="card-header">
+    <h3 class="card-title">Filtrar Usuarios</h3>
   </div>
-  <div class="navbar-item">
-    <%= link_to new_user_path, class: 'button is-primary' do %>
-      <span class="icon">
-        <i class="material-icons">add_box</i>
-      </span>
-      <span>Adicionar Usuário</span>
-    <% end %>
-  </div>
-<% end %>
-
-<div class="doctors">
-  <% @users.each do |user| %>
-    <div class="card card-info">
-      <div class="card-content">
-        <div class="columns columns-data">
-          <div class="column is-two-quarters-tablet is-4-widescreen">
-            <div class="avatar"></div>
-            <div class="name">
-              <h4>
-                <%= user.name %><br />
-                <small><%= t(user.role) %></small>
-              </h4>
-            </div>
-          </div>
-
-          <div class="column is-hidden-tablet-only is-2-desktop">
-            <i class="material-icons">phone</i> <%= user.phone || not_supplied %>
-          </div>
-
-          <div class="column is-hidden-tablet-only is-2-desktop truncate">
-            <span class="truncate is-flex">
-              <i class="material-icons">email</i> <span><%= truncate(user.email, length: 40) %></span>
+  <div class="card-body">
+    <div class="form-group row">
+      <div class="col-lg-3">
+        <label>Nome</label>
+        <input type="text" class="form-control" >
+      </div>
+      <div class="col-lg-2">
+        <label>Data Inicio</label>
+        <div class="input-group">
+          <input type="text" class="form-control" >
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-calendar"></i>
             </span>
-          </div>
-
-          <div class="column is-one-quarter-tablet is-2-desktop">
-            <span class="truncate is-flex">
-              <i class="material-icons">room</i> 
-              <% if user.admin? %>
-                Todas as Unidades
-              <% else %>
-                <span><%= t('activerecord.models.office', count: user.offices.count) %> <%= names_for(user.offices) %></span>
-              <% end %>
-            </span>
-          </div>
-
-          <div class="column is-one-quarter-tablet is-2-desktop">
-            <%= link_to 'Ver Perfil', user, class: "button is-primary is-outlined is-fullwidth is-small" %>
           </div>
         </div>
       </div>
+      <div class="col-lg-2">
+        <label>Data Fim</label>
+        <div class="input-group">
+          <input type="text" class="form-control" >
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-calendar"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2">
+        <label>Perfil</label>
+        <select class="form-control" name="contract">
+          <option value="01">Todos</option>
+          <option value="01">Administrador</option>
+          <option value="01">Medico</option>
+          <option value="01">Secretaria</option>
+        </select>
+      </div>
+      <div class="col-lg-3">
+        <label>Status</label>
+        <div class="radio-inline">
+          <label class="radio radio-solid">
+            <input type="radio" name="example_1" checked="checked" value="1">
+            <span></span>
+            Ativo
+          </label>
+          <label class="radio radio-solid">
+            <input type="radio" name="example_2" value="2">
+            <span></span>
+            Bloqueado
+          </label>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <%= paginate  @users,  outer_window: 3  %>
-  <%= rel_next_prev_link_tags @users %>
+    <div class="form-group row">
+      <div class="col-lg-10"></div>
+      <div class="col-lg-2">
+        <button type="submit" class="btn btn-primary font-weight-bold mr-2">Filtrar</button>
+        <button type="reset" class="btn btn-light-primary font-weight-bold">Limpar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="card card-custom card-stretch gutter-b">
+  <div class="card-header border-0 py-5">
+    <h3 class="card-title align-items-start flex-column">
+      <span class="card-label font-weight-bolder text-dark">
+        Usuarios
+      </span>
+      <span class="text-muted mt-3 font-weight-bold font-size-sm">
+        <%= @users.count %> usuarios na base
+      </span>
+    </h3>
+    <div class="card-toolbar">
+      <%= link_to new_user_path, class: 'btn btn-info font-weight-bolder font-size-sm mr-3' %>      
+    </div>
+  </div>
+  <div class="card-body pt-0 pb-3">
+    <%= render 'users' %>
+  </div>
 </div>
