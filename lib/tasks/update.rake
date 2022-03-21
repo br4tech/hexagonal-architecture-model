@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'csv'
+
 namespace :update do
   desc 'Update amount to attendance'
 
@@ -39,7 +41,7 @@ namespace :update do
   end
 
   task reservation_schedule: :environment do
-    clients = Client.where.not(id: [44,82,89,412,776,235,640,70,872,639,851,894,840])
+    clients = Client.where.not(id: [44, 82, 89, 412, 776, 235, 640, 70, 872, 639, 851, 894, 840])
     clients.each do |client|
       contracts = Contract.where(client_id: client.id)
       contracts.each do |contract|
@@ -50,13 +52,40 @@ namespace :update do
     puts 'Reservas criadas com sucesso!'
   end
 
+  task reservation_odd: :environment do
+    reservations = Reservation.where(odd: true)
+    file = "#{Rails.root}/public/reservation_odd.csv"
+
+    headers = %w[reservation_id contract_id amount attendance_id]
+
+    CSV.open(file, 'w', write_headers: true, headers: headers, col_sep: ',') do |write|
+      reservations.each do |reservation|
+        contract = Contract.find(reservation.contract_id)
+        attendance = contract.attendances.last
+        write << [reservation.id, contract.id, contract.amount, attendance.id]
+      end
+    end
+    puts 'Arquivo de update gerado com sucesso!'
+  end
+
+  task reservation_odd_update: :environment do
+    reservations = Reservation.where(odd: true)
+
+    CSV.foreach("#{Rails.root}/public/reservation_odd.csv", headers: true) do |csv|
+      reservation = Reservation.find(csv['reservation_id'])
+      reservation.attendance_id = csv['attendance_id']
+      reservation.save
+    end
+    puts 'Reservas extras atualizadas com sucesso!'
+  end
+
   task generate_payroll: :environment do
-    clients = Client.where.not(id: [44,82,89,412,776,235,640,70,872,639,851,894,840])
+    clients = Client.where.not(id: [44, 82, 89, 412, 776, 235, 640, 70, 872, 639, 851, 894, 840])
     clients.each do |client|
       contracts = Contract.where(client_id: client.id)
-      reference_date = '01/02/2022'
+      reference_date = '01/03/2022'
       contracts.each do |contract|
-       unless contract.category.zero?
+        if contract.category.zero?
           bill = Bills::GenerateBills.new(contract, reference_date)
           bill.generate
         end

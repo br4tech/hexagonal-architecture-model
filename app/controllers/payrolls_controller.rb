@@ -22,10 +22,7 @@ class PayrollsController < ApplicationController
     ReprocessPayrollWorker.new.perform(session[:month_selected].to_i + 1)
   end
 
-  def export_to_exel
-    reference_date = DateTime.now
-    @bills = Bills::ReportBills.new(reference_date).generate
-
+  def export_to_exel 
     respond_to do |format|
       format.xlsx
     end
@@ -34,7 +31,7 @@ class PayrollsController < ApplicationController
   private
 
   def load_bills
-    reference_date = DateTime.now
+    reference_date = '01/04/2022'
 
     @payrolls = Bills::ReportBills.new(reference_date).generate
   end

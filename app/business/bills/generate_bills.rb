@@ -39,14 +39,15 @@ module Bills
           hours: worked_hours(reservation),
           payroll_id: bill_id,
           reservations_id: reservation.id,
-          amount: amount(reservation)
+          amount: amount(reservation),
+          odd: reservation.odd
         )
       end
     end
 
     def amount(reservation)
       hours = worked_hours(reservation)
-      discount_amount(hours, reservation.amount)
+      discount_amount(hours, reservation.attendance.amount)
     end
 
     def worked_hours(reservation)

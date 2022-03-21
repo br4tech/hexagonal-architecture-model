@@ -13,18 +13,24 @@ module Reservations
     def reservation_with_contract
       reservations = []
       contract.attendances.each do |attendance|
-        reservations << Reservation.where(attendance_id: attendance.id, odd: false)
-                                   .where('date >= ? AND date < ?',
-                                          with_contract_date_cut_start.to_date,
-                                          with_contract_date_cut_end.to_date)
-                                   .select(select_params)
+        contract = reservation_contract(attendance)
+        odd = reservation_odd(attendance)
+
+        reservations << contract + odd
       end
-      reservations << reservation_with_contract_odd
       transform_in_single_array(reservations)
     end
 
-    def reservation_with_contract_odd
-      Reservation.where(odd: true)
+    def reservation_contract(attendance)
+      Reservation.where(attendance_id: attendance.id, odd: false)
+                 .where('date >= ? AND date < ?',
+                        with_contract_date_cut_start.to_date,
+                        with_contract_date_cut_end.to_date)
+                 .select(select_params)
+    end
+
+    def reservation_odd(attendance)
+      Reservation.where(attendance_id: attendance.id, odd: true)
                  .where('date >= ? AND date < ?',
                         with_contract_odd_date_cut_start.to_date,
                         with_contract_odd_date_cut_end.to_date)
@@ -46,7 +52,7 @@ module Reservations
           reservations << array
         end
       end
-      reservations
+      reservations.uniq
     end
 
     def with_contract_due_at

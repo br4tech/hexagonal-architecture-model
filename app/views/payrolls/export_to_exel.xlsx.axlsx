@@ -36,12 +36,12 @@ children = wb.styles.add_style(
   })
 
 wb.add_worksheet(name: "Boletos") do |sheet|
-  @bills.each do |bill|
+  @payrolls.each do |bill|
     sheet.add_row ["Codigo", "Cliente", "Contrato"],  style: father
     sheet.add_row [bill[:id], bill[:client], bill[:kind]]
-    sheet.add_row ["Dia", "Unidade", "Sala", "Qtd. Horas", "Valor"],  style: children
+    sheet.add_row ["Dia", "Unidade", "Sala", "Qtd. Horas", "Valor", "Tipo"],  style: children
     bill[:items].each do |item|
-      sheet.add_row [item[:period], item[:office], item[:clinic], item[:hours], item[:amount]], style: [date_format, nil, nil, nil, nil]
+      sheet.add_row [item[:period], item[:office], item[:clinic], item[:hours], item[:amount], item[:odd]], style: [date_format, nil, nil, nil, nil, nil]
     end
     sheet.add_row [nil, nil, nil, "Total", bill[:sum_amount] ], style: amount
   end

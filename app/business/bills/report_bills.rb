@@ -5,7 +5,7 @@ module Bills
   class ReportBills
     attr_reader :reference_date
 
-    def initialize(reference_date)
+    def initialize(reference_date)        
       @reference_date = reference_date
       @plan = []
     end
@@ -56,6 +56,7 @@ module Bills
         hash[:office] = item.clinic.office.name
         hash[:clinic] = item.clinic.code
         hash[:amount] = item.amount
+        hash[:odd] = item.odd? ? 'Avulso' : 'Contrato'
         hash[:hours] = item.hours
         @sub_plan << hash
       end
@@ -71,11 +72,11 @@ module Bills
     end
 
     def first_day_of_the_month
-      reference_date.to_date.beginning_of_month
+      reference_date.to_date.beginning_of_month.day
     end
 
     def last_day_of_the_month
-      reference_date.to_date.end_of_month
+      reference_date.to_date.end_of_month.day
     end
 
     def reference_month

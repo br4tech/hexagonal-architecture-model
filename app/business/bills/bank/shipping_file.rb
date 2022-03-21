@@ -54,9 +54,7 @@ module Bills
         @payment.nosso_numero = "45#{bill.id} + #{bill.contract.id}".to_i
         payment_defaults
         client_shipping(bill.contract.client)
-        
-        binding.pry
-        
+
         @payments << @payment
       end
 
