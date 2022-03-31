@@ -1,0 +1,115 @@
+ <div class="card-body">
+    <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-subtable
+      datatable-loaded">
+    <table class="datatable-table" style="display: block;">
+      <thead class="datatable-head">
+        <tr class="datatable-row">
+          <th class="datatable-cell datatable-cell-sort" style="width:10px;">
+            <span></span>
+          </th>
+          <th class="w-default text-left" style="margin-left: 25px;">Nome</th>
+          <th class="w-default text-left">Telefone</th>
+          <th class="w-default text-left">Email</th>
+          <th class="w-code text-center">Tipo</th>
+          <th class="w-default"></th>
+        </tr>
+      </thead>
+      <tbody class="datatable-body">
+          <% @clients.each_with_index do |client, index| %>
+          <tr class="datatable-row datatable-row datatable-row-even datatable-row-subtable-expanded">
+            <td class="datatable-cell-center"  style="width:10px;">
+              <a href="#" onclick="return false;" class="datatable-toggle-subtable card-toggle">
+                <i style="width: 30px;"  class="material-icons">expand_less</i>
+                <input type="hidden" name="bill_id" value="<%= index %>">
+              </a>
+            </td>
+            <td class="pl-0 py-8 w-children">
+              <div class="d-flex align-items-center">                    
+                <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">
+                <%= client.name %><br />
+                  <span class="text-muted font-weight-bold d-block"><%= client.document %></span>
+                </a>                
+              </div>
+            </td>
+            <td class="text-left w-children">
+              <span>
+               <%= client.phone %>
+              </span>
+            </td>
+            <td class="text-left w-children">
+              <span>
+                <%= client.email %>
+              </span>
+            </td>
+            <td class="text-center w-code">
+              <span>
+                PJ
+              </span>
+            </td>
+            <td class="text-right w-children">
+              <%= link_to 'Editar', doctor_path(client), class: "btn btn-light-success font-weight-bolder font-size-sm" %>
+            </td>
+          </tr>
+          <% if client.doctors.count > 0 %>
+            <tr class="datatable-row-subtable">
+                <td class="datatable-subtable" colspan="9">
+                  <div class="datatable datatable-default datatable-primary datatable-loaded">
+                    <table class="datatable-table">
+                      <thead class="datatable-head">
+                        <tr class="datatable-row text-center">
+                          <th class="datatable-cell w-code">
+                            <span>Código</span>
+                          </th>                      
+                          <th class="datatable-cell w-children">
+                            <span>Nome</span>
+                          </th>
+                          <th class="datatable-cell w-children">
+                            <span>Telefone</span>
+                          </th>
+                          <th class="datatable-cell w-children">
+                            <span>E-mail</span>
+                          </th>
+                          <th class="datatable-cell w-children">
+                            <span>Especialidade</span>
+                          </th>
+                          <th class="datatable-cell w-children">
+                            <span>CRM</span>
+                          </th>                      
+                        </tr>
+                      </thead>
+                      <tbody class="datatable-body">
+                        <% client.doctors.each do |doctor| %>
+                          <tr class="datatable-row text-center">
+                            <td class="datatable-cell w-code">
+                              <span><%= doctor.id %></span>
+                            </td>
+                            <td class="datatable-cell w-children">
+                            <span><%= doctor.name %></span>
+                            </td>
+                            <td class="datatable-cell w-children">
+                              <span><%= doctor.phone %></span>
+                            </td>
+                            <td class="datatable-cell w-children">
+                              <span><%= doctor.email %></span>
+                            </td>
+                            <td class="datatable-cell w-children">
+                              <span>{{ doctor.specialty }}</span>
+                            </td>
+                            <td class="datatable-cell w-children">
+                              <span><%= doctor.crm %></span>
+                            </td>                                           
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @clients,  outer_window: 3  %>
+    <%= rel_next_prev_link_tags @clients %>
+  </div>
+</div>

@@ -6,8 +6,8 @@ class DoctorsController < ApplicationController
   # GET /doctors
   # GET /doctors.json
   def index
-    @q = Doctor.ransack(params[:q])
-    @doctors = @q.result(distinct: true).page(params[:page]).per(9)
+    @q = Client.ransack(params[:q])
+    @clients = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   # GET /doctors/1
