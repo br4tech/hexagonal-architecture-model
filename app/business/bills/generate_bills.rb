@@ -80,8 +80,8 @@ module Bills
       end
     end
 
-    def discount_no_aplyed(hours, amount)    
-     if contract.kind == 2
+    def discount_no_aplyed(hours, amount)
+      if contract.kind == 2
         amount
       else
         amount * hours

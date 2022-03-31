@@ -22,9 +22,9 @@ module Reservations
     def reservation_per_attendance
       @contract.attendances.each do |attendance|
         reservations = []
-        reservations << reservation_with_type_attendance(attendance) 
-        Reservations::ReservationCreator.build_reservation(reservations[0], attendance)      
-      end      
+        reservations << reservation_with_type_attendance(attendance)
+        Reservations::ReservationCreator.build_reservation(reservations[0], attendance)
+      end
     end
 
     def reservation_with_type_attendance(attendance)
@@ -43,7 +43,7 @@ module Reservations
     end
 
     def reservation_per_biweekweeklyly(attendance)
-      work_days = agroup_reservation(attendance)      
+      work_days = agroup_reservation(attendance)
       agroup_per_biweekweeklyly(work_days, attendance)
     end
 

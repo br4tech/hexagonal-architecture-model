@@ -4,8 +4,9 @@
 module DoctorsHelper
   def formal_doctor_name(doctor)
     return nil if doctor.nil?
+
     first_name = doctor.name.split.first
-    last_name = doctor.name.split.last   
+    last_name = doctor.name.split.last
   end
 
   def prefix(gender)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.array! @days_off do |dayoff|
   json.name dayoff.description
   json.start dayoff.date

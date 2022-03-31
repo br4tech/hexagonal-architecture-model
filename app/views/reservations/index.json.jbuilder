@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.array! @reservations do |reservation|
   json.id reservation.id
   json.title reservation.attendance.contract.client.name

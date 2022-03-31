@@ -6,17 +6,17 @@ class DoctorsController < ApplicationController
   # GET /doctors
   # GET /doctors.json
   def index
-    @q = Doctor.ransack(params[:q])    
-    @doctors =  @q.result(distinct: true).page(params[:page]).per(9)     
+    @q = Doctor.ransack(params[:q])
+    @doctors = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   # GET /doctors/1
   # GET /doctors/1.json
   def show
     @doctor = Doctor.find(params[:id])
-    @doctor.expertises.build if @doctor.expertises.empty? 
+    @doctor.expertises.build if @doctor.expertises.empty?
   end
-  
+
   # GET /doctors/new
   def new
     @builder = DoctorBuilder.new(params)
@@ -28,7 +28,7 @@ class DoctorsController < ApplicationController
 
   # POST /doctors
   # POST /doctors.json
-  # def create   
+  # def create
   #   @builder = DoctorBuilder.new(params)
   #   @doctor = @builder.doctor
 
@@ -77,8 +77,8 @@ class DoctorsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def doctor_params
     params.require(:doctor)
-      .permit(:id, :name, :document, :crm, :phone, :email, :gender, :zipcode, :address, :number, :complement, :neighborhood, :city, :state, 
-              expertises_attributes: [:id, :name, :duration, :price, :returns, :confirm, :days_to_return, :observations], 
-              medical_info_attributes: [:id, :receipt_type, :pay_first, payment_methods: []])
+          .permit(:id, :name, :document, :crm, :phone, :email, :gender, :zipcode, :address, :number, :complement, :neighborhood, :city, :state,
+                  expertises_attributes: %i[id name duration price returns confirm days_to_return observations],
+                  medical_info_attributes: [:id, :receipt_type, :pay_first, { payment_methods: [] }])
   end
 end

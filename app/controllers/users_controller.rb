@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
   # before_action :authorize_user
 
-  def index       
+  def index
     @users = User.page(params[:page]).per(7)
   end
 
@@ -75,13 +75,12 @@ class UsersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_user
-    @user = User.find(params[:id])  
+    @user = User.find(params[:id])
   end
-
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :document, :phone, :email, :role, :status, :avatar, accesses_attributes: %i[id office_id allow] )
+    params.require(:user).permit(:name, :document, :phone, :email, :role, :status, :avatar, accesses_attributes: %i[id office_id allow])
   end
 
   def user_pass_params

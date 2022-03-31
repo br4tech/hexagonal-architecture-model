@@ -27,11 +27,11 @@ class User < ApplicationRecord
   end
 
   def active_for_authentication?
-    super && self.status == "active"
+    super && status == 'active'
   end
-  
+
   def inactive_message
-    "Desculpe, esta conta está desativada."
+    'Desculpe, esta conta está desativada.'
   end
 
   private

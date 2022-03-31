@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class HolidaysController < ApplicationController
-  before_action :set_holiday, only: [:show, :edit, :update, :destroy]
+  before_action :set_holiday, only: %i[show edit update destroy]
 
   def index
     @holidays = Holiday.page(params[:page]).per(7)
@@ -10,7 +12,7 @@ class HolidaysController < ApplicationController
   end
 
   def new
-     @holiday = Holiday.new
+    @holiday = Holiday.new
   end
 
   def edit; end
@@ -19,11 +21,11 @@ class HolidaysController < ApplicationController
     @holiday = Holiday.new(holiday_params)
     respond_to do |format|
       if @holiday.save
-        format.html { redirect_to @holiday , notice: 'Feriado cadastrado com sucesso' }
-        format.json { render@holiday , status: :created, location: @holiday , message: 'Feriadoa cadastrado com sucesso' }
+        format.html { redirect_to @holiday, notice: 'Feriado cadastrado com sucesso' }
+        format.json { render @holiday, status: :created, location: @holiday, message: 'Feriadoa cadastrado com sucesso' }
       else
         format.html { render :new }
-        format.json { render json: @holiday .errors.full_messages, status: :unprocessable_entity }
+        format.json { render json: @holiday.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -35,21 +37,21 @@ class HolidaysController < ApplicationController
         format.json { render :show, status: :ok, location: @company }
       else
         format.html { render :edit }
-        format.json { render json:@holiday.errors, status: :unprocessable_entity }
+        format.json { render json: @holiday.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
     @holiday.destroy
-    respond_to do |format|	    
-      format.html { redirect_to  @holiday, notice: 'Feriado removido.' }	 
-      format.json { head :no_content }	
+    respond_to do |format|
+      format.html { redirect_to @holiday, notice: 'Feriado removido.' }
+      format.json { head :no_content }
     end
   end
 
   def days_off
-    @days_off = DayOff.all       
+    @days_off = DayOff.all
   end
 
   private
@@ -61,5 +63,4 @@ class HolidaysController < ApplicationController
   def holiday_params
     params.require(:holiday).permit(:id, :name, :color, :starts_at, :ends_at)
   end
-
 end

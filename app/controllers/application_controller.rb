@@ -1,10 +1,11 @@
 # frozen_string_literal: true
+
 # Application Controller
-class ApplicationController < ActionController::Base  
+class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :title
 
-  include Pundit 
+  include Pundit
   protect_from_forgery with: :exception
 
   layout :define_layout
@@ -34,9 +35,7 @@ class ApplicationController < ActionController::Base
   private_constant :TITLES
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
- 
-  private
-  
+
   def user_not_authorized
     redirect_to root_path
   end

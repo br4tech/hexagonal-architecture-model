@@ -30,23 +30,25 @@ module Bills
         @bank = Brcobranca::Remessa::Cnab400::Bradesco.new
         @bank.empresa_mae = company.name
         banck_account(company)
-
+        pagamentos = []
         all_bills.each do |bill|
-          @bank.pagamentos << payments(bill)
+          pagamentos << payments(bill)
         end
 
-        @banck
+        @bank.pagamentos = pagamentos
+        @bank.gera_arquivo
       end
 
       def banck_account(company)
-        @bank.carteira = company.wallet
+        @bank.codigo_empresa = company.company_code
+        @bank.carteira = company.wallet.to_s
         @bank.agencia = company.agency
+        @bank.sequencial_remessa = company.shipping_sequence
         @bank.conta_corrente = company.current_account
-        @bank.digito_conta = company.digit
+        @bank.digito_conta = company.digit.to_s
       end
 
       def payments(bill)
-        @payments = []
         @payment = Brcobranca::Remessa::Pagamento.new
         @payment.numero = bill.id
         @payment.data_vencimento = bill.due_at
@@ -55,13 +57,14 @@ module Bills
         payment_defaults
         client_shipping(bill.contract.client)
 
-        @payments << @payment
+        @payment
       end
 
       def client_shipping(client)
         @payment.nome_sacado = client.name
         @payment.bairro_sacado = client.neighborhood
         @payment.cep_sacado =  client.zipcode.gsub('-', '')
+        @payment.documento_sacado = client.document.gsub('.', '').gsub('-', '').gsub('/', '')
         @payment.endereco_sacado = "#{client.street} + Nº #{client.number} + Complemento: #{client.complement}"
         @payment.cidade_sacado = client.city
         @payment.uf_sacado = client.state
@@ -72,13 +75,17 @@ module Bills
         @payment.percentual_multa = 10.0
         @payment.valor_mora = 0.03
       end
-      
-      def payments_amount(bill)    
+
+      def payments_amount(bill)
         if bill.contract.kind.zero?
-          bill.payroll_items.inject(0) { |sum, item| sum + item[:amount] }.to_f
+          bill.payroll_items.inject(0) { |sum, item| sum + item[:amount] }.to_f + parking_value(bill.contract).to_f
         else
           bill.contract.amount.to_f
         end
+      end
+
+      def parking_value(contract)
+        contract.parking_value if contract.parking
       end
     end
   end

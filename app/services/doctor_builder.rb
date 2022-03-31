@@ -5,7 +5,7 @@ class DoctorBuilder
   attr_reader :params
   attr_accessor :doctor
 
-  ATTRS = %i(name document email phone address crm)
+  ATTRS = %i[name document email phone address crm].freeze
 
   def initialize(params)
     @params = doctor_params(params)
@@ -26,21 +26,18 @@ class DoctorBuilder
   end
 
   def build
-    begin
-      params[:document] = @params[:document].gsub(/\D+/, '')    
-      @doctor = Doctor.find_or_initialize_by(document: params[:document])
-      @doctor.assign_attributes(@params)
-      @doctor.save     
-    rescue   
-      raise @doctor.errors.full_messages.join(', ')
-    end
+    params[:document] = @params[:document].gsub(/\D+/, '')
+    @doctor = Doctor.find_or_initialize_by(document: params[:document])
+    @doctor.assign_attributes(@params)
+    @doctor.save
+  rescue StandardError
+    raise @doctor.errors.full_messages.join(', ')
   end
 
-   def doctor_params(params)
+  def doctor_params(params)
     params.require(:doctor)
-      .permit(:id, :name, :kind_people, :document, :crm, :phone, :email, :gender, :zipcode, :address, :number, :complement, :neighborhood, :city, :state, 
-              expertises_attributes: [:id, :name, :duration, :price, :returns, :confirm, :days_to_return, :observations], 
-              medical_info_attributes: [:id, :receipt_type, :pay_first, payment_methods: []])
+          .permit(:id, :name, :kind_people, :document, :crm, :phone, :email, :gender, :zipcode, :address, :number, :complement, :neighborhood, :city, :state,
+                  expertises_attributes: %i[id name duration price returns confirm days_to_return observations],
+                  medical_info_attributes: [:id, :receipt_type, :pay_first, { payment_methods: [] }])
   end
-
 end

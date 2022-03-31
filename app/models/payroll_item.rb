@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PayrollItem < ApplicationRecord
   belongs_to :clinic
   belongs_to :payroll

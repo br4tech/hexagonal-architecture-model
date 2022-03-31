@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReservationWithoutContract < ApplicationRecord
   belongs_to :client
   belongs_to :office
@@ -7,12 +9,12 @@ class ReservationWithoutContract < ApplicationRecord
 
   before_save :update_date
 
-  def update_date 
-    self.start_at = DateTime.new(date.year, date.month,date.day,start_at.hour, start_at.min, start_at.sec)
-    self.end_at = DateTime.new(date.year, date.month,date.day,end_at.hour, end_at.min, end_at.sec)
+  def update_date
+    self.start_at = DateTime.new(date.year, date.month, date.day, start_at.hour, start_at.min, start_at.sec)
+    self.end_at = DateTime.new(date.year, date.month, date.day, end_at.hour, end_at.min, end_at.sec)
   end
 
   def all_day_reservation
-    self.date == self.start_at.midnight && self.end_at == self.end_at.midnight ? true : false
+    date == start_at.midnight && end_at == end_at.midnight ? true : false
   end
 end

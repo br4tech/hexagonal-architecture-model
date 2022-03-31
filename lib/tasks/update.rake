@@ -41,7 +41,7 @@ namespace :update do
   end
 
   task reservation_schedule: :environment do
-    clients = Client.where.not(id: [44, 82, 89, 412, 776, 235, 640, 70, 872, 639, 851, 894, 840])
+    clients = Client.all
     clients.each do |client|
       contracts = Contract.where(client_id: client.id)
       contracts.each do |contract|
@@ -80,12 +80,12 @@ namespace :update do
   end
 
   task generate_payroll: :environment do
-    clients = Client.where.not(id: [44, 82, 89, 412, 776, 235, 640, 70, 872, 639, 851, 894, 840])
-    clients.each do |client|
+    clients = Client.where.not(id: [82,59,894,850,851,1035,717])
+    clients.each do |client| 
       contracts = Contract.where(client_id: client.id)
       reference_date = '01/03/2022'
       contracts.each do |contract|
-        if contract.category.zero?
+       unless contract.category.zero?
           bill = Bills::GenerateBills.new(contract, reference_date)
           bill.generate
         end

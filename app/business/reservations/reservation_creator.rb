@@ -4,7 +4,7 @@
 module Reservations
   # Create reservation in database
   class ReservationCreator
-    def self.build_reservation(reservations, attendance)    
+    def self.build_reservation(reservations, attendance)
       reservations[0].each do |reservation|
         create(reservation, attendance)
       end

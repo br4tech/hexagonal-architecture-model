@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CleanReservationsOnDayOffWorker
   include Sidekiq::Worker
 
@@ -10,6 +12,6 @@ class CleanReservationsOnDayOffWorker
       PayrollItem.where('reservations_id IN (?)', reservations_on_day_off).destroy_all unless reservations_on_day_off.empty?
       Reservation.where('id IN (?)', reservations_on_day_off).destroy_all
     end
-    "Running job"
+    'Running job'
   end
 end

@@ -2,7 +2,6 @@
 
 # Controller payrolls
 class PayrollsController < ApplicationController
-
   before_action :load_bills
 
   def index
@@ -13,8 +12,8 @@ class PayrollsController < ApplicationController
 
   def export_payroll
     shipping = Bills::Bank::ShippingFile.new(params[:payrolls], 1)
-    remessa = shipping.generate_shipping 
-    
+    remessa = shipping.generate_shipping
+
     send_data remessa, content_type: 'text/plain', filename: 'remessa.rst', disposition: 'attachment'
   end
 
@@ -22,7 +21,7 @@ class PayrollsController < ApplicationController
     ReprocessPayrollWorker.new.perform(session[:month_selected].to_i + 1)
   end
 
-  def export_to_exel 
+  def export_to_exel
     respond_to do |format|
       format.xlsx
     end
@@ -32,7 +31,6 @@ class PayrollsController < ApplicationController
 
   def load_bills
     reference_date = '01/04/2022'
-
     @payrolls = Bills::ReportBills.new(reference_date).generate
   end
 

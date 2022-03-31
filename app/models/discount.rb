@@ -4,5 +4,5 @@
 class Discount < ApplicationRecord
   belongs_to :contract
 
-  validates_presence_of :amount, :starts_at, :ends_at
+  validates :amount, :starts_at, :ends_at, presence: true
 end

@@ -1,48 +1,47 @@
+# frozen_string_literal: true
+
 wb = xlsx_package.workbook
 
 father = wb.styles.add_style(
   { alignment:
       { horizontal: :center,
         vertica: :center,
-        wrap_text: true
-      },
+        wrap_text: true },
     b: true,
     bg_color: '00',
-    fg_colog: 'ff'
-  })
+    fg_colog: 'ff' }
+)
 
 children = wb.styles.add_style(
   { alignment:
       { horizontal: :center,
         vertica: :center,
-        wrap_text: true
-      },
+        wrap_text: true },
     b: true,
     bg_color: 'a9a9a9',
-    fg_colog: '00'
-  })
+    fg_colog: '00' }
+)
 
- date_format = wb.styles.add_style :format_code => 'dd/mm/yyyy'
+date_format = wb.styles.add_style format_code: 'dd/mm/yyyy'
 
- amount = wb.styles.add_style(
+amount = wb.styles.add_style(
   { alignment:
       { horizontal: :center,
         vertica: :center,
-        wrap_text: true
-      },
+        wrap_text: true },
     b: true,
     bg_color: 'ffff00',
-    fg_colog: '00'
-  })
+    fg_colog: '00' }
+)
 
-wb.add_worksheet(name: "Boletos") do |sheet|
+wb.add_worksheet(name: 'Boletos') do |sheet|
   @payrolls.each do |bill|
-    sheet.add_row ["Codigo", "Cliente", "Contrato"],  style: father
+    sheet.add_row %w[Codigo Cliente Contrato], style: father
     sheet.add_row [bill[:id], bill[:client], bill[:kind]]
-    sheet.add_row ["Dia", "Unidade", "Sala", "Qtd. Horas", "Valor", "Tipo"],  style: children
+    sheet.add_row ['Dia', 'Unidade', 'Sala', 'Qtd. Horas', 'Valor', 'Tipo'], style: children
     bill[:items].each do |item|
       sheet.add_row [item[:period], item[:office], item[:clinic], item[:hours], item[:amount], item[:odd]], style: [date_format, nil, nil, nil, nil, nil]
     end
-    sheet.add_row [nil, nil, nil, "Total", bill[:sum_amount] ], style: amount
+    sheet.add_row [nil, nil, nil, 'Total', bill[:sum_amount]], style: amount
   end
 end

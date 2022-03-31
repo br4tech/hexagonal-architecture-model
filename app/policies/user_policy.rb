@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
@@ -6,6 +8,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    user.admin? 
+    user.admin?
   end
 end

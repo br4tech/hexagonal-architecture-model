@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-class Doctor < ApplicationRecord  
+class Doctor < ApplicationRecord
   enum gender: { male: 0, female: 1 }
 
-  belongs_to :client  
+  belongs_to :client
   has_many :expertises, dependent: :delete_all
 
   accepts_nested_attributes_for :expertises, allow_destroy: true
 
-  validates_presence_of :name, :email, :phone, :document, :crm
+  validates :name, :email, :phone, :document, :crm, presence: true
 
   alias_attribute :value, :name
 

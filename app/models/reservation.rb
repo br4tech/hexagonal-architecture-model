@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Reservation < ApplicationRecord
   belongs_to :attendance, optional: true
   belongs_to :office
@@ -9,6 +11,6 @@ class Reservation < ApplicationRecord
   delegate :amount, to: :attendance
 
   def all_day_reservation
-    self.date == self.start_at.midnight && self.end_at == self.end_at.midnight ? true : false
+    date == start_at.midnight && end_at == end_at.midnight ? true : false
   end
 end

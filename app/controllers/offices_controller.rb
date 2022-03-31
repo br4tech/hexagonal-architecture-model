@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class OfficesController < ApplicationController
-  before_action :set_office, only: %i[show edit update destroy office_schedule ]
+  before_action :set_office, only: %i[show edit update destroy office_schedule]
 
   # GET /offices
   # GET /offices.json
@@ -51,26 +51,27 @@ class OfficesController < ApplicationController
     end
   end
 
-  def destroy      
+  def destroy
     if @office.clinics.blank?
       @office.destroy
-      respond_to do |format|	    
-        format.html { redirect_to @office, notice: 'Unidade removida.' }	 
-        format.json { head :no_content }	
-      end
-    else 
       respond_to do |format|
-        format.html { redirect_to @office, alert: 'Unidade não pode ser removida, pois possui sala(s) cadastrada(s)'}
+        format.html { redirect_to @office, notice: 'Unidade removida.' }
         format.json { head :no_content }
       end
-    end   
-  end  
+    else
+      respond_to do |format|
+        format.html { redirect_to @office, alert: 'Unidade não pode ser removida, pois possui sala(s) cadastrada(s)' }
+        format.json { head :no_content }
+      end
+    end
+  end
 
-  def office_schedule  
+  def office_schedule
     render json: @office.clinics
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_office
     @office = Office.find(params[:id])

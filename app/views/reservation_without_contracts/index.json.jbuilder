@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.array! @reservations_without_contract do |reservation|
   date_format = reservation.all_day_reservation ? '%Y-%m-%d' : '%Y-%m-%dT%H:%M:%S'
   json.id reservation.id

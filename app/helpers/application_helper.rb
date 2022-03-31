@@ -44,6 +44,6 @@ module ApplicationHelper
   end
 
   def formatted_currency(number)
-     number_to_currency(number, :unit => "R$ ", :separator => ",", :delimiter => ".")
+    number_to_currency(number, unit: 'R$ ', separator: ',', delimiter: '.')
   end
 end
