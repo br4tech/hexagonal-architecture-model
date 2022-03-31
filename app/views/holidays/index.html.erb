@@ -1,40 +1,61 @@
-<%= content_for(:page){ "Off Day" } %>
-<%= content_for(:top_actions) do %>
-  <div class="navbar-item">
-    <%= link_to new_holiday_path, class: 'button is-primary' do %>
-      <span class="icon">
-        <i class="material-icons">add_box</i>
-      </span>
-      <span>Adicionar Feriado</span>
-    <% end %>
+<div class="card card-custom">
+  <div class="card-header">
+    <h3 class="card-title">Filtrar Bloqueio</h3>
   </div>
-<% end %>
-
-<% @holidays.each do |holiday| %>
-  <div class="card card-info">
-    <div class="card-content">
-      <div class="columns columns-data">
-        <div class="column is-two-quarters-tablet is-6-widescreen">
-          <div class="name">
-            <h4><%= holiday.name %></h4>
+  <div class="card-body">
+    <div class="form-group row">
+      <div class="col-lg-4">
+        <label>Nome</label>
+        <input type="text" class="form-control" >
+      </div>
+      <div class="col-lg-2">
+        <label>Data Inicio</label>
+        <div class="input-group">
+          <input type="text" class="form-control" >
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-calendar"></i>
+            </span>
           </div>
         </div>
-
-        <div class="column is-hidden-tablet-only is-2-desktop">
-          <i class="material-icons">calendar_today</i> Início <%= l(holiday.starts_at) %>
-        </div>
-
-        <div class="column is-hidden-tablet-only is-2-desktop">
-          <i class="material-icons">calendar_today</i> Término <%= l(holiday.ends_at) %>
-        </div> 
-
-        <div class="column is-one-quarter-tablet is-2-desktop">
-          <%= link_to 'Ver Feriado', holiday_path(holiday), class: "button is-primary is-outlined is-fullwidth is-small" %>
+      </div>
+      <div class="col-lg-2">
+        <label>Data Fim</label>
+        <div class="input-group">
+          <input type="text" class="form-control" >
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <i class="fa fa-calendar"></i>
+            </span>
+          </div>
         </div>
       </div>
     </div>
+    <div class="form-group row">
+      <div class="col-lg-10"></div>
+      <div class="col-lg-2">
+        <button type="submit" class="btn btn-primary font-weight-bold mr-2">Filtrar</button>
+        <button type="reset" class="btn btn-light-primary font-weight-bold">Limpar</button>
+      </div>
+    </div>
   </div>
-<% end %>
-
-<%= paginate  @holidays,  outer_window: 3  %>
-<%= rel_next_prev_link_tags  @holidays %>
+</div>
+<br />
+<div class="card card-custom card-stretch gutter-b">
+  <div class="card-header border-0 py-5">
+    <h3 class="card-title align-items-start flex-column">
+      <span class="card-label font-weight-bolder text-dark">
+        Bloqueios de agenda
+      </span>
+      <span class="text-muted mt-3 font-weight-bold font-size-sm">
+       <%= @holidays.count %> bloqueios na base
+      </span>
+    </h3>
+    <div class="card-toolbar">
+      <a href="off-day-edit" class="btn btn-info font-weight-bolder font-size-sm mr-3">Novo Bloqueio</a>
+    </div>
+  </div>
+  <div class="card-body pt-0 pb-3">
+    <%= render 'holidays' %>
+  </div>
+</div>

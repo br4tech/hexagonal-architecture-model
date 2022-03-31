@@ -1,0 +1,106 @@
+<div class="card-body"  data-controller="holiday">
+  <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-subtable
+    datatable-loaded">
+    <table class="datatable-table" style="display: block;">
+      <thead class="datatable-head">
+        <tr class="datatable-row">
+          <th class="datatable-cell datatable-cell-sort col-lg-1" style="width:40px;">
+            <span></span>
+          </th>
+          <th class="w-default text-left">Nome</th>
+          <th class="w-default text-left">Inicial</th>
+          <th class="w-default text-left">Termino</th>
+          <th class="w-default text-left"></th>
+        </tr>
+      </thead>
+      <tbody class="datatable-body">
+        <% @holidays.each_with_index do |holiday, index| %>
+          <tr class="datatable-row datatable-row datatable-row-even datatable-row-subtable-expanded">
+            <td class="datatable-cell-center"  style="width:10px;">
+              <a href="#" onclick="return false;" class="datatable-toggle-subtable card-toggle">
+                <i style="width: 30px;"  class="material-icons">expand_less</i>
+                <input type="hidden" name="holiday_id" value="<%= index %>">
+              </a>
+            </td>
+            <td class="pl-0 py-8 w-children">
+              <div class="d-flex align-items-center">
+                <div class="symbol symbol-50 symbol-light mr-4">
+                  <span class="symbol-label">
+                    <span class="label label-lg label-primary label-inline font-weight-bold py-4"></span>
+                  </span>
+                </div>
+                <div>
+                  <a href="#" class="text-dark-75 font-weight-bolder text-hover-primary mb-1 font-size-lg">
+                  <%= holiday.name %><br />
+                    <span class="text-muted font-weight-bold d-block">Nacional</span>
+                  </a>
+                </div>
+              </div>
+            </td>
+            <td class="w-children">
+              <span>
+                <%= l(holiday.starts_at) %>
+              </span>
+            </td>
+            <td class="w-children">
+              <span>
+                <%= l(holiday.ends_at) %>
+              </span>
+            </td>
+            <td class="pr-0 text-right">  
+              <%= link_to 'Editar', holiday_path(holiday), class: "btn btn-light-success font-weight-bolder font-size-sm" %>            
+            </td>
+          </tr>
+          <tr class="datatable-row-subtable is-hidden">
+            <td class="datatable-subtable" colspan="5">
+              <div class="datatable datatable-default datatable-primary datatable-loaded">
+                <table class="datatable-table">
+                  <thead class="datatable-head">
+                    <tr class="datatable-row">
+                      <th class="text-left w-default">
+                        <span>Código</span>
+                      </th>
+                      <th class="text-left w-default">
+                        <span>Dia</span>
+                      </th>
+                      <th class="text-left w-default">
+                        <span>Descrição</span>
+                      </th>
+                      <th class="text-left w-default">
+                        <span>Cor</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="datatable-body">
+                    <% holiday.day_offs.each do |day_off| %>
+                      <tr class="datatable-row">
+                        <td class="text-left w-default">
+                          <span><%= day_off.id%></span>
+                        </td>
+                        <td class="text-left w-children">
+                           <span><%= l(day_off.date) %></span>
+                        </td>
+                        <td class="w-children">
+                           <span><%= day_off.description %></span>
+                        </td>
+                        <td class="w-children">                   
+                          <span class="symbol-label">
+                            <span class="label label-lg  label-inline font-weight-bold py-4" style="background-color: <% day_off.color %>"></span>
+                          </span>                                          
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>        
+    </table>    
+    <%= paginate  @holidays,  outer_window: 3  %>
+    <%= rel_next_prev_link_tags  @holidays %>
+  </div>
+</div>
+
+

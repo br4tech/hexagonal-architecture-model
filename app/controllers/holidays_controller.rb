@@ -15,8 +15,6 @@ class HolidaysController < ApplicationController
     @holiday = Holiday.new
   end
 
-  def edit; end
-
   def create
     @holiday = Holiday.new(holiday_params)
     respond_to do |format|

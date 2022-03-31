@@ -1,4 +1,4 @@
- <div class="card-body">
+ <div class="card-body"  data-controller="doctor">
     <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-subtable
       datatable-loaded">
     <table class="datatable-table" style="display: block;">
@@ -20,7 +20,7 @@
             <td class="datatable-cell-center"  style="width:10px;">
               <a href="#" onclick="return false;" class="datatable-toggle-subtable card-toggle">
                 <i style="width: 30px;"  class="material-icons">expand_less</i>
-                <input type="hidden" name="bill_id" value="<%= index %>">
+                <input type="hidden" name="client_id" value="<%= index %>">
               </a>
             </td>
             <td class="pl-0 py-8 w-children">
@@ -51,7 +51,7 @@
             </td>
           </tr>
           <% if client.doctors.count > 0 %>
-            <tr class="datatable-row-subtable">
+            <tr class="datatable-row-subtable is-hidden">
                 <td class="datatable-subtable" colspan="9">
                   <div class="datatable datatable-default datatable-primary datatable-loaded">
                     <table class="datatable-table">
