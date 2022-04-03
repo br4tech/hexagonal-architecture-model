@@ -25,33 +25,10 @@ export default class extends Controller {
     const calendar = new Calendar(this.element, {
       locale: "pt-br",
       plugins: [interactionPlugin, dayGridPlugin, timeGridPlugin],
-      customButtons: {
-        
-        buttomReservationWithoutContract: {        
-          text: 'Reserva Sem Contrato',
-          click: function(event) {
-            var today = new Date();
-            $.getScript('reservation_without_contracts/new', function() {         
-                $(".is-date").val(moment(today).format('DD/MM/YYYY'))
-            });
-          }
-        },
-
-        buttomReservationWithContract: {        
-          text: 'Reserva Com Contrato',
-          click: function(event) {
-            var today = new Date();
-            $.getScript('reservations/new', function() {         
-                $(".is-date").val(moment(today).format('DD/MM/YYYY'))
-            });
-          }
-        }
-      },
-
       header: {
         left: "prev,next",
         center: "title",
-        right: "buttomReservationWithContract buttomReservationWithoutContract dayGridMonth,timeGridWeek,timeGridDay"
+        right: "dayGridMonth,timeGridWeek,timeGridDay"
       },
 
       buttonText: {
