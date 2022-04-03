@@ -30,8 +30,8 @@ export default class extends Controller {
           }
         }        
         var items = e.currentTarget.parentElement.parentElement.parentElement.parentElement.childNodes[count].childNodes[1]
-       
-        for (var i = 0; i < items.childElementCount; i++) {
+        var items_dup = items.childElementCount * 2
+        for (var i = 0; i < items_dup; i++) {
           if(i %2 == 1) {
             var chk = items.childNodes[i].childNodes[1].childNodes[1].childNodes[1]
             if(chk.checked){
