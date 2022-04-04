@@ -63,7 +63,7 @@ export default class extends Controller {
           if (date.getFullYear() == moment(daysOff[i].start, "YYYY/MM/DD").format('YYYY')
               && date.getMonth() ==  moment(daysOff[i].start, "YYYY/MM/DD").format('MM') - 1
                 && date.getDate() ==  moment(daysOff[i].start, "YYYY/MM/DD").format('DD')) {
-            dayRenderInfo.el.setAttribute("style", `background-color: ${daysOff[i].color}`);
+            dayRenderInfo.el.setAttribute("style", `background-color: ${daysOff[i].color} !important`);
             dayRenderInfo.el.append(daysOff[i].name)                
           }
         }      

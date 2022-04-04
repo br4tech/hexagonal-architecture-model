@@ -8,5 +8,4 @@ import CheckboxSelectAll from "stimulus-checkbox-select-all"
 const application = Application.start()
 
 const context = require.context("controllers", true, /_controller\.js$/)
-application.register("checkbox-select-all", CheckboxSelectAll)
 application.load(definitionsFromContext(context))

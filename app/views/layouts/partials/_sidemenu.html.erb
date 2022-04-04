@@ -86,7 +86,7 @@
               <li class="list-item hoverable p-2 p-lg-3 mb-2">
                 <div class="d-flex align-items-center">
                   <label class="checkbox checkbox-lg checkbox-lg flex-shrink-0 mr-4">
-                    <input type="checkbox" value="<%= office.id %>" class="chk_all">
+                    <input type="checkbox" value="<%= office.id %>" class="chk_all chk_<%= office.id %>">
                     <input type="hidden" name"office_id" value="<%= index %>">
                     <span></span>
                   </label>
@@ -107,7 +107,8 @@
                     <li class="list-item hoverable p-2 p-lg-3 mb-2">
                       <div class="d-flex align-items-center">
                         <label class="checkbox checkbox-lg checkbox-lg flex-shrink-0 mr-4">
-                          <input type="checkbox" value="<%= clinic.id %>" class="checkbox">
+                          <input type="checkbox" value="<%= clinic.id %>" class="checkbox chk">
+                          <input type="hidden" class="hdf_<%= clinic.id %>" value="<%= clinic.office_id %>">
                           <span style="background-color:<%= clinic.color %>"></span>
                         </label>
                         <div class="d-flex align-items-center">

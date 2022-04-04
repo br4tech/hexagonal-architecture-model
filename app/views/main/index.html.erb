@@ -12,19 +12,4 @@
   </div>
 
   <div id='remote_container', clinics: @clinics></div>
-
-  <script>	
-    $("#selected_schedule").change(function(){ 
-      
-      $('.pageloader').addClass('is-active');	   
-      setTimeout(function(){
-        $('.pageloader').removeClass('is-active');
-      }, 3000)
-
-      let params = $(this).children(":selected").val();  	
-      $.ajax({	
-        url: `/change_office_schedule/${params}`     	
-      }) 	
-    });
-  </script>
 <% end %>
