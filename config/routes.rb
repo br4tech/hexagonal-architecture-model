@@ -52,5 +52,6 @@ Rails.application.routes.draw do
   get :days_off, path: 'days_off', to: 'holidays#days_off'
   get :export_report_all_for_revenues, to: 'reports#export_report_all_for_revenues'
   get :export_report_all_for_hours, to: 'reports#export_report_all_for_hours'
+  get :contracts_by_category, path: 'contracts_by_category/:category', to: 'contracts#contracts_by_category'
   root to: 'main#index'
 end

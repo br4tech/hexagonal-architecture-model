@@ -9,4 +9,10 @@ class Payroll < ApplicationRecord
 
   validates :emission, presence: true
   validates :due_at, presence: true
+
+  delegate :client, to: :contract
+
+  def kind
+    self.contract.category == 1 ? "desenty" : "pronto"
+  end
 end

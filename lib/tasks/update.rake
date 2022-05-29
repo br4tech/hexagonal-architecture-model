@@ -80,12 +80,12 @@ namespace :update do
   end
 
   task generate_payroll: :environment do
-    clients = Client.where.not(id: [82,59,894,850,851,1035,717])
+    clients = Client.where.not(id: [470, 792, 27, 894, 1230 ])
     clients.each do |client| 
       contracts = Contract.where(client_id: client.id)
-      reference_date = '01/03/2022'
+      reference_date = '01/05/2022'
       contracts.each do |contract|
-       unless contract.category.zero?
+      if contract.category.zero?
           bill = Bills::GenerateBills.new(contract, reference_date)
           bill.generate
         end

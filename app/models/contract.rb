@@ -3,13 +3,14 @@
 # Contratos
 class Contract < ApplicationRecord
   enum contract_types: { settled: 0, type_private: 2 } # Fixo ou Por Hora
+  enum categories: { pronto: 0, density: 1 } # tipo de contrato
 
   belongs_to :contract_combo, optional: true
   belongs_to :client
   has_many :discounts
   has_many :attendances
   has_many :offices, through: :attendances
-
+  
   accepts_nested_attributes_for :client, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :discounts, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :attendances, reject_if: :all_blank, allow_destroy: true
@@ -28,4 +29,8 @@ class Contract < ApplicationRecord
   attribute :due_at, :integer, default: 0o1
   attribute :revenues_at, :integer, default: 20
   attribute :rescheduling_allowed, :integer, default: 0
+
+  def contract_client
+    self.client.name
+  end 
 end

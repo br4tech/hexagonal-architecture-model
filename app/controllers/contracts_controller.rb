@@ -72,6 +72,11 @@ class ContractsController < ApplicationController
     end
   end
 
+  def contracts_by_category
+    @contracts_by_category = Contract.where(category: params[:category])
+      .joins(:client).order("clients.name")   
+  end
+
   private
 
   # Use callbacks to shparamsare common setup or constraints between actions.

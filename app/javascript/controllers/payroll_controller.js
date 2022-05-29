@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   
+   static targets = [ "contract" ];
+
   connect(){  
     var cardToggles = document.getElementsByClassName('card-toggle');
     
@@ -72,17 +74,21 @@ export default class extends Controller {
 
   }
 
-    // $(".reprocess_payroll").on("click", function(){
-    // $('.pageloader').addClass('is-active');
-    // $.ajax({
-    //   type: "GET",
-    //   url: "reprocess_payroll",     
-    //   success: function(data){   
-    //     $('.pageloader').removeClass('is-active');
-    //   },
-    //   error: function(xhr, textStatus, error) {
-    //     $('.pageloader').removeClass('is-active');
-    //   }
-    // });
-    // });
+  loadContract(e) {
+    this.contractTarget.options.length = 0;
+    fetch(`/contracts_by_category/${e.target.value}.json`)
+      .then(response => response.json())
+      .then(data => {
+        data.forEach((exp) => {
+          this.addSelectOption(exp);       
+        })     
+      })
+  }
+
+  addSelectOption(data) {
+    let _option = document.createElement("option");
+    _option.text = `${data.name}`;
+    _option.value = data.id;
+    this.contractTarget.add(_option);
+  }
 }
