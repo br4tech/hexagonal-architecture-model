@@ -1,7 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
+import moment from 'moment';
 
 export default class extends Controller {
   
+   static targets = [ "contract" ];
+
   connect(){  
     var cardToggles = document.getElementsByClassName('card-toggle');
     
@@ -69,20 +72,69 @@ export default class extends Controller {
         }
       });
     });
-
+    // jquery-ui
+    $(".is-date").datepicker({ 
+      dateFormat: "dd/mm/yy",
+      locale: "pt-br",
+      dayNames: [
+        "Domingo",
+        "Segunda",
+        "Terça",
+        "Quarta",
+        "Quinta",
+        "Sexta",
+        "Sábado"
+      ],
+      dayNamesMin: ["D", "S", "T", "Q", "Q", "S", "S", "D"],
+      dayNamesShort: ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"],
+      monthNames: [
+        "Janeiro",
+        "Fevereiro",
+        "Março",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Setembro",
+        "Outubro",
+        "Novembro",
+        "Dezembro"
+      ],
+      monthNamesShort: [
+        "Jan",
+        "Fev",
+        "Mar",
+        "Abr",
+        "Mai",
+        "Jun",
+        "Jul",
+        "Ago",
+        "Set",
+        "Out",
+        "Nov",
+        "Dez"
+      ],
+      nextText: "Proximo",
+      prevText: "Anterior"
+    });
   }
 
-    // $(".reprocess_payroll").on("click", function(){
-    // $('.pageloader').addClass('is-active');
-    // $.ajax({
-    //   type: "GET",
-    //   url: "reprocess_payroll",     
-    //   success: function(data){   
-    //     $('.pageloader').removeClass('is-active');
-    //   },
-    //   error: function(xhr, textStatus, error) {
-    //     $('.pageloader').removeClass('is-active');
-    //   }
-    // });
-    // });
+  loadContract(e) {
+    this.contractTarget.options.length = 0;
+    fetch(`/contracts_by_category/${e.target.value}.json`)
+      .then(response => response.json())
+      .then(data => {
+        data.forEach((exp) => {
+          this.addSelectOption(exp);       
+        })     
+      })
+  }
+
+  addSelectOption(data) {
+    let _option = document.createElement("option");
+    _option.text = `${data.name}`;
+    _option.value = data.id;
+    this.contractTarget.add(_option);
+  }
 }

@@ -5,13 +5,14 @@ class PayrollsController < ApplicationController
   before_action :load_bills
 
   def index
-    @contracts = ContractCombo.includes(:client).order('clients.name')
+    @q = Payroll.ransack(params[:q])
+    @payrolls = @q.result(distinct: true)
   end
 
   def show; end
 
   def export_payroll
-    shipping = Bills::Bank::ShippingFile.new(params[:payrolls], 1)
+    shipping = Bills::Bank::ShippingFile.new(params[:payrolls], 0)
     remessa = shipping.generate_shipping
 
     send_data remessa, content_type: 'text/plain', filename: 'remessa.rst', disposition: 'attachment'
@@ -30,8 +31,11 @@ class PayrollsController < ApplicationController
   private
 
   def load_bills
-    reference_date = '01/04/2022'
-    @payrolls = Bills::ReportBills.new(reference_date).generate
+    # reference_date = '01/06/2022'
+    # @payrolls = Bills::ReportBills.new(reference_date).generate
+    
+    # binding.pry
+    
   end
 
   def export_params
