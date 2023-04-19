@@ -1,16 +1,20 @@
-FROM ruby:2.6.5
- 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
- 
-RUN apt-get update &amp;&amp; apt-get install -y nodejs --no-install-recommends &amp;&amp; rm -rf /var/lib/apt/lists/*
-RUN apt-get update &amp;&amp; apt-get install -y sqlite3 --no-install-recommends &amp;&amp; rm -rf /var/lib/apt/lists/*
- 
-COPY Gemfile /usr/src/app/
- 
+FROM ruby:2.7.0
+
+RUN apt-get update && apt-get install -y \
+  curl \
+  libpq-dev &&\
+  apt-get update
+
+RUN mkdir /app
+WORKDIR /app
+COPY Gemfile /app/Gemfile
+COPY Gemfile.lock /app/Gemfile.lock
+COPY package.json /app/package.json
 RUN bundle install
- 
-COPY . /usr/src/app
- 
+RUN yarn install --check-files
+COPY . /app
+
 EXPOSE 3000
-CMD puma -C config/puma.rb
+
+# Start the main process.
+CMD ["rails", "server", "-b", "0.0.0.0"]

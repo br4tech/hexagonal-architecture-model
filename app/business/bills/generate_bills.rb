@@ -17,6 +17,7 @@ module Bills
       return if reservations.empty?
 
       bill = bill_build(reservation)
+    
       bill_items(reservations, bill.id)
     end
 

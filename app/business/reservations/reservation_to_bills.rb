@@ -21,7 +21,7 @@ module Reservations
       transform_in_single_array(reservations)
     end
 
-    def reservation_contract(attendance)
+    def reservation_contract(attendance)   
       Reservation.where(attendance_id: attendance.id, odd: false)
                  .where('date >= ? AND date < ?',
                         with_contract_date_cut_start.to_date,
@@ -29,7 +29,7 @@ module Reservations
                  .select(select_params)
     end
 
-    def reservation_odd(attendance)
+    def reservation_odd(attendance)      
       Reservation.where(attendance_id: attendance.id, odd: true)
                  .where('date >= ? AND date < ?',
                         with_contract_odd_date_cut_start.to_date,
@@ -56,7 +56,12 @@ module Reservations
     end
 
     def with_contract_due_at
-      "#{@contract.due_at}/#{with_contract_end_month}/#{reference_year}".to_date
+      year =  reference_year
+      if reference_date.to_date.month >= 12
+        "#{@contract.due_at}/#{with_contract_end_month}/#{year + 1}".to_date
+      else
+        "#{@contract.due_at}/#{with_contract_end_month}/#{year}".to_date
+      end      
     end
 
     def with_contract_date_cut_start
@@ -64,23 +69,40 @@ module Reservations
     end
 
     def with_contract_date_cut_end
-      "#20/#{with_contract_end_month}/#{reference_year}".to_date
+      year =  reference_year
+      if reference_date.to_date.month >= 12
+        "20/#{with_contract_end_month}/#{year + 1}".to_date
+      else
+        "20/#{with_contract_end_month}/#{year}".to_date
+      end
     end
 
     def with_contract_odd_date_cut_start
-      "#20/#{with_contract_odd_start_month}/#{reference_year}".to_date
+       year =  reference_year
+      "20/#{with_contract_odd_start_month}/#{year}".to_date
     end
 
     def with_contract_odd_date_cut_end
-      "#20/#{with_contract_odd_end_month}/#{reference_year}".to_date
+      year =  reference_year
+
+      if reference_date.to_date.month >= 12
+        "20/#{with_contract_odd_end_month}/#{year + 1}".to_date
+      else
+        "20/#{with_contract_odd_end_month}/#{year}".to_date
+      end
     end
 
     def without_contract_date_cut_start
       "#{@contract.revenues_at}/#{without_contract_start_month}/#{reference_year}".to_date
     end
 
-    def without_contract_date_cut_end
-      "#{@contract.revenues_at}/#{without_contract_end_month}/#{reference_year}".to_date
+    def without_contract_date_cut_end 
+      year =  reference_year
+      if reference_date.to_date.month >= 12
+        "#{@contract.revenues_at}/#{without_contract_end_month}/#{year + 1}".to_date
+      else
+        "#{@contract.revenues_at}/#{without_contract_end_month}/#{year}".to_date
+      end
     end
 
     private
@@ -94,7 +116,11 @@ module Reservations
     end
 
     def with_contract_end_month
-      reference_date.to_date.month + 1
+      if reference_date.to_date.month >= 12
+       1 
+      else
+        reference_date.to_date.month + 1
+      end     
     end
 
     def with_contract_odd_start_month
@@ -110,17 +136,15 @@ module Reservations
     end
 
     def without_contract_end_month
-      reference_date.to_date.month
+      if reference_date.to_date.month >= 12
+        1 
+       else
+         reference_date.to_date.month + 1
+       end 
     end
 
     def reference_year
-      year = reference_date.to_date.year
-      if with_contract_end_month > 12
-        year + 1
-      else
-        year
-      end
-      year
+      reference_date.to_date.year
     end
   end
 end

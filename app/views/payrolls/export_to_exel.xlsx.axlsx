@@ -38,9 +38,9 @@ wb.add_worksheet(name: 'Boletos') do |sheet|
   @payrolls.each do |bill|
     sheet.add_row %w[Codigo Cliente Contrato], style: father
     sheet.add_row [bill[:id], bill[:client], bill[:kind]]
-    sheet.add_row ['Dia', 'Unidade', 'Sala', 'Qtd. Horas', 'Valor', 'Tipo'], style: children
+    sheet.add_row ['Codigo','Dia', 'Unidade', 'Sala', 'Qtd. Horas', 'Valor', 'Tipo'], style: children
     bill[:items].each do |item|
-      sheet.add_row [item[:period], item[:office], item[:clinic], item[:hours], item[:amount], item[:odd]], style: [date_format, nil, nil, nil, nil, nil]
+      sheet.add_row [item[:id], item[:period], item[:office], item[:clinic], item[:hours], item[:amount], item[:odd]], style: [nil,date_format, nil, nil, nil, nil, nil]
     end
     sheet.add_row [nil, nil, nil, 'Total', bill[:sum_amount]], style: amount
   end

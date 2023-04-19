@@ -49,7 +49,7 @@ gem 'kaminari'
 gem 'sendgrid-ruby'
 gem "aws-sdk-s3"
 # gem 'image_processing', '~> 1.2'
-gem 'brcobranca', git: 'https://github.com/guigo/brcobranca'
+gem 'brcobranca'
 # Cocoon makes it easier to handle nested forms.
 gem "cocoon"
 # Ransack enables the creation of both simple and advanced search forms for your Ruby on Rails application (demo source code here). If you're looking for something that simplifies query generation at the model or controller layer, you're probably not looking for Ransack (or MetaSearch, for that matter). Try Squeel instead.

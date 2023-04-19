@@ -54,6 +54,11 @@ namespace :update do
 
   task reservation_odd: :environment do
     reservations = Reservation.where(odd: true)
+
+    # reservations =  Reservation.where('date >= ? AND date < ?',
+    #                                       '20/11/2020'.to_date,
+    #                                       '20/02/2023'.to_date)
+
     file = "#{Rails.root}/public/reservation_odd.csv"
 
     headers = %w[reservation_id contract_id amount attendance_id]
@@ -71,6 +76,10 @@ namespace :update do
   task reservation_odd_update: :environment do
     reservations = Reservation.where(odd: true)
 
+    # reservations =  Reservation.where('date >= ? AND date < ?',
+    # '20/11/2020'.to_date,
+    # '20/02/2023'.to_date)
+
     CSV.foreach("#{Rails.root}/public/reservation_odd.csv", headers: true) do |csv|
       reservation = Reservation.find(csv['reservation_id'])
       reservation.attendance_id = csv['attendance_id']
@@ -80,12 +89,13 @@ namespace :update do
   end
 
   task generate_payroll: :environment do
-    clients = Client.where.not(id: [470, 792, 27, 894, 1230 ])
+    # clients = Client.where.not(id: [49, 56, 58, 59, 82, 92, 1267, 94, 235, 95, 107, 1489, 1106, 175, 114])
+    clients = Client.all
     clients.each do |client| 
       contracts = Contract.where(client_id: client.id)
-      reference_date = '01/05/2022'
+      reference_date = '01/03/2023'
       contracts.each do |contract|
-      if contract.category.zero?
+     unless contract.category.zero?
           bill = Bills::GenerateBills.new(contract, reference_date)
           bill.generate
         end
