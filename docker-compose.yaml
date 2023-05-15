@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    env_file: env
+    ports:
+      - '3306'
+      - '33061:3306'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+  
+  app-create:
+    build: ./
+    command: bin/rails server -p 3001 -b '0.0.0.0'
+    volumes:
+      - ./create-user:/app
+      - bundle-create-user:/usr/local/bundle
+    stdin_open: true
+    tty: true
+    ports:
+      - "3001:3001"
+    links:
+      - db:database
+    depends_on:
+      - db
+
+  app-list:
+    build: ./
+    command: bin/rails server -p 3002 -b '0.0.0.0'
+    volumes:
+      - ./list-user:/app
+      - bundle-create-user:/usr/local/bundle
+    stdin_open: true
+    tty: true
+    ports:
+      - "3002:3002"
+    links:
+      - db:database
+    depends_on:
+      - db
+
+
+volumes:
+  mysql:
+  create-user:
+  list-user:
+  bundle-app-create:
+  bundle-app-list:
+
+
