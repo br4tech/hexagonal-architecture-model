@@ -1,52 +1,79 @@
 version: '3'
 
 services:
-  db:
-    image: mysql:5.7
+  database:
+    image: postgres:12.1
     restart: always
-    env_file: env
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    expose:
+      - "5432"
     ports:
-      - '3306'
-      - '33061:3306'
+      - "5432:5432"
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:5.0.7      
   
   app-create:
-    build: ./
-    command: bin/rails server -p 3001 -b '0.0.0.0'
+    build:
+      context: ./web-app-create/
+      dockerfile: Dockerfile
+    image: app/create-user:development
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    depends_on:     
+      - database
+      - redis
+    ports:
+      - "3000:3000"
     volumes:
-      - ./create-user:/app
-      - bundle-create-user:/usr/local/bundle
+      - .:/app
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/app/node_modules
+    # env_file: .env
     stdin_open: true
     tty: true
-    ports:
-      - "3001:3001"
+    environment:
+      RAILS_ENV: development
     links:
-      - db:database
+    - database:db
     depends_on:
-      - db
+    - database
+    - redis
 
   app-list:
-    build: ./
-    command: bin/rails server -p 3002 -b '0.0.0.0'
+    build:
+          context: ./web-app-list/
+          dockerfile: Dockerfile
+    image: app/list-users:development
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    depends_on:     
+      - database
+      - redis
+    ports:
+      - "3000:3000"
     volumes:
-      - ./list-user:/app
-      - bundle-create-user:/usr/local/bundle
+      - .:/app
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/app/node_modules
+    # env_file: .env
     stdin_open: true
     tty: true
-    ports:
-      - "3002:3002"
+    environment:
+      RAILS_ENV: development
     links:
-      - db:database
+    - database:db
     depends_on:
-      - db
-
+    - database
+    - redis
 
 volumes:
-  mysql:
-  create-user:
-  list-user:
-  bundle-app-create:
-  bundle-app-list:
+  gem_cache:
+  db_data:
+  node_modules: 
+  db: 
 
 
