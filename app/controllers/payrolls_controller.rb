@@ -31,7 +31,7 @@ class PayrollsController < ApplicationController
   private
 
   def load_bills
-    reference_date = '01/04/2023'
+    reference_date = '01/06/2023'
     @payrolls = Bills::ReportBills.new(reference_date).generate
   end
 

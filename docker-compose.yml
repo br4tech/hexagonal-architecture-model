@@ -1,60 +1,67 @@
 version: '3'
 services:
-  redis:
-    image: redis
-  db:
-    image: postgres
-    ports:
-      - 5432
-    volumes:
-      - ./postgres-data:/var/lib/postgresql/data:rw
+  database:
+    image: postgres:12.1
+    restart: always
     environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: admin
-  web:
-    build: 
+      POSTGRES_PASSWORD: password
+    expose:
+      - "5432"
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:5.0.7
+
+  # sidekiq:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - app      
+  #     - database
+  #     - redis
+  #   volumes:
+  #     - .:/app
+  #     - gem_cache:/usr/local/bundle/gems
+  #     - node_modules:/app/node_modules
+  #   env_file: .env
+  #   environment:
+  #     RAILS_ENV: development
+  #   entrypoint: ./entrypoints/sidekiq-entrypoint.sh    
+
+  app:
+    build:
       context: .
       dockerfile: Dockerfile
-    command: bundle exec rerun -- rackup -p 3000 -o 0.0.0.0
-    volumes:
-      - .:/app
-      - ./bundle-path:/bundle
+    image: pronto/pronto-consultorio:development
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    depends_on:     
+      - database
+      - redis
     ports:
       - "3000:3000"
+    volumes:
+      - .:/app
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/app/node_modules
+    env_file: .env
     stdin_open: true
     tty: true
+    environment:
+      RAILS_ENV: development
+    links:
+     - database:db
     depends_on:
-      - db
-      - redis
-    environment:
-       REDIS_URL: redis://redis:6379/12
-       BUNDLE_PATH: /bundle/vendor
-       EDITOR: vi #for credentials editing
-       WEBPACKER_DEV_SERVER_HOST: webpacker
-  sidekiq:
-    build: .
-    command: bundle exec sidekiq
-    environment:
-      REDIS_URL: redis://redis:6379/12
-      BUNDLE_PATH: /bundle/vendor
-    depends_on:
-      - db
-      - redis
-    volumes:
-      - .:/app
-      - ./bundle-path:/bundle
-  webpacker:
-    build: .
-    environment:
-      - NODE_ENV=development
-      - RAILS_ENV=development
-      - WEBPACKER_DEV_SERVER_HOST=0.0.0.0
-    command: ./bin/webpack-dev-server
-    volumes:
-      - .:/app
-    ports:
-      - '3035:3035'
+     - database
+     - redis
 
 volumes:
-  bundle-path:
-  postgres-data:
+  gem_cache:
+  db_data:
+  node_modules: 
+  db: 

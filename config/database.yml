@@ -17,6 +17,7 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  port: 5433
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -54,8 +55,8 @@ test:
 # Google Cloud SQL
 production:
   <<: *default
-  host: ec2-35-175-155-248.compute-1.amazonaws.com
-  database: d2v2sgus483e44
-  username: wsuylybfrmjaud
-  password: 3de389de8014159ba2a5c15eead79a36258643b7d97f48cd7f0b8006da4e4cfa
+  # host: ec2-35-175-155-248.compute-1.amazonaws.com
+  # database: d2v2sgus483e44
+  # username: wsuylybfrmjaud
+  # password: 3de389de8014159ba2a5c15eead79a36258643b7d97f48cd7f0b8006da4e4cfa
 
