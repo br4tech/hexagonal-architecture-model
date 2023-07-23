@@ -1,7 +1,10 @@
+require '../../domain/usecases/users/list'
+
 class UsersController < ApplicationController
+  def index 
+  end
 
   def show
-    user = user_repository.find(params[:id])
-    render json: user
+    Users::Create.new(params).call    
   end
 end

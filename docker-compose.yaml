@@ -3,50 +3,41 @@ version: '3'
 services:
   db:
     image: mysql:5.7
-    restart: always
-    env_file: env
-    ports:
-      - '3306'
-      - '33061:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: development
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
     volumes:
-      - ./data/mysql:/var/lib/mysql
-  
+      - db_data:/var/lib/mysql
+
   app-create:
-    build: ./
-    command: bin/rails server -p 3001 -b '0.0.0.0'
-    volumes:
-      - ./create-user:/app
-      - bundle-create-user:/usr/local/bundle
-    stdin_open: true
-    tty: true
+    build:
+      context: ./web-app-create
+      dockerfile: Dockerfile
     ports:
-      - "3001:3001"
-    links:
-      - db:database
+      - "3000:3000"
+    volumes:
+      - .:/app_create
     depends_on:
       - db
+    environment:
+      DATABASE_URL: mysql2://admin:admin@db/development
 
   app-list:
-    build: ./
-    command: bin/rails server -p 3002 -b '0.0.0.0'
-    volumes:
-      - ./list-user:/app
-      - bundle-create-user:/usr/local/bundle
-    stdin_open: true
-    tty: true
+    build:
+      context: ./web-app-list
+      dockerfile: Dockerfile
     ports:
-      - "3002:3002"
-    links:
-      - db:database
+      - "3001:3000"
+    volumes:
+      - .:/app_list
     depends_on:
       - db
-
+    environment:
+      DATABASE_URL: mysql2://admin:admin@db/development
 
 volumes:
-  mysql:
-  create-user:
-  list-user:
-  bundle-app-create:
-  bundle-app-list:
-
-
+  db_data:
+  app_create:
+  app_list:

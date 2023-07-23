@@ -1,22 +1,30 @@
-FROM trustvox1/alpine-ruby:v0.10-mysql
+# Use the official Ruby image as the base image
+FROM ruby:2.7.0
 
-ENV APP_ROOT=/app  \
-    USER=trustvox  \
-    GROUP=trustvox \
-    BUNDLE_PATH=/usr/local/bundle
+# Set the working directory in the container
+WORKDIR /app
 
-RUN addgroup -g 1000 -S $GROUP && \
-    adduser -u 1000 -S $USER -G $GROUP
+# Install dependencies
+RUN apt-get update && \
+    apt-get install -y \
+      build-essential \
+      libpq-dev \
+      nodejs
 
-RUN mkdir $APP_ROOT && \
-    chown 1000:1000 $APP_ROOT
+# Install Rails version 5.2.3
+RUN gem install rails -v '5.2.3'
 
-USER $USER
+# Copy Gemfile and Gemfile.lock to the container
+COPY Gemfile Gemfile.lock ./
 
-WORKDIR $APP_ROOT
+# Install gems
+RUN bundle install
 
-# Make sure your dependecies are fetched only if they change
-COPY Gemfile* $APP_ROOT/
-RUN gem install bundler --no-document && bundle
+# Copy the rest of the application files to the container
+COPY . .
 
-COPY --chown=1000:1000 . .
+# Expose port 3000 for the Rails server
+EXPOSE 3000
+
+# Start the Rails server
+CMD ["rails", "server", "-b", "0.0.0.0"]
